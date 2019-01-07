@@ -1,5 +1,5 @@
 ---
-name: Button
+name: 按钮
 route: /button
 ---
 
@@ -10,8 +10,42 @@ import Button from './index.js'
 
 <PropsTable of={Button} />
 
-## Basic usage
+## 代码演示
+
+### 默认
 
 <Playground>
- <Button value={'按钮'} type='primary'></Button>
+  <Button>靛青</Button>
+</Playground>
+
+### 颜色风格
+
+<Playground>
+  <Button type='primary' outline>黛色</Button>
+  <Button type='primary'>黛色</Button>
+  <Button type='success' outline>竹青</Button>
+  <Button type='success'>竹青</Button>
+  <Button type='danger' outline>胭脂</Button>
+  <Button type='danger'>胭脂</Button>
+</Playground>
+
+### 大小
+
+<Playground>
+  <Button type='primary' size='large'>Large</Button>
+  <Button type='success' outline>Medium</Button>
+  <Button type='danger' size='small'>Small</Button>
+</Playground>
+
+### 添加链接
+
+<Playground>
+  <Button type='primary' href='https://github.com/zhui-team/zhui'>链接跳转</Button>
+  <Button type='success' size='large' href='https://github.com/zhui-team/zhui' target='_blank'>打开窗口</Button>
+</Playground>
+
+### 禁用
+
+<Playground>
+  <Button disabled>不可用</Button>
 </Playground>
