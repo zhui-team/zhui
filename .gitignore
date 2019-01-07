@@ -12,6 +12,7 @@
 /build
 /esm
 /lib
+/.docz
 
 # misc
 .DS_Store

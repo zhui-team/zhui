@@ -5,7 +5,7 @@ import './index.css';
 
 const Button = (props) => (
   <button 
-    className="btn" 
+    className={`zhui-btn${props.type ? ' zhui-btn-' + props.type : ''}`} 
     style={{width: props.width, height: props.height}}
   >
     {props.value}
@@ -15,7 +15,8 @@ const Button = (props) => (
 Button.propTypes = {
   value: PropTypes.any,
   width: PropTypes.number,
-  height: PropTypes.number
+  height: PropTypes.number,
+  type: PropTypes.string
 };
 
 export default Button;

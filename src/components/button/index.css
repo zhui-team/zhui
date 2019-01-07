@@ -1,3 +1,7 @@
-.btn {
+.zhui-btn {
   height: 50px;
+}
+
+.zhui-btn-primary {
+  background: blue;
 }
