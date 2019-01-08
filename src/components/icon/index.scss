@@ -9,9 +9,13 @@
 }
 
 .zhuiicon {
+  display: inline-block;
   font-style: normal;
   font-size: 24px;
-
+  line-height: 1;
+  text-align: center;
+  vertical-align: -0.15em;
+  
   &::before {
     font-family: 'zhuiicon' !important;
     display: block;

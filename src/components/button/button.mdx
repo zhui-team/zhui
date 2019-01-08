@@ -5,6 +5,8 @@ route: /button
 
 import { Playground, PropsTable } from 'docz'
 import Button from './index.js'
+import Icon from '../icon/index.js'
+
 import '../../doczscss/test.scss'
 
 ## 按钮
@@ -59,7 +61,7 @@ import '../../doczscss/test.scss'
 
 <Playground>
   <Button type='primary' href='https://github.com/zhui-team/zhui'>链接跳转</Button>
-  <Button type='success' size='large' href='https://github.com/zhui-team/zhui' target='_blank'>打开窗口</Button>
+  <Button type='success' size='large' href='https://github.com/zhui-team/zhui' target='_blank' round>打开窗口</Button>
 </Playground>
 
 ### 禁用
@@ -74,6 +76,13 @@ import '../../doczscss/test.scss'
   <Button loading>加载</Button>
   <Button type='primary' loading>加载</Button>
   <Button type='danger' loading round>加载</Button>
+</Playground>
+
+### 图标按钮
+
+<Playground>
+  <Button><Icon type='music' />音乐</Button>
+  <Button type='danger' outline round><Icon type='message' />消息</Button>
 </Playground>
 
 ### 按钮组
