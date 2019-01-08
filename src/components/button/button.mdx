@@ -7,7 +7,7 @@ import { Playground, PropsTable } from 'docz'
 import Button from './index.js'
 import '../../doczscss/test.scss'
 
-# Button
+## 按钮
 
 <PropsTable of={Button} />
 
@@ -44,6 +44,15 @@ import '../../doczscss/test.scss'
   <Button type='primary' size='large' round>Large</Button>
   <Button type='success' outline round>Medium</Button>
   <Button type='danger' size='small' round>Small</Button>
+</Playground>
+
+### Block
+
+<Playground>
+  <Button block>块</Button>
+  <Button type='primary' round block>块</Button>
+  <Button type='success' block>块</Button>
+  <Button type='danger' round block>块</Button>
 </Playground>
 
 ### 链接

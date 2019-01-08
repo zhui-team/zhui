@@ -31,6 +31,7 @@ export default class Button extends PureComponent {
     loading: PropTypes.bool,
     outline: PropTypes.bool,
     round: PropTypes.bool,
+    block: PropTypes.bool,
     prefix: PropTypes.string
   }
 
@@ -42,6 +43,7 @@ export default class Button extends PureComponent {
     loading: false,
     outline: false,
     round: false,
+    block: false,
     prefix: 'zhui-btn'
   }
 
@@ -127,6 +129,7 @@ export default class Button extends PureComponent {
       loading,
       outline,
       round,
+      block,
       prefix,
       children
     } = this.props;
@@ -136,6 +139,7 @@ export default class Button extends PureComponent {
       [`${prefix}-${size}`]: size && size !== 'medium',
       [`${prefix}-disabled`]: disabled,
       [`${prefix}-loading`]: loading,
+      [`${prefix}-block`]: block,
       [`${prefix}-round`]: round
     });
 
