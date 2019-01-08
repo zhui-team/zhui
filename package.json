@@ -88,12 +88,9 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "bcjs": "cross-env BABEL_OUTPUT=commonjs babel src/components --out-dir lib/ --ignore **/__tests__,**/__mocks__",
-    "besm": "babel src/components --out-dir esm/ --ignore **/__tests__,**/__mocks__",
     "ddev": "docz dev",
     "dbuild": "docz build",
-    "slib": "node-sass -r src/components -o lib",
-    "sesm": "node-sass -r src/components -o esm"
+    "cbuild": "(cross-env BABEL_OUTPUT=commonjs babel src/components --out-dir lib/ & node-sass -r src/components -o lib) && (babel src/components --out-dir esm/ & node-sass -r src/components -o esm)"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -157,6 +154,7 @@
     "docz": "^0.13.7",
     "docz-plugin-css": "^0.11.0",
     "docz-theme-default": "^0.13.7",
-    "node-sass": "^4.11.0"
+    "node-sass": "^4.11.0",
+    "webpack-cli": "^3.2.1"
   }
 }
