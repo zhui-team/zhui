@@ -5,7 +5,7 @@ export default {
   description: 'A Chinese style component library',
   plugins: [
     css({
-      preprocessor: 'postcss'
+      preprocessor: 'sass',
     })
   ]
 }

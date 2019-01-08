@@ -1,0 +1,159 @@
+@import '../color.scss';
+
+.zhui-btn {
+  font-family: 'STKaiti';
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  height: 32px;
+  line-height: 1.5;
+  white-space: nowrap;
+  padding: 0 15px;
+  background-image: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  text-transform: none;
+  overflow: visible;
+  outline: 0;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &-default {
+    background: #fff;
+    color: rgba(0,0,0,0.65);
+    border: 1px solid #f2f6f2;
+
+    &:hover {
+      border: 1px solid $default;
+      color: $default;
+    }
+
+    &.zhui-btn-loading::after {
+      border-color: #666 transparent transparent;
+    }
+  }
+
+  &-primary {
+    background: $primary;
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+
+    &-outline {
+      border: 1px solid $primary;
+      color: $primary;
+    }
+  }
+
+  &-success {
+    background: $success;
+    color: #fff;
+    border: 1px solid $success;
+
+    &-outline {
+      border: 1px solid $success;
+      color: $success;
+    }
+  }
+  
+  &-danger {
+    background: $danger;
+    border: 1px solid $danger;
+    color: #fff;
+
+    &-outline {
+      border: 1px solid $danger;
+      color: $danger;
+    }
+  }
+
+
+  &-large {
+    height: 40px;
+    font-size: 16px;
+  }
+
+  &-small {
+    height: 24px;
+    padding: 0 7px;
+  }
+
+  &-disabled, &-disabled[disabled] {
+    color: #bbb;
+    background: #f8f8f8;
+    border-color: #e5e5e5;
+    pointer-events: none;
+  }
+
+  &-loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+
+    &::before, &::after {
+      box-sizing: border-box;
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 14px;
+      height: 14px;
+      margin-left: -7px;
+      margin-top: -7px;
+      border: 2px solid;
+      border-radius: 8px;
+    }
+
+    &::after {
+      border-color: #fff transparent transparent;
+      animation: btn-loading .8s linear infinite;
+    }
+  }
+
+  > span {
+    display: inline-block;
+    pointer-events: none;
+  }
+
+  &-round {
+    border-radius: 30px;
+  }
+
+  &-group {
+    position: relative;
+    display: inline-block;
+
+    > .zhui-btn-round:first-child:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    > .zhui-btn-round:last-child:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
+a.zhui-btn {
+  line-height: 32px;
+
+  &-large {
+    line-height: 36px;
+  }
+
+  &-small {
+    line-height: 24px;
+  }
+}
+
+@keyframes btn-loading {
+  to {
+    transform: rotateZ(360deg);
+  }
+}

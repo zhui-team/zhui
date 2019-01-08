@@ -5,6 +5,7 @@ route: /button
 
 import { Playground, PropsTable } from 'docz'
 import Button from './index.js'
+import '../../doczscss/test.scss'
 
 # Button
 
@@ -18,7 +19,7 @@ import Button from './index.js'
   <Button>靛青</Button>
 </Playground>
 
-### 颜色风格
+### 颜色
 
 <Playground>
   <Button type='primary' outline>黛色</Button>
@@ -37,7 +38,15 @@ import Button from './index.js'
   <Button type='danger' size='small'>Small</Button>
 </Playground>
 
-### 添加链接
+### 形状
+
+<Playground>
+  <Button type='primary' size='large' round>Large</Button>
+  <Button type='success' outline round>Medium</Button>
+  <Button type='danger' size='small' round>Small</Button>
+</Playground>
+
+### 链接
 
 <Playground>
   <Button type='primary' href='https://github.com/zhui-team/zhui'>链接跳转</Button>
@@ -48,4 +57,24 @@ import Button from './index.js'
 
 <Playground>
   <Button disabled>不可用</Button>
+</Playground>
+
+### 加载
+
+<Playground>
+  <Button loading>加载</Button>
+  <Button type='primary' loading>加载</Button>
+  <Button type='danger' loading round>加载</Button>
+</Playground>
+
+### 按钮组
+
+你可以将不同形状的按钮组合
+
+<Playground>
+  <Button.Group>
+    <Button round>左</Button>
+    <Button>中</Button>
+    <Button round>右</Button>
+  </Button.Group>
 </Playground>
