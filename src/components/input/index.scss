@@ -1,0 +1,117 @@
+@import '../color.scss';
+
+.zhui-input {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-width: 80px;
+  height: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 4px 10px;
+  color: rgba(0,0,0,0.65);
+  background-color: #fff;
+  background-image: none;
+  border: 0;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+  transition: all .3s linear;
+  -webkit-appearance: none;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 2px $default;
+  }
+
+  &-wrapper {
+    position: relative;
+    width: 200px;
+    height: 32px;
+
+    &-large {
+      height: 40px;
+
+      .zhui-input-group-addon {
+        line-height: 38px;
+      }
+    }
+
+    &-small {
+      height: 24px;
+
+      .zhui-input-group-addon {
+        line-height: 22px;
+      }
+    }
+  }
+
+  &-group {
+    display: flex;
+
+    &-addon {
+      box-sizing: border-box;
+      display: inline-block;
+      height: 100%;
+      font-size: 12px;
+      line-height: 32px;
+      min-width: 20px;
+      padding: 0 5px;
+      text-align: center;
+      vertical-align: middle;
+      color: #fff;
+      background: $primary;
+    }
+
+    .zhui-input {
+      flex: 1;
+    }
+  }
+
+  &-icon-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    z-index: 1;
+    transform: translateY(-50%);
+    margin-top: -0.15em;
+    
+    .zhuiicon {
+      font-size: 16px;
+    }
+
+    + .zhui-input {
+      padding-left: 25px;
+    }
+  }
+
+  &-primary {
+    background: $primary;
+    box-shadow: 0 4px 10px 0 $primary;
+
+    &:focus { box-shadow: 0 0 2px $primary; }
+  }
+
+  &-success {
+    background: $success;
+    box-shadow: 0 4px 10px 0 $success;
+
+    &:focus { box-shadow: 0 0 2px $success; }
+  }
+
+  &-danger {
+    background: $danger;
+    box-shadow: 0 4px 10px 0 $danger;
+
+    &:focus { box-shadow: 0 0 2px $danger; }
+  }
+
+  &-primary, &-success, &-danger {
+    color: #fff;
+
+    &::-webkit-input-placeholder {
+      color: #fff;
+    }
+  }
+}

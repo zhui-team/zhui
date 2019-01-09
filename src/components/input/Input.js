@@ -12,8 +12,9 @@ const BLACK_LIST = [
   'width',
   'prefix',
   'size',
-  'addoneBefore',
-  'addoneAfter',
+  'theme',
+  'addonBefore',
+  'addonAfter',
   'autoFocus',
   'onPressEnter',
   'icon'
@@ -27,6 +28,7 @@ export default class Input extends PureComponent {
     placeholder: PropTypes.string,
     prefix: PropTypes.string,
     size: PropTypes.oneOf(['large', 'medium', 'small']),
+    theme: PropTypes.oneOf(['default', 'primary', 'success', 'danger']),
     value: PropTypes.any,
     addonBefore: PropTypes.node,
     addonAfter: PropTypes.node,
@@ -34,12 +36,14 @@ export default class Input extends PureComponent {
     disabled: PropTypes.bool,
     autoFocus: PropTypes.bool,
     onPressEnter: PropTypes.func,
-    onKeyDown: PropTypes.func
+    onKeyDown: PropTypes.func,
+    onChange: PropTypes.func
   }
 
   static defaultProps = {
     className: '',
     type: 'text',
+    theme: 'default',
     prefix: 'zhui-input',
     disabled: false,
     autoFocus: false
@@ -78,6 +82,7 @@ export default class Input extends PureComponent {
       width,
       value,
       type,
+      theme,
       size,
       addonBefore,
       addonAfter,
@@ -88,7 +93,7 @@ export default class Input extends PureComponent {
 
     const isTextarea = type.toLowerCase() === 'textarea';
     const classes = cn('zhui-input-wrapper', className, {
-      [`${prefix}-${size}`]: size,
+      [`${prefix}-wrapper-${size}`]: size && size !== 'medium',
       [`${prefix}-disabled`]: disabled,
       [`${prefix}-group`]: !isTextarea && (addonAfter || addonBefore)
     })
@@ -117,11 +122,13 @@ export default class Input extends PureComponent {
           <span className={`${prefix}-icon-wrapper`}>{icon}</span>
         }
         <input 
-          className={`${prefix}-input`}
-          {...nodeProps}
+          className={cn(prefix, {
+            [`${prefix}-${theme}`]: theme && theme !== 'default'
+          })}
           onKeyDown={this.handleKeyDown}
           value={value}
           ref={this.saveInput}
+          {...nodeProps}
         />
         {
           addonAfter &&

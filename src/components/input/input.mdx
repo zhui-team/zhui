@@ -7,14 +7,52 @@ import { Playground, PropsTable } from 'docz'
 import Icon from '../icon/index.js'
 import Input from './index.js'
 
-## 输入框
-
-<PropsTable of={Input} />
+# 输入框
 
 ## 代码演示
 
 ### 基本用法
 
 <Playground>
-  <Input size='large' icon={<Icon type='search' />} disabled/>
+  <Input placeholder='Waiting...' />
 </Playground>
+
+### 大小
+
+<Playground>
+  <Input size='large' placeholder='large' />
+  <Input placeholder='medium' />
+  <Input size='small' placeholder='small' />
+</Playground>
+
+### 宽度
+
+<Playground>
+  <Input placeholder='我很长' width={400} />
+</Playground>
+
+### 主题
+
+<Playground>
+  <Input theme='primary' placeholder='黛色' />
+  <Input theme='success' placeholder='竹青' />
+  <Input theme='danger' placeholder='胭脂' />
+</Playground>
+
+### 前缀与后缀
+
+<Playground>
+  <Input addonBefore={'邮箱'} />
+  <Input addonAfter='元' size='large' />
+  <Input addonBefore='A' addonAfter={'Z'} size='small' />
+</Playground>
+
+### 添加图标
+
+<Playground>
+  <Input icon={<Icon type='search' />} placeholder='搜索' />
+</Playground>
+
+## 属性
+
+<PropsTable of={Input} />
