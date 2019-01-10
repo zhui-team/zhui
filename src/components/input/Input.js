@@ -17,7 +17,7 @@ const BLACK_LIST = [
   'autoFocus',
   'onPressEnter',
   'icon'
-]
+];
 
 export default class Input extends PureComponent {
   static propTypes = {
@@ -51,18 +51,18 @@ export default class Input extends PureComponent {
   componentDidMount() {
     const { autoFocus } = this.props;
 
-    if(autoFocus) {
+    if (autoFocus) {
       this.input.focus();
     }
   }
 
   handleKeyDown = (e) => {
     const { onKeyDown, onPressEnter } = this.props;
-    if(onKeyDown) {
+    if (onKeyDown) {
       onKeyDown(e);
     }
 
-    if(e.keyCode === 13 && onPressEnter) {
+    if (e.keyCode === 13 && onPressEnter) {
       onPressEnter(e);
     }
   }
@@ -92,10 +92,10 @@ export default class Input extends PureComponent {
     const classes = cn('zhui-input-wrapper', className, {
       [`${prefix}-wrapper-${size}`]: size && size !== 'medium',
       [`${prefix}-group`]: addonAfter || addonBefore
-    })
+    });
 
     const nodeProps = omit(this.props, BLACK_LIST);
-    
+
     return (
       <div className={classes} style={{ width }}>
         {
@@ -106,7 +106,7 @@ export default class Input extends PureComponent {
           icon && !addonBefore &&
           <span className={`${prefix}-icon-wrapper`}>{icon}</span>
         }
-        <input 
+        <input
           className={cn(prefix, {
             [`${prefix}-${theme}`]: theme && theme !== 'default',
             [`${prefix}-disabled`]: disabled,
@@ -121,6 +121,6 @@ export default class Input extends PureComponent {
           <span className={`${prefix}-group-addon`}>{addonAfter}</span>
         }
       </div>
-    )
+    );
   }
 }

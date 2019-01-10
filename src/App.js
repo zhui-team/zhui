@@ -7,10 +7,8 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App" style={{background: '#333', height: 100}}>
-        <Button 
-          onClick={this.myClick}
-        >aaaa</Button>
+      <div className="App" style={{ background: '#333', height: 100 }}>
+        <Button onClick={this.myClick}>aaaa</Button>
       </div>
     );
   }

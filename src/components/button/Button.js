@@ -53,32 +53,32 @@ export default class Button extends PureComponent {
   }
 
   wrapValueBySpan(children, isNeedInserted) {
-    if(children == null) {
+    if (children == null) {
       return;
     }
 
     const SPACE = isNeedInserted ? ' ' : '';
 
     return React.Children.map(children, child => {
-      if(typeof child === 'string') {
-        if(isTwoCNChar.test(child)) {
+      if (typeof child === 'string') {
+        if (isTwoCNChar.test(child)) {
           return <span>{child.split('').join(SPACE)}</span>;
         }
-        return <span>{child}</span>
+        return <span>{child}</span>;
       }
 
       return child;
-    })
+    });
   }
 
   handleClick = e => {
     const { disabled, onClick } = this.props;
 
-    if(!!disabled){
+    if (disabled) {
       return;
     }
 
-    if(onClick){
+    if (onClick) {
       onClick(e);
     }
   }
@@ -118,7 +118,7 @@ export default class Button extends PureComponent {
     );
   }
 
-  render(){
+  render() {
     const {
       href,
       target,
@@ -133,7 +133,7 @@ export default class Button extends PureComponent {
       prefix,
       children
     } = this.props;
-    let renderName = href || target ? 'renderLink' : 'renderButton'
+    let renderName = href || target ? 'renderLink' : 'renderButton';
     const classes =  cn(prefix, className, {
       [`${prefix}-${type}${outline ? '-outline' : ''}`]: type,
       [`${prefix}-${size}`]: size && size !== 'medium',

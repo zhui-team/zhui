@@ -19,7 +19,7 @@ export default class Icon extends PureComponent {
   }
 
   render() {
-    const { 
+    const {
       type,
       className,
       spin,
@@ -32,8 +32,8 @@ export default class Icon extends PureComponent {
       'zhuiicon-spin': spin
     });
 
-    const styles = { ...style, color};
+    const styles = { ...style, color };
 
-    return <i className={classes} style={styles} {...other}></i>
+    return <i className={classes} style={styles} {...other}></i>;
   }
 }
