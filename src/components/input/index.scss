@@ -16,11 +16,13 @@
   background-color: #fff;
   background-image: none;
   border: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
   transition: all .3s linear;
   -webkit-appearance: none;
 
-  &:focus {
+  &:focus, &:hover {
     outline: none;
     box-shadow: 0 0 2px $default;
   }
@@ -66,6 +68,7 @@
 
     .zhui-input {
       flex: 1;
+      border-radius: 0;
     }
   }
 
@@ -76,7 +79,7 @@
     z-index: 1;
     transform: translateY(-50%);
     margin-top: -0.15em;
-    
+
     .zhuiicon {
       font-size: 16px;
     }
@@ -86,25 +89,49 @@
     }
   }
 
+  &-textarea-wrapper {
+    display: inline-block;
+    height: auto;
+    width: 240px;
+    height: 70px;
+    min-height: 32px;
+    
+    .zhui-input-textarea {
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+      border: 0;
+      border-radius: 4px;
+      padding: 4px 10px;
+      transition: all .3s linear;
+
+      &:focus, &:hover {
+        outline: none;
+        box-shadow: 0 0 2px $default;
+      }
+    }
+  }
+
   &-primary {
     background: $primary;
     box-shadow: 0 4px 10px 0 $primary;
 
-    &:focus { box-shadow: 0 0 2px $primary; }
+    &:focus, &:hover { box-shadow: 0 0 2px $primary; }
   }
 
   &-success {
     background: $success;
     box-shadow: 0 4px 10px 0 $success;
 
-    &:focus { box-shadow: 0 0 2px $success; }
+    &:focus, &:hover { box-shadow: 0 0 2px $success; }
   }
 
   &-danger {
     background: $danger;
     box-shadow: 0 4px 10px 0 $danger;
 
-    &:focus { box-shadow: 0 0 2px $danger; }
+    &:focus, &:hover { box-shadow: 0 0 2px $danger; }
   }
 
   &-primary, &-success, &-danger {
@@ -113,5 +140,11 @@
     &::-webkit-input-placeholder {
       color: #fff;
     }
+  }
+
+  &-disabled, &-disabled + .zhui-input-group-addon {
+    pointer-events: none;
+    box-shadow: none;
+    background: $inputBorder;
   }
 }

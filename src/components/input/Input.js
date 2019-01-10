@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import cn from 'astro-classname';
-import Textarea from './Textarea';
 
 import './index.scss';
 
@@ -81,7 +80,6 @@ export default class Input extends PureComponent {
       className,
       width,
       value,
-      type,
       theme,
       size,
       addonBefore,
@@ -91,25 +89,12 @@ export default class Input extends PureComponent {
       disabled
     } = this.props;
 
-    const isTextarea = type.toLowerCase() === 'textarea';
     const classes = cn('zhui-input-wrapper', className, {
       [`${prefix}-wrapper-${size}`]: size && size !== 'medium',
-      [`${prefix}-disabled`]: disabled,
-      [`${prefix}-group`]: !isTextarea && (addonAfter || addonBefore)
+      [`${prefix}-group`]: addonAfter || addonBefore
     })
-    const nodeProps = omit(this.props, BLACK_LIST);
 
-    if(isTextarea) {
-      return (
-        <Textarea 
-          className={classes}
-          width={width}
-          prefix={prefix}
-          handleKeyDown={this.handleKeyDown}
-          nodeProps={nodeProps}
-        />
-      )
-    }
+    const nodeProps = omit(this.props, BLACK_LIST);
     
     return (
       <div className={classes} style={{ width }}>
@@ -123,7 +108,8 @@ export default class Input extends PureComponent {
         }
         <input 
           className={cn(prefix, {
-            [`${prefix}-${theme}`]: theme && theme !== 'default'
+            [`${prefix}-${theme}`]: theme && theme !== 'default',
+            [`${prefix}-disabled`]: disabled,
           })}
           onKeyDown={this.handleKeyDown}
           value={value}

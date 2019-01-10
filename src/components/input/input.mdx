@@ -53,6 +53,26 @@ import Input from './index.js'
   <Input icon={<Icon type='search' />} placeholder='搜索' />
 </Playground>
 
+### 文本域
+
+<Playground>
+  <Input.Textarea placeholder='搜索' width={240} />
+</Playground>
+
+### 输入绑定
+
+<Playground>
+  <Input value='测试' onChange={() => alert('绑定测试')} />
+</Playground>
+
+### 不可用
+
+<Playground>
+  <Input placeholder='Waiting...' disabled />
+  <Input addonAfter='元' size='large' disabled />
+  <Input.Textarea disabled />
+</Playground>
+
 ## 属性
 
 <PropsTable of={Input} />
