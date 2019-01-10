@@ -11,7 +11,7 @@ const BLACK_LIST = [
   'prefix',
   'autoFocus',
   'onPressEnter'
-]
+];
 
 export default class Textarea extends PureComponent {
   static propTypes = {
@@ -37,18 +37,18 @@ export default class Textarea extends PureComponent {
   componentDidMount() {
     const { autoFocus } = this.props;
 
-    if(autoFocus) {
+    if (autoFocus) {
       this.textarea.focus();
     }
   }
 
   handleKeyDown = (e) => {
     const { onKeyDown, onPressEnter } = this.props;
-    if(onKeyDown) {
+    if (onKeyDown) {
       onKeyDown(e);
     }
 
-    if(e.keyCode === 13 && onPressEnter) {
+    if (e.keyCode === 13 && onPressEnter) {
       onPressEnter(e);
     }
   }
@@ -58,7 +58,7 @@ export default class Textarea extends PureComponent {
   }
 
   render() {
-    const { 
+    const {
       className,
       width,
       prefix,
@@ -68,7 +68,7 @@ export default class Textarea extends PureComponent {
 
     const classes = cn(`${prefix}-textarea`, {
       [`${prefix}-disabled`]: disabled
-    })
+    });
 
     const nodeProps = omit(this.props, BLACK_LIST);
 
@@ -81,7 +81,6 @@ export default class Textarea extends PureComponent {
           {...nodeProps}
         />
       </div>
-      
-    )
+    );
   }
 }

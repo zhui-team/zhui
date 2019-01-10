@@ -89,7 +89,7 @@
     "ddev": "docz dev",
     "dbuild": "docz build",
     "cbuild": "(cross-env BABEL_OUTPUT=commonjs babel src/components --out-dir lib/ & node-sass -r src/components -o lib) && (babel src/components --out-dir esm/ & node-sass -r src/components -o esm)",
-    "lint": "eslint ./src --cache --ignore-pattern .gitignore",
+    "lint": "eslint ./src --ignore-pattern .gitignore",
     "precommit-msg": "echo 'Pre-commit eslint checking...' && exit 0"
   },
   "eslintConfig": {
