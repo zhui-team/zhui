@@ -88,7 +88,9 @@
     "test": "node scripts/test.js",
     "ddev": "docz dev",
     "dbuild": "docz build",
-    "cbuild": "(cross-env BABEL_OUTPUT=commonjs babel src/components --out-dir lib/ & node-sass -r src/components -o lib) && (babel src/components --out-dir esm/ & node-sass -r src/components -o esm)"
+    "cbuild": "(cross-env BABEL_OUTPUT=commonjs babel src/components --out-dir lib/ & node-sass -r src/components -o lib) && (babel src/components --out-dir esm/ & node-sass -r src/components -o esm)",
+    "lint": "eslint ./src --cache --ignore-pattern .gitignore",
+    "precommit-msg": "echo 'Pre-commit eslint checking...' && exit 0"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -140,6 +142,7 @@
       "node"
     ]
   },
+  "pre-commit": [ "precommit-msg", "lint" ],
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.1.6",
@@ -156,6 +159,7 @@
     "eslint": "^5.6.0",
     "eslint-config-alloy": "^1.4.2",
     "node-sass": "^4.11.0",
+    "pre-commit": "^1.2.2",
     "webpack-cli": "^3.2.1"
   }
 }
