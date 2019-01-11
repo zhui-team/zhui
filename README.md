@@ -1,6 +1,7 @@
 ## Zhui
 
-A Chinese style component library
+一款带有中国风的React组件库
+A Chinese style component library of react
 
 [文档](https://zhui-team.github.io/zhui/)
 
