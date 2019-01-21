@@ -1,0 +1,67 @@
+@import '../color.scss';
+
+.zhui-card {
+  position: relative;
+  font-size: 12px;
+  box-sizing: border-box;
+  background: $cardBg;
+  color: #fff;
+  max-width: 600px;
+  min-width: 100px;
+  padding: 15px 10px 5px;
+  text-align: center;
+  border-radius: 5px;
+
+  &-img-wrapper {
+    > img {
+      display: block;
+      margin: 10px auto;
+      border-radius: 50%;
+    }
+  }
+
+  &-row {
+    display: flex;
+    flex-direction: column;
+    writing-mode: tb-rl;
+    min-width: 200px;
+    padding: 10px 15px 10px 5px;
+  }
+
+  &-title {
+    font-size: 16px;
+  }
+
+  &-underline {
+    height: 3px;
+    background: #fff;
+    margin: 10px auto 5px;
+    border-radius: 10px;
+  }
+
+  &-corner {
+    &-wrapper {
+      margin-top: 5px;
+      overflow: hidden;
+    }
+
+    &-left {
+      float: left;
+    }
+
+    &-right {
+      float: right;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+  }
+}

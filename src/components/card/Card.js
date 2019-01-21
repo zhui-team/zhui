@@ -5,18 +5,26 @@ import cn from 'astro-classname';
 
 const BLACK_LIST = [
   'className',
+  'width',
   'prefix',
   'title',
-  'cover',
+  'img',
+  'underline',
+  'cornerLeft',
+  'cornerRight',
   'type'
-]
+];
 
 export default class Card extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
+    width: PropTypes.number,
     title: PropTypes.node,
     cover: PropTypes.node,
     type: PropTypes.oneOf(['column', 'row']),
+    cornerLeft: PropTypes.string,
+    cornerRight: PropTypes.string,
+    underline: PropTypes.bool,
     prefix: PropTypes.string
   }
 
@@ -25,31 +33,49 @@ export default class Card extends PureComponent {
     type: 'column',
     prefix: 'zhui-card'
   }
-  
+
   render() {
     const {
       className,
       title,
-      cover,
+      img,
+      width,
       type,
+      underline,
       prefix,
+      cornerLeft,
+      cornerRight,
       children
     } = this.props;
 
     const classes = cn(prefix, className, {
-      [`${prefix}-${type}`]: type === 'row' && !cover
+      [`${prefix}-${type}`]: type === 'row' && !img
     });
     const nodeProps = omit(this.props, BLACK_LIST);
 
     return (
-      <div className={classes} {...nodeProps}>
+      <div className={classes} {...nodeProps} style={{width}}>
+        {
+          type !== 'row' && img && <div className={`${prefix}-img-wrapper`}>{img}</div>
+        }
         {
           title && <div className={`${prefix}-title`}>{title}</div>
         }
         <div className={`${prefix}-body`}>
-          { children }
+          {children}
         </div>
+        {
+          type !== 'row' && underline && <div className={`${prefix}-underline`}></div>
+        }
+        {
+          type !== 'row' && (cornerLeft || cornerRight) && (
+            <div className={`${prefix}-corner-wrapper`}>
+              {cornerLeft && <div className={`${prefix}-corner-left`}>{cornerLeft}</div>}
+              {cornerRight && <div className={`${prefix}-corner-right`}>{cornerRight}</div>}
+            </div>
+          )
+        }
       </div>
-    )
+    );
   }
 }

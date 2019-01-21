@@ -6,6 +6,8 @@ route: /card
 import { Playground, PropsTable } from 'docz'
 import Card from './index.js'
 
+import './index.scss'
+
 # 卡片
 
 ## 代码演示
@@ -13,7 +15,71 @@ import Card from './index.js'
 ### 默认
 
 <Playground>
-  <Card>
-    <p>这是个卡片</p>
+  <Card width={200}>
+    <p>这是个普通的卡片</p>
   </Card>
 </Playground>
+
+### 标题
+
+<Playground>
+  <Card title='标题'>
+    <p>这是个有标题的卡片</p>
+  </Card>
+</Playground>
+
+### 插图
+
+<Playground>
+  <Card title='标题' img={<img src='http://47.98.138.195:3000/100x100/rect/ffffff' />} width={190}>
+    <p>这是个有标题和插图的卡片</p>
+  </Card>
+</Playground>
+
+### 下划线
+
+<Playground>
+  <Card 
+    title='标题' 
+    img={<img src='http://47.98.138.195:3000/100x100/rect/ffffff' />} 
+    width={190} 
+    underline
+  >
+    <p>下面的线叫做下划线</p>
+  </Card>
+</Playground>
+
+### 角标
+
+推荐搭配下划线使用
+
+<Playground>
+  <Card 
+    title='标题' 
+    img={<img src='http://47.98.138.195:3000/100x100/rect/ffffff' />} 
+    width={190}
+    underline
+    cornerLeft='风儿'
+    cornerRight='喧嚣'
+  >
+    <p>这个卡片有角标</p>
+  </Card>
+</Playground>
+
+### 横向
+
+使用横向时，不支持下划线，角标以及插图
+
+<Playground>
+  <Card 
+    title='标题' 
+    type='row'
+    underline
+  >
+    <p>这是个有标题的横向卡片</p>
+  </Card>
+</Playground>
+
+## 属性
+
+<PropsTable of={Card} />
