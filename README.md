@@ -30,7 +30,3 @@ $ cd zhui
 $ npm install
 $ npm run start
 ```
-
-## PS
-
-最近准备期末，开发进度会减慢80%，寒假会加速~

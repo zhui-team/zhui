@@ -9,7 +9,7 @@
   height: 32px;
   line-height: 1.5;
   white-space: nowrap;
-  padding: 0 15px;
+  padding: 0 25px;
   background-image: none;
   text-align: center;
   vertical-align: middle;
@@ -38,40 +38,23 @@
     }
   }
 
-  &-primary {
-    background: $primary;
-    color: #fff;
-    border: none;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+  @each $key, $value in $color-list {
+    &-#{$key} {
+      background: $value;
+      color: #fff;
+      border: none;
 
-    &-outline {
-      border: 1px solid $primary;
-      color: $primary;
+      &-outline {
+        border: 1px solid $value;
+        color: $value;
+      }
+
+      &:hover {
+        opacity: 1;
+        box-shadow: 0 0 0 2px #fff, 0 0 0 5px $value;
+      }
     }
   }
-
-  &-success {
-    background: $success;
-    color: #fff;
-    border: 1px solid $success;
-
-    &-outline {
-      border: 1px solid $success;
-      color: $success;
-    }
-  }
-  
-  &-danger {
-    background: $danger;
-    border: 1px solid $danger;
-    color: #fff;
-
-    &-outline {
-      border: 1px solid $danger;
-      color: $danger;
-    }
-  }
-
 
   &-large {
     height: 40px;
