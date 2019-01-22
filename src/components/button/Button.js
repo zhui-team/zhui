@@ -18,7 +18,8 @@ const BLACK_LIST = [
   'round',
   'prefix',
   'href',
-  'target'
+  'target',
+  'kong'
 ];
 const isTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 
@@ -32,7 +33,8 @@ export default class Button extends PureComponent {
     outline: PropTypes.bool,
     round: PropTypes.bool,
     block: PropTypes.bool,
-    prefix: PropTypes.string
+    prefix: PropTypes.string,
+    kong:PropTypes.oneOf(['','mei','muyun','ganglan','yuanshan'])
   }
 
   static defaultProps = {
@@ -44,7 +46,8 @@ export default class Button extends PureComponent {
     outline: false,
     round: false,
     block: false,
-    prefix: 'zhui-btn'
+    prefix: 'zhui-btn',
+    kong:''
   }
 
   isInsertSpace() {
@@ -53,32 +56,32 @@ export default class Button extends PureComponent {
   }
 
   wrapValueBySpan(children, isNeedInserted) {
-    if (children == null) {
+    if(children == null) {
       return;
     }
 
     const SPACE = isNeedInserted ? ' ' : '';
 
     return React.Children.map(children, child => {
-      if (typeof child === 'string') {
-        if (isTwoCNChar.test(child)) {
+      if(typeof child === 'string') {
+        if(isTwoCNChar.test(child)) {
           return <span>{child.split('').join(SPACE)}</span>;
         }
-        return <span>{child}</span>;
+        return <span>{child}</span>
       }
 
       return child;
-    });
+    })
   }
 
   handleClick = e => {
     const { disabled, onClick } = this.props;
 
-    if (disabled) {
+    if(!!disabled){
       return;
     }
 
-    if (onClick) {
+    if(onClick){
       onClick(e);
     }
   }
@@ -118,7 +121,7 @@ export default class Button extends PureComponent {
     );
   }
 
-  render() {
+  render(){
     const {
       href,
       target,
@@ -131,16 +134,19 @@ export default class Button extends PureComponent {
       round,
       block,
       prefix,
-      children
+      children,
+      kong
     } = this.props;
-    let renderName = href || target ? 'renderLink' : 'renderButton';
+    let renderName = href || target ? 'renderLink' : 'renderButton'
     const classes =  cn(prefix, className, {
       [`${prefix}-${type}${outline ? '-outline' : ''}`]: type,
       [`${prefix}-${size}`]: size && size !== 'medium',
       [`${prefix}-disabled`]: disabled,
       [`${prefix}-loading`]: loading,
       [`${prefix}-block`]: block,
-      [`${prefix}-round`]: round
+      [`${prefix}-round`]: round,
+      [`${round||outline||disabled?'':prefix}-kong-${kong}`]:kong
+     
     });
 
     const wrapperChildren = this.wrapValueBySpan(

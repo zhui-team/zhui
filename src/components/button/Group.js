@@ -16,7 +16,7 @@ export default class Group extends PureComponent {
   }
 
   render() {
-    const {
+    const { 
       className,
       prefix,
       children,
@@ -25,6 +25,6 @@ export default class Group extends PureComponent {
 
     const classes = cn(prefix, className);
 
-    return <div className={classes} {...others}>{children}</div>;
+    return <div className={classes} {...others}>{children}</div>
   }
 }
