@@ -115,7 +115,8 @@
   },
   "pre-commit": [
     "precommit-msg",
-    "lint"
+    "lint",
+    "test"
   ],
   "devDependencies": {
     "@babel/cli": "^7.2.3",
