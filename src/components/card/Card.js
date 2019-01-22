@@ -54,7 +54,7 @@ export default class Card extends PureComponent {
     const nodeProps = omit(this.props, BLACK_LIST);
 
     return (
-      <div className={classes} {...nodeProps} style={{width}}>
+      <div className={classes} {...nodeProps} style={{ width }}>
         {
           type !== 'row' && img && <div className={`${prefix}-img-wrapper`}>{img}</div>
         }
