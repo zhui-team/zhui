@@ -49,7 +49,7 @@ export default class Card extends PureComponent {
     } = this.props;
 
     const classes = cn(prefix, className, {
-      [`${prefix}-${type}`]: type === 'row' && !img
+      [`${prefix}-${type}`]: type === 'row'
     });
     const nodeProps = omit(this.props, BLACK_LIST);
 
