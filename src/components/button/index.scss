@@ -9,7 +9,7 @@
   height: 32px;
   line-height: 1.5;
   white-space: nowrap;
-  padding: 0 25px;
+  padding: 0 15px;
   background-image: none;
   text-align: center;
   vertical-align: middle;
@@ -38,21 +38,58 @@
     }
   }
 
-  @each $key, $value in $color-list {
-    &-#{$key} {
-      background: $value;
-      color: #fff;
-      border: none;
+  &-primary {
+    background: $primary;
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.045);
 
-      &-outline {
-        border: 1px solid $value;
-        color: $value;
-      }
+    &-outline {
+      border: 1px solid $primary;
+      color: $primary;
+    }
+  }
 
-      &:hover {
-        opacity: 1;
-        box-shadow: 0 0 0 2px #fff, 0 0 0 5px $value;
-      }
+  &-success {
+    background: $success;
+    color: #fff;
+    border: 1px solid $success;
+
+    &-outline {
+      border: 1px solid $success;
+      color: $success;
+    }
+  }
+  
+  &-danger {
+    background: $danger;
+    border: 1px solid $danger;
+    color: #fff;
+
+    &-outline {
+      border: 1px solid $danger;
+      color: $danger;
+    }
+  }
+  &-kong {
+    &-mei {
+      background:$meihong;
+      outline: 5px solid $meihong;
+      outline-offset: 2px;
+      margin:10px;
+    }
+    &-muyun {
+      background:$muyun;
+      outline: 5px solid $muyun;
+      outline-offset: 2px; 
+      margin:10px;
+      color:white; 
+    }
+    &-yuanshan {
+      background:$yuanshan;
+      outline: 5px solid $yuanshan;
+      outline-offset: 2px;
+      margin:10px;  
     }
   }
 
@@ -70,7 +107,7 @@
     color: #bbb;
     background: #f8f8f8;
     border-color: #e5e5e5;
-    pointer-events: none;
+    cursor: not-allowed;
   }
 
   &-loading {
@@ -101,6 +138,7 @@
   > span {
     display: inline-block;
     pointer-events: none;
+    margin:0px 5px;
   }
 
   &-round {
