@@ -27,7 +27,7 @@ export default class Input extends PureComponent {
     placeholder: PropTypes.string,
     prefix: PropTypes.string,
     size: PropTypes.oneOf(['large', 'medium', 'small']),
-    theme: PropTypes.oneOf(['default', 'primary', 'success', 'danger']),
+    theme: PropTypes.string,
     value: PropTypes.any,
     addonBefore: PropTypes.node,
     addonAfter: PropTypes.node,

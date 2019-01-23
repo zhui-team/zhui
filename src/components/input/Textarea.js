@@ -10,7 +10,8 @@ const BLACK_LIST = [
   'width',
   'prefix',
   'autoFocus',
-  'onPressEnter'
+  'onPressEnter',
+  'theme'
 ];
 
 export default class Textarea extends PureComponent {
@@ -19,6 +20,7 @@ export default class Textarea extends PureComponent {
     placeholder: PropTypes.string,
     prefix: PropTypes.string,
     width: PropTypes.number,
+    theme: PropTypes.string,
     disabled: PropTypes.bool,
     autoFocus: PropTypes.bool,
     value: PropTypes.any,
@@ -63,11 +65,13 @@ export default class Textarea extends PureComponent {
       width,
       prefix,
       handleKeyDown,
-      disabled
+      disabled,
+      theme
     } = this.props;
 
     const classes = cn(`${prefix}-textarea`, {
-      [`${prefix}-disabled`]: disabled
+      [`${prefix}-disabled`]: disabled,
+      [`${prefix}-${theme}`]: theme && theme !== 'default'
     });
 
     const nodeProps = omit(this.props, BLACK_LIST);

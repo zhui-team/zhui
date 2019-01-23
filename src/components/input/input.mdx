@@ -14,15 +14,15 @@ import Input from './index.js'
 ### 基本用法
 
 <Playground>
-  <Input placeholder='Waiting...' />
+  <Input />
 </Playground>
 
 ### 大小
 
 <Playground>
-  <Input size='large' placeholder='large' />
-  <Input placeholder='medium' />
-  <Input size='small' placeholder='small' />
+  <Input size='large' placeholder='大' />
+  <Input placeholder='中' />
+  <Input size='small' placeholder='小' />
 </Playground>
 
 ### 宽度
@@ -33,10 +33,19 @@ import Input from './index.js'
 
 ### 主题
 
+目前提供的所有配色，默认为梅红
+
 <Playground>
   <Input theme='primary' placeholder='黛色' />
   <Input theme='success' placeholder='竹青' />
   <Input theme='danger' placeholder='胭脂' />
+  <Input theme='meihong' placeholder='梅红' />
+  <Input theme='putaozi' placeholder='葡萄紫' />
+  <Input theme='jiangzi' placeholder='酱紫' />
+  <Input theme='ganglan' placeholder='钢蓝' />
+  <Input theme='haitang' placeholder='海棠红' />
+  <Input theme='muyun' placeholder='暮云灰' />
+  <Input theme='yuanshan' placeholder='远山紫' />
 </Playground>
 
 ### 前缀与后缀
@@ -56,7 +65,7 @@ import Input from './index.js'
 ### 文本域
 
 <Playground>
-  <Input.Textarea placeholder='搜索' width={240} />
+  <Input.Textarea placeholder='搜索' width={240} theme='ganglan' />
 </Playground>
 
 ### 输入绑定
@@ -68,7 +77,7 @@ import Input from './index.js'
 ### 不可用
 
 <Playground>
-  <Input placeholder='Waiting...' disabled />
+  <Input disabled />
   <Input addonAfter='元' size='large' disabled />
   <Input.Textarea disabled />
 </Playground>
