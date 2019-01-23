@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import Card from '../components/card/index'
 
-describe('Card Column', () => {
+describe('Card Column Test', () => {
   const wrapper = shallow(
     <Card 
       title='标题' 
@@ -46,7 +46,7 @@ describe('Card Column', () => {
   });
 });
 
-describe('Card Row', () => {
+describe('Card Row Test', () => {
   const wrapper = shallow(
     <Card 
       title='标题'
