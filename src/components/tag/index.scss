@@ -1,0 +1,30 @@
+@import '../color.scss';
+
+.zhui-tag {
+  &-wrapper {
+    position: relative;
+    width: 30px;
+    min-height: 60px;
+    font-size: 12px;
+    border-radius: 3px;
+    background: $primary;
+    color: #fff;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 12px;
+      width: 6px;
+      height: 6px;
+      background: #fff;
+      border-radius: 50%;
+    }
+  }
+
+  &-body {
+    padding: 22px 2px 15px;
+    text-align: center;
+    word-break: break-word;
+  }
+}
