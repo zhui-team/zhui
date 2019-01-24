@@ -3,8 +3,60 @@ name: 首页
 route: /
 ---
 
+import { Playground } from 'docz'
+import Card from './card/index.js'
+
+import './card/index.scss'
+
 # Zhui
 
-## Welcome to use Zhui !~~
+## 简介
 
-A Chinese style component library  https://zhui-team.github.io/zhui/
+一款带有中国风的React组件库, A Chinese style component library  https://zhui-team.github.io/zhui/
+
+## 配色
+
+使用方法: 在组件中添加props如`theme=primary`
+
+目前可应用的配色：
+
+<Card theme='primary' title='primary' width={140}>
+  <p>黛</p>
+  <p>#41395b</p>
+</Card>
+<Card theme='success' title='success' width={140}>
+  <p>竹青</p>
+  <p>#6f8657</p>
+</Card>
+<Card theme='danger' title='danger' width={140}>
+  <p>胭脂</p>
+  <p>#94232d</p>
+</Card>
+<Card theme='meihong' title='meihong' width={140}>
+  <p>梅红</p>
+  <p>#c45a65</p>
+</Card>
+<Card theme='putaozi' title='putaozi' width={140}>
+  <p>葡萄紫</p>
+  <p>#4c1f24</p>
+</Card>
+<Card theme='huaqing' title='huaqing' width={140}>
+  <p>花青</p>
+  <p>#2376b7</p>
+</Card>
+<Card theme='ganglan' title='ganglan' width={140}>
+  <p>钢蓝</p>
+  <p>#0f1423</p>
+</Card>
+<Card theme='haitang' title='haitang' width={140}>
+  <p>海棠红</p>
+  <p>#f03752</p>
+</Card>
+<Card theme='muyun' title='muyun' width={140}>
+  <p>暮云灰</p>
+  <p>#4f383e</p>
+</Card>
+<Card theme='yuanshan' title='yuanshan' width={140}>
+  <p>远山紫</p>
+  <p>#ccccd6</p>
+</Card>

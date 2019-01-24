@@ -64,4 +64,10 @@
     background: #fff;
     border-radius: 50%;
   }
+
+  @each $key, $value in $color-list {
+    &-#{$key} {
+      background: $value;
+    }
+  }
 }

@@ -53,6 +53,7 @@ describe('Card Row Test', () => {
       type="row"
       img={<img src='http://47.98.138.195:3000/100x100/rect/ffffff' />} 
       width={190}
+      theme='meihong'
       underline
       cornerLeft='左角标'
       cornerRight='右角标'
@@ -86,5 +87,9 @@ describe('Card Row Test', () => {
 
   it('6. 测试角标不存在', () => {
     expect(wrapper.find('.zhui-card-corner-wrapper').exists()).toBeFalsy();
+  });
+
+  it('7 测试主题存在', () => {
+    expect(wrapper.hasClass('zhui-card-meihong')).toBe(true);
   });
 });

@@ -11,6 +11,7 @@ const BLACK_LIST = [
   'prefix',
   'title',
   'img',
+  'theme',
   'underline',
   'cornerLeft',
   'cornerRight',
@@ -22,7 +23,8 @@ export default class Card extends PureComponent {
     className: PropTypes.string,
     width: PropTypes.number,
     title: PropTypes.node,
-    cover: PropTypes.node,
+    img: PropTypes.node,
+    theme: PropTypes.string,
     type: PropTypes.oneOf(['column', 'row']),
     cornerLeft: PropTypes.string,
     cornerRight: PropTypes.string,
@@ -41,6 +43,7 @@ export default class Card extends PureComponent {
       className,
       title,
       img,
+      theme,
       width,
       type,
       underline,
@@ -51,7 +54,8 @@ export default class Card extends PureComponent {
     } = this.props;
 
     const classes = cn(prefix, className, {
-      [`${prefix}-${type}`]: type === 'row'
+      [`${prefix}-${type}`]: type === 'row',
+      [`${prefix}-${theme}`]: theme && theme !== 'default'
     });
     const nodeProps = omit(this.props, BLACK_LIST);
 
