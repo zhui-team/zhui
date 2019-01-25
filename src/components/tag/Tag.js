@@ -46,7 +46,7 @@ export default class Tag extends PureComponent {
   render() {
     const hide = this.state.hide;
 
-    if(hide) {
+    if (hide) {
       return null;
     }
 
