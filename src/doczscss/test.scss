@@ -37,3 +37,9 @@ body {
   display: inline-block;
   margin: 5px;
 }
+
+.zhui-tag {
+  &-wrapper {
+    margin: 5px;
+  }
+}

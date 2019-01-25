@@ -8,8 +8,7 @@ import './index.scss';
 const BLACK_LIST = [
   'className',
   'prefix',
-  'headColor',
-  'bodyColor',
+  'color',
   'closable',
   'onClose'
 ];
@@ -18,8 +17,7 @@ export default class Tag extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
     prefix: PropTypes.string,
-    headColor: PropTypes.string,
-    bodyColor: PropTypes.string,
+    color: PropTypes.string,
     closable: PropTypes.bool,
     onClose: PropTypes.func
   }
@@ -30,30 +28,48 @@ export default class Tag extends PureComponent {
     closable: false
   }
 
+  state = {
+    hide: false
+  }
+
   onClose = e => {
-    console.log(e);
+    const { onClose } = this.props;
+    if (onClose) {
+      onClose(e);
+    }
+    if (e.defaultPrevented) {
+      return;
+    }
+    this.setState({ hide: true });
   }
 
   render() {
+    const hide = this.state.hide;
+
+    if(hide) {
+      return null;
+    }
+
     const {
       className,
       prefix,
-      headColor,
-      bodyColor,
-      closable,
+      color,
       children,
+      closable,
       style
     } = this.props;
 
-    const classes = cn(className, `${prefix}-wrapper`);
+    const classes = cn(className, `${prefix}-wrapper`, {
+      [`${prefix}-wrapper-closable`]: closable
+    });
     const nodeProps = omit(this.props, BLACK_LIST);
-    
+
     let styles = style || {};
-    headColor && (styles.background = headColor);
+    color && (styles.background = color);
 
     return (
-      <div className={classes} {...nodeProps} style={ styles }>
-        <div className={`${prefix}-body`} style={{ background: bodyColor }}>
+      <div className={classes} {...nodeProps} style={styles} onClick={this.onClose}>
+        <div className={`${prefix}-body`}>
           {children}
         </div>
       </div>

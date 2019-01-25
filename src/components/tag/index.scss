@@ -3,6 +3,7 @@
 .zhui-tag {
   &-wrapper {
     position: relative;
+    display: inline-block;
     width: 30px;
     min-height: 60px;
     font-size: 12px;
@@ -20,6 +21,16 @@
       background: #fff;
       border-radius: 50%;
     }
+
+    &-closable {
+      animation: tag-shake 1s ease 0s infinite;
+      animation-play-state: paused;
+      cursor: pointer;
+      
+      &:hover {
+        animation-play-state: running;
+      }
+    }
   }
 
   &-body {
@@ -27,4 +38,15 @@
     text-align: center;
     word-break: break-word;
   }
+}
+
+@keyframes tag-shake {
+  from    { transform: rotate(0deg); }
+  4%      { transform: rotate(5deg); }
+  12.5%   { transform: rotate(-5deg); }
+  21%     { transform: rotate(5deg); }
+  29%     { transform: rotate(-5deg); }
+  37.5%   { transform: rotate(5deg); }
+  46%     { transform: rotate(-5deg); }
+  50%,to  { transform: rotate(0deg); }
 }
