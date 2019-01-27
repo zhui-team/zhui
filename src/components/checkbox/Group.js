@@ -9,7 +9,9 @@ const BLACK_LIST = [
   'className',
   'prefix',
   'checked',
-  'disabled'
+  'disabled',
+  'onChange',
+  'value'
 ];
 
 export default class Group extends PureComponent {
@@ -43,7 +45,7 @@ export default class Group extends PureComponent {
         disabled,
         onChange: this._onChange
       }
-    }
+    };
   }
 
   _onChange = e => {
@@ -70,8 +72,8 @@ export default class Group extends PureComponent {
     const nodeProps = omit(this.props, BLACK_LIST);
 
     return (
-      <div className={classes} style={style}>
-        { children }
+      <div className={classes} {...nodeProps} style={style}>
+        {children}
       </div>
     );
   }

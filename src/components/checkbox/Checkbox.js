@@ -44,9 +44,8 @@ export default class Checkbox extends PureComponent {
         type: 'checkbox',
         checked: e.target.checked
       }
-    }
+    };
 
-    console.log(evt)
     if (context.checkboxGroup) {
       context.checkboxGroup.onChange(evt);
     } else {
@@ -55,14 +54,20 @@ export default class Checkbox extends PureComponent {
   }
 
   render() {
-    const {
+    let {
       className,
       checked,
       disabled,
       value,
       prefix,
-      children
+      children,
+      ...others
     } = this.props;
+    const { checkboxGroup } = this.context;
+
+    if (checkboxGroup) {
+      checked = checkboxGroup.value.indexOf(value) !== -1;
+    }
 
     const classes = cn(className, `${prefix}-wrapper`, {
       [`${prefix}-disabled`]: disabled,
@@ -71,13 +76,14 @@ export default class Checkbox extends PureComponent {
     const nodeProps = omit(this.props, BLACK_LIST);
 
     return (
-      <div className={classes}>
+      <div className={classes} {...nodeProps}>
         <input
           type="checkbox"
           onChange={this._onChange}
           disabled={disabled}
+          {...others}
         />
-        { children && <span>{children}</span>}
+        {children && <span>{children}</span>}
       </div>
     );
   }
