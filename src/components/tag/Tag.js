@@ -10,6 +10,7 @@ const BLACK_LIST = [
   'prefix',
   'color',
   'closable',
+  'visible',
   'onClose'
 ];
 
@@ -19,6 +20,7 @@ export default class Tag extends PureComponent {
     prefix: PropTypes.string,
     color: PropTypes.string,
     closable: PropTypes.bool,
+    visible: PropTypes.bool,
     onClose: PropTypes.func
   }
 
@@ -28,25 +30,37 @@ export default class Tag extends PureComponent {
     closable: false
   }
 
-  state = {
-    hide: false
+  static getDerivedStateFromProps(nextProps) {
+    if ('visible' in nextProps) {
+      return {
+        visible: nextProps.visible,
+      };
+    }
+    return null;
   }
 
+  state = {
+    visible: true,
+  };
+
   onClose = e => {
-    const { onClose } = this.props;
+    const { onClose, closable } = this.props;
+    if (!closable) {
+      return;
+    }
     if (onClose) {
       onClose(e);
     }
     if (e.defaultPrevented) {
       return;
     }
-    this.setState({ hide: true });
+    this.setState({ visible: false });
   }
 
   render() {
-    const hide = this.state.hide;
+    const { visible } = this.state;
 
-    if (hide) {
+    if (!visible) {
       return null;
     }
 
