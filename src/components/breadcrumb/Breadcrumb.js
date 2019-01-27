@@ -34,7 +34,7 @@ export default class Breadcrumb extends PureComponent {
       <div className={classes} {...others}>
         {children}
         {
-          list && list.map((item, index) => 
+          list && list.map((item, index) =>
             <BreadcrumbItem {...item} key={index} />
           )
         }

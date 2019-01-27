@@ -29,14 +29,14 @@ export default class BreadcrumbItem extends PureComponent {
       ...others
     } = this.props;
 
-    if(children) return children;
+    if (children) return children;
 
     const classes = cn(className, prefix);
 
     return (
-      href ? 
-      <a href={href} className={classes} {...others}>{value}</a> :
-      <span className={classes} {...others}>{value}</span>
+      href ?
+        <a href={href} className={classes} {...others}>{value}</a> :
+        <span className={classes} {...others}>{value}</span>
     );
   }
 }
