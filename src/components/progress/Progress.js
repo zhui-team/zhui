@@ -11,9 +11,7 @@ export default class Progress extends PureComponent {
     prefix: PropTypes.string,
     type: PropTypes.oneOf(['line', 'circle']),
     status: PropTypes.oneOf(['active', 'exception']),
-    precent: PropTypes.number,
-    theme: PropTypes.string,
-    showInfo: PropTypes.bool
+    precent: PropTypes.number
   }
 
   static defaultProps = {
@@ -22,8 +20,6 @@ export default class Progress extends PureComponent {
     type: 'line',
     status: 'active',
     precent: 0,
-    theme: 'meihong',
-    showInfo: true
   }
 
   render() {
@@ -33,8 +29,6 @@ export default class Progress extends PureComponent {
       type,
       precent,
       status,
-      showInfo,
-      theme,
       ...others
     } = this.props;
 
@@ -42,25 +36,29 @@ export default class Progress extends PureComponent {
       [`${prefix}-${type}`]: type,
     });
     const innerClass = cn(`${prefix}-inner`, {
-      [`${prefix}-active`]: precent < 100 && status !== 'exception',
+      [`${prefix}-active`]: precent < 100 && precent > 5 && status !== 'exception',
       [`${prefix}-exception`]: status === 'exception',
       [`${prefix}-success`]: precent >= 100,
     });
-    const bgClass = cn(`${prefix}-bg`, {
-      [`${prefix}-bg-${theme}`]: theme && theme !== 'meihong'
-    });
     const width = precent + '%';
+    const top = -precent * 2;
 
-    return (
-      <div className={classes} {...others}>
-        <div className={innerClass}>
-          <div className={bgClass} style={{ width: width }}>
-          </div>
-        </div>
-        <span className={`${prefix}-outer`}>
-          {showInfo && width}
-        </span>
-      </div>
-    );
+    return type !== 'circle' ?
+            (
+              <div className={classes} {...others}>
+                <div className={innerClass}>
+                  <div className={`${prefix}-bg`} style={{ width: width }}>
+                  </div>
+                </div>
+              </div>
+            ) :
+            (
+              <div className={classes} {...others}>
+                <span className={`${prefix}-waveBefore`} style={{ top: top }}></span>
+                <div className={innerClass}>
+                </div>
+                <span className={`${prefix}-waveAfter`} style={{ top: top }}></span>
+              </div>
+            )
   }
 }

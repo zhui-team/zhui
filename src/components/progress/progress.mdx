@@ -15,15 +15,10 @@ import Progress from './index.js'
 ### 基本用法
 
 <Playground>
+  <Progress precent={3} />
   <Progress precent={30} />
   <Progress precent={70} status='exception'/>
   <Progress precent={100} />
-</Playground>
-
-### 隐藏信息
-
-<Playground>
-  <Progress precent={70} status='exception' showInfo={false}/>
 </Playground>
 
 ### 圆形
@@ -31,16 +26,7 @@ import Progress from './index.js'
 待设计
 
 <Playground>
-  <Progress precent={70} status='exception' type='circle' />
-</Playground>
-
-### 主题
-
-参考首页的提供配色
-
-<Playground>
-  <Progress precent={50} theme='ganglan'/>
-  <Progress precent={50} theme='huaqing'/>
+  <Progress precent={85} type='circle' />
 </Playground>
 
 ## 属性
