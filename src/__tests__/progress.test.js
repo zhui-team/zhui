@@ -57,8 +57,4 @@ describe('Progress Circle Test', () => {
     expect(wrapper.hasClass('zhui-progress-circle')).toBe(true);
     expect(wrapper.hasClass('zhui-progress-wrapper')).toBe(true);
   });
-
-  it('2. 测试success存在', () => {
-    expect(wrapper.find('.zhui-progress-success').find('.zhui-progress-bg').exists()).toBe(true);
-  });
 });

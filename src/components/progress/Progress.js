@@ -44,21 +44,21 @@ export default class Progress extends PureComponent {
     const top = -precent * 2;
 
     return type !== 'circle' ?
-            (
-              <div className={classes} {...others}>
-                <div className={innerClass}>
-                  <div className={`${prefix}-bg`} style={{ width: width }}>
-                  </div>
-                </div>
-              </div>
-            ) :
-            (
-              <div className={classes} {...others}>
-                <span className={`${prefix}-waveBefore`} style={{ top: top }}></span>
-                <div className={innerClass}>
-                </div>
-                <span className={`${prefix}-waveAfter`} style={{ top: top }}></span>
-              </div>
-            )
+      (
+        <div className={classes} {...others}>
+          <div className={innerClass}>
+            <div className={`${prefix}-bg`} style={{ width: width }}>
+            </div>
+          </div>
+        </div>
+      ) :
+      (
+        <div className={classes} {...others}>
+          <span className={`${prefix}-waveBefore`} style={{ top: top }}></span>
+          <div className={innerClass}>
+          </div>
+          <span className={`${prefix}-waveAfter`} style={{ top: top }}></span>
+        </div>
+      );
   }
 }
