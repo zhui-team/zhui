@@ -41,7 +41,8 @@ export default class Progress extends PureComponent {
       [`${prefix}-success`]: precent >= 100,
     });
     const width = precent + '%';
-    const top = -precent * 2;
+    const rest = 100 - precent + '%';
+    const top = -precent * (120 / 100);
 
     return type !== 'circle' ?
       (
@@ -49,6 +50,7 @@ export default class Progress extends PureComponent {
           <div className={innerClass}>
             <div className={`${prefix}-bg`} style={{ width: width }}>
             </div>
+            <div className={`${prefix}-rest`} style={{ width: rest }}></div>
           </div>
         </div>
       ) :

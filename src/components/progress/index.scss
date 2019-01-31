@@ -1,4 +1,5 @@
 @import '../color.scss';
+$circleWidth: 120px;
 
 .zhui-progress {
   &-line {
@@ -23,6 +24,15 @@
         position: relative;
         height: inherit;
         border-bottom: 10px solid #000;
+        animation: width .2s linear;
+      }
+      
+      &-rest {
+        display: inline-block;
+        position: relative;
+        height: inherit;
+        border-bottom: 15px solid #888;
+        animation: width .2s linear;
       }
 
       &-active, &-exception {
@@ -77,17 +87,17 @@
 
   &-circle {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: $circleWidth;
+    height: $circleWidth;
     box-shadow:0 0 2px #ddd;
-    border-radius:50%;
+    border-radius: 50%;
     background-image:
       radial-gradient(#000 12px, transparent 12px),
       radial-gradient(#fff 12px, transparent 12px),
-      radial-gradient(#fff 50px, transparent 50px),
-      radial-gradient(#000 50px, transparent 50px),
-      linear-gradient(90deg,#000 100px, #fff 100px);
-    background-position:center 50px,center -50px,center 50px,center -50px,0 0;
+      radial-gradient(#fff $circleWidth / 4, transparent $circleWidth / 4),
+      radial-gradient(#000 $circleWidth / 4, transparent $circleWidth / 4),
+      linear-gradient(90deg,#000 $circleWidth / 2, #fff $circleWidth / 2);
+    background-position:center $circleWidth / 4,center (-$circleWidth / 4),center $circleWidth / 4,center (-$circleWidth / 4), 0 0;
     overflow: hidden;
 
     .zhui-progress {
@@ -100,9 +110,8 @@
       &-waveAfter{
         content: "";
         position: absolute;
-        width: 200px;
-        height: 200px;
-        top: -170px;
+        width: $circleWidth;
+        height: $circleWidth;
         left: 50%;
         background-color: rgba(255, 255, 255, .8);
         border-radius: 45%;
