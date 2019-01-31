@@ -82,9 +82,9 @@ export default class Alert extends PureComponent {
 
     return (
       <div className={classes} {...nodeProps}>
-        { closable && <span className={`${prefix}-closable`}  onClick={this.onClose}></span>}
+        {closable && <span className={`${prefix}-closable`} onClick={this.onClose}></span>}
         <div className={`${prefix}-inner`}>
-          {message}        
+          {message}
         </div>
       </div>
     );
