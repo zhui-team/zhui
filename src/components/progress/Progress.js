@@ -55,10 +55,10 @@ export default class Progress extends PureComponent {
         </div>
       ) :
       (
-        <div 
+        <div
           className={cn(classes, {
             [`${prefix}-circle-success`]: precent >= 100,
-          })} 
+          })}
           {...others}
         >
           <span className={`${prefix}-waveBefore`} style={{ top: top }}></span>
