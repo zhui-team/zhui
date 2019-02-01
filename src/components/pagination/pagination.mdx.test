@@ -1,0 +1,23 @@
+---
+name: ^分页 pagination
+route: /pagination
+---
+
+import { Playground, PropsTable } from 'docz'
+import Pagination from './index.js'
+
+# 分页
+
+待设计
+
+## 代码演示
+
+### 基本用法
+
+<Playground>
+  <Pagination current={1} total={3}/>
+</Playground>
+
+## 属性
+
+<PropsTable of={Pagination} />

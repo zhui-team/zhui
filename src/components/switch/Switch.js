@@ -56,9 +56,9 @@ export default class Switch extends PureComponent {
     });
 
     return (
-      <div class={classes} {...others} onClick={this.toggle}>
+      <div className={classes} {...others} onClick={this.toggle}>
         switch
       </div>
-    )
+    );
   }
 }
