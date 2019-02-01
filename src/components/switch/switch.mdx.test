@@ -1,0 +1,23 @@
+---
+name: ^开关 switch
+route: /switch
+---
+
+import { Playground, PropsTable } from 'docz'
+import Switch from './index.js'
+
+# 进度条
+
+## 代码演示
+
+### 基本用法
+
+<Playground>
+  <Switch />
+</Playground>
+
+### 圆形
+
+## 属性
+
+<PropsTable of={Switch} />

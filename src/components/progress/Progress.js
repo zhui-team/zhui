@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'astro-classname';
 
-
 import './index.scss';
 
 export default class Progress extends PureComponent {
