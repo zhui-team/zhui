@@ -89,23 +89,28 @@ $circleWidth: 120px;
     position: relative;
     width: $circleWidth;
     height: $circleWidth;
-    box-shadow:0 0 2px #ddd;
+    box-shadow: 0 0 2px #ddd;
     border-radius: 50%;
     background-image:
-      radial-gradient(#000 12px, transparent 12px),
-      radial-gradient(#fff 12px, transparent 12px),
-      radial-gradient(#fff $circleWidth / 4, transparent $circleWidth / 4),
-      radial-gradient(#000 $circleWidth / 4, transparent $circleWidth / 4),
+      radial-gradient(#000 11px, transparent 12px),
+      radial-gradient(#fff 11px, transparent 12px),
+      radial-gradient(#fff $circleWidth / 4 - 1, transparent $circleWidth / 4 + 1),
+      radial-gradient(#000 $circleWidth / 4 - 1, transparent $circleWidth / 4 + 1),
       linear-gradient(90deg,#000 $circleWidth / 2, #fff $circleWidth / 2);
-    background-position:center $circleWidth / 4,center (-$circleWidth / 4),center $circleWidth / 4,center (-$circleWidth / 4), 0 0;
+    background-position: center $circleWidth / 4,center (-$circleWidth / 4),center $circleWidth / 4,center (-$circleWidth / 4), 0 0;
     overflow: hidden;
 
+    &-success {
+      animation: circleRotate 5s linear infinite;
+      transform-origin: center center;
+    }
     .zhui-progress {
       &-inner {
         position: relative;
         width: inherit;
         height: inherit;
       }
+
       &-waveBefore,
       &-waveAfter{
         content: "";
@@ -116,7 +121,7 @@ $circleWidth: 120px;
         background-color: rgba(255, 255, 255, .8);
         border-radius: 45%;
         transform: translate(-50%, -0%) rotate(0);
-        animation: rotate 6s linear infinite;
+        animation: waveRotate 6s linear infinite;
         z-index: 10;
       }
 
@@ -124,7 +129,7 @@ $circleWidth: 120px;
         border-radius: 47%;
         background-color: rgba(255, 255, 255, .9);
         transform: translate(-50%, -0%) rotate(0);
-        animation: rotate 10s linear -5s infinite;
+        animation: waveRotate 10s linear -5s infinite;
         z-index: 20;
       }
     }
@@ -149,10 +154,16 @@ $circleWidth: 120px;
   }
 }
 
-@keyframes rotate {
+@keyframes waveRotate {
   50% {
-      transform: translate(-50%, -3%) rotate(180deg);
+    transform: translate(-50%, -3%) rotate(180deg);
   } 100% {
-      transform: translate(-50%, 0) rotate(360deg);
+    transform: translate(-50%, 0) rotate(360deg);
+  }
+}
+
+@keyframes circleRotate {
+  100% {
+    transform: rotate(360deg);
   }
 }

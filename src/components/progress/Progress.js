@@ -42,7 +42,7 @@ export default class Progress extends PureComponent {
     });
     const width = precent + '%';
     const rest = 100 - precent + '%';
-    const top = -precent * (120 / 100);
+    const top = -precent * (120 / 100) - 1;
 
     return type !== 'circle' ?
       (
@@ -55,10 +55,13 @@ export default class Progress extends PureComponent {
         </div>
       ) :
       (
-        <div className={classes} {...others}>
+        <div 
+          className={cn(classes, {
+            [`${prefix}-circle-success`]: precent >= 100,
+          })} 
+          {...others}
+        >
           <span className={`${prefix}-waveBefore`} style={{ top: top }}></span>
-          <div className={innerClass}>
-          </div>
           <span className={`${prefix}-waveAfter`} style={{ top: top }}></span>
         </div>
       );
