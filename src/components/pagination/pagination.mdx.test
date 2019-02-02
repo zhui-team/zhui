@@ -15,7 +15,7 @@ import Pagination from './index.js'
 ### 基本用法
 
 <Playground>
-  <Pagination current={1} total={3}/>
+  <Pagination current={1} total={3} showTotal={true}/>
 </Playground>
 
 ## 属性

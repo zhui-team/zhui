@@ -1,0 +1,10 @@
+.zhui-pagination {
+  span {
+    margin: 0 5px;
+    cursor: pointer;
+  }
+
+  &-active {
+    color: red;
+  }
+}
