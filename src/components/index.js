@@ -6,3 +6,4 @@ export { default as Checkbox } from './checkbox/Checkbox';
 export { default as Breadcrumb } from './breadcrumb/Breadcrumb';
 export { default as Progress } from './progress/Progress';
 export { default as Switch } from './switch/Switch';
+export { default as Loading } from './loading/Loading';

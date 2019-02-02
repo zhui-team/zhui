@@ -32,14 +32,14 @@ export default class Switch extends PureComponent {
   renderList = () => {
     const { total, current } = this.props;
     let list = [];
-    for(let i = 0 ; i < total ; i++) {
-      i + 1 === current ? 
+    for (let i = 0; i < total; i++) {
+      i + 1 === current ?
         list.push(
-          <span key={i} onClick={this._onChange} className='zhui-pagination-active'>{i + 1}</span>
+          <span key={i} onClick={this._onChange} className={'zhui-pagination-active'}>{i + 1}</span>
         ) :
         list.push(
           <span key={i} onClick={this._onChange}>{i + 1}</span>
-        )
+        );
     }
 
     return list;
@@ -63,9 +63,9 @@ export default class Switch extends PureComponent {
 
     return (
       <div className={classes} {...others}>
-      {
-        showTotal && <span>共{total}页，当前{current}页</span>
-      }
+        {
+          showTotal && <span>共{total}页，当前{current}页</span>
+        }
         <span>last</span>
         {
           this.renderList()
