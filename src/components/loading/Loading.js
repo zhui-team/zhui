@@ -37,14 +37,14 @@ export default class Loading extends PureComponent {
       <div className={cn(`${prefix}-container`, {
         [`${prefix}-container-fill`]: React.Children.count(children) !== 0,
       })}>
-      {
-        show &&
-        <div className={classes} {...others}>
-          <div className={prefix}>
+        {
+          show &&
+          <div className={classes} {...others}>
+            <div className={prefix}>
+            </div>
           </div>
-        </div>
-      }
-      { children }
+        }
+        {children}
       </div>
     );
   }
