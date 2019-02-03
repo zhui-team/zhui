@@ -1,0 +1,37 @@
+---
+name: ^加载 loading
+route: /loading
+---
+
+import { Playground, PropsTable } from 'docz'
+import Loading from './index.js'
+
+# 加载
+
+## 代码演示
+
+### 基本用法
+
+<Playground>
+  <Loading />
+</Playground>
+
+### 包裹
+
+<Playground>
+  <Loading>
+    <p style={{height: 200, textAlign: 'center'}}>我被包住啦</p>
+  </Loading>
+</Playground>
+
+### 全图
+
+开启global后loading范围为整个屏幕
+
+<Playground>
+  <Loading global show={false}/>
+</Playground>
+
+## 属性
+
+<PropsTable of={Loading} />

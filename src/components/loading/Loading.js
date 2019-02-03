@@ -29,15 +29,23 @@ export default class Loading extends PureComponent {
       ...others
     } = this.props;
 
-    const classes = cn(className, prefix, {
+    const classes = cn(className, `${prefix}-wrapper`, {
       [`${prefix}-global`]: global
     });
 
     return (
-      show &&
+      <div className={cn(`${prefix}-container`, {
+        [`${prefix}-container-fill`]: React.Children.count(children) !== 0,
+      })}>
+      {
+        show &&
         <div className={classes} {...others}>
-          Loading
+          <div className={prefix}>
+          </div>
         </div>
+      }
+      { children }
+      </div>
     );
   }
 }
