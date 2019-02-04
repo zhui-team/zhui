@@ -1,0 +1,24 @@
+.zhui-breadcrumb {
+  &-item {
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .2s linear;
+  }
+
+  &-item:not(:last-child) {
+    margin-right: 10px;
+    color: #999;
+
+    &:hover {
+      color: #62b7ec;
+    }
+
+    &::after {
+      content: '/';
+      display: inline-block;
+      margin-left: 10px;
+      color: #999;
+    }
+  }
+}
