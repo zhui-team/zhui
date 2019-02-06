@@ -1,23 +1,23 @@
 ---
-name: ^开关 switch
-route: /switch
+name: ^步骤条 steps
+route: /steps
 ---
 
 import { Playground, PropsTable } from 'docz'
-import Switch from './index.js'
+import Steps from './index.js'
 
-# 开关
+# 步骤条
 
 ## 代码演示
 
 ### 基本用法
 
 <Playground>
-  <Switch />
+  <Steps />
 </Playground>
 
 ### 圆形
 
 ## 属性
 
-<PropsTable of={Switch} />
+<PropsTable of={Steps} />
