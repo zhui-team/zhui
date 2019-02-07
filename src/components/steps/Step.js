@@ -1,42 +1,42 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'astro-classname';
-import StepRender from './StepRender';
 
 import './index.scss';
 
-export default class Steps extends PureComponent {
+export default class Step extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
     prefix: PropTypes.string,
-    current: PropTypes.number,
-    status: PropTypes.oneOf(['default', 'error']),
-    disabled: PropTypes.bool
+    title: PropTypes.string,
+    isCurrent: PropTypes.bool,
+    status: PropTypes.oneOf(['default', 'error', 'finished', 'wait'])
   }
 
   static defaultProps = {
     className: '',
-    prefix: 'zhui-steps',
-    disabled: false
+    prefix: 'zhui-step',
   }
 
   render() {
     const {
       className,
       prefix,
-      disabled,
-      children,
+      title,
+      status,
+      isCurrent,
       ...others
     } = this.props;
 
     const classes = cn(className, prefix, {
-      [`${prefix}-disabled`]: disabled
+      [`${prefix}-${status}`]: status !== 'default',
+      [`${prefix}-current`]: isCurrent,
     });
 
     return (
-      <StepRender className={classes} {...others}>
-        {children}
-      </StepRender>
+      <div className={classes} {...others}>
+        {title}
+      </div>
     );
   }
 }

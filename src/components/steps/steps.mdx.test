@@ -13,7 +13,9 @@ import Steps from './index.js'
 ### 基本用法
 
 <Playground>
-  <Steps />
+  <Steps>
+    <Steps.Step title='steps' />
+  </Steps>
 </Playground>
 
 ### 圆形
