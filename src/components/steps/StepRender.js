@@ -26,7 +26,9 @@ export default class StepRender extends PureComponent {
             (item, index) => {
               let curIndex = index + 1;
               const props = {
-                isCurrent: curIndex === current
+                isCurrent: curIndex === current,
+                isLast: curIndex === children.length,
+                stepNum: curIndex
               };
 
               props.status = curIndex < current ?

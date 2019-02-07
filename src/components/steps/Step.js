@@ -10,7 +10,9 @@ export default class Step extends PureComponent {
     prefix: PropTypes.string,
     title: PropTypes.string,
     isCurrent: PropTypes.bool,
-    status: PropTypes.oneOf(['default', 'error', 'finished', 'wait'])
+    isLast: PropTypes.bool,
+    status: PropTypes.oneOf(['default', 'error', 'finished', 'wait']),
+    stepNum: PropTypes.number
   }
 
   static defaultProps = {
@@ -25,17 +27,21 @@ export default class Step extends PureComponent {
       title,
       status,
       isCurrent,
+      isLast,
+      stepNum,
       ...others
     } = this.props;
 
     const classes = cn(className, prefix, {
-      [`${prefix}-${status}`]: status !== 'default',
+      [`${prefix}-${status}`]: status && status !== 'default',
       [`${prefix}-current`]: isCurrent,
     });
 
     return (
       <div className={classes} {...others}>
-        {title}
+        {!isLast && <i className={`${prefix}-tail`} />}
+        <span className={`${prefix}-num`}>{stepNum}</span>
+        <div className={`${prefix}-title`}>{title}</div>
       </div>
     );
   }

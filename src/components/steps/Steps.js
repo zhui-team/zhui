@@ -17,7 +17,8 @@ export default class Steps extends PureComponent {
   static defaultProps = {
     className: '',
     prefix: 'zhui-steps',
-    disabled: false
+    disabled: false,
+    current: 1
   }
 
   render() {

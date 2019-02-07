@@ -14,12 +14,29 @@ import Steps from './index.js'
 
 <Playground>
   <Steps>
-    <Steps.Step title='steps' />
+    <Steps.Step title='steps1' />
+    <Steps.Step title='steps2' />
+    <Steps.Step title='steps3' />
   </Steps>
 </Playground>
 
-### 圆形
+### 状态
+
+<Playground>
+  <Steps current={3} status='error'>
+    <Steps.Step title='steps1' />
+    <Steps.Step title='steps2' />
+    <Steps.Step title='steps3' />
+    <Steps.Step title='steps4' />
+  </Steps>
+</Playground>
 
 ## 属性
 
+### Steps
+
 <PropsTable of={Steps} />
+
+### Step
+
+<PropsTable of={Steps.Step} />
