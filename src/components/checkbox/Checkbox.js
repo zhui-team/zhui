@@ -78,12 +78,14 @@ export default class Checkbox extends PureComponent {
     return (
       <div className={classes} {...nodeProps}>
         <input
+          className="zhui-checkbox-input"
           type="checkbox"
           onChange={this._onChange}
           disabled={disabled}
           {...others}
         />
-        {children && <span>{children}</span>}
+        <span className="zhui-checkbox-inner"></span>
+        {children && <span className="zhui-checkbox-text">{children}</span>}
       </div>
     );
   }

@@ -2,6 +2,62 @@
 
 .zhui-checkbox {
   &-wrapper {
-    display: inline-block;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    z-index: 1;
+  }
+
+  &-input {
+    position: absolute;
+    width: 22px;
+    height: 25px;
+    opacity: 0;
+    z-index: 1;
+    margin: 0;
+    
+    + .zhui-checkbox-inner {
+      position: relative;
+      display: inline-block;
+      width: 22px;
+      height: 25px;
+      border-radius: 41%;
+      box-shadow: inset 0px 0px 10px 7px $yuanshan;
+      transition: all .3s linear;
+
+      &::before, &::after {
+        position: absolute;
+        content: '';
+      }
+
+      &:before {
+        top: -3px;
+        left: 7px;
+        width: 8px;
+        height: 6px;
+        border-radius: 100%;
+        background: #493E44;
+        z-index: -1;
+      }
+  
+      &:after {
+        background: #493E44;
+        width: 10px;
+        height: 4px;
+        top: 24px;
+        left: 6px;
+        z-index: -1;
+      }
+    }
+
+    &:checked + .zhui-checkbox-inner {
+      background-color: #ff0;
+      box-shadow: inset 0px 0px 10px 7px rgba(250, 0, 0, 1);
+    }
+  }
+
+  &-text {
+    font-size: 14px;
+    margin-left: 3px;
   }
 }

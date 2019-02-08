@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from './components';
+import { Button, Checkbox } from './components';
 
 class App extends Component {
   myClick() {
@@ -9,6 +9,7 @@ class App extends Component {
     return (
       <div className="App" style={{ background: '#333', height: 100 }}>
         <Button onClick={this.myClick}>aaaa</Button>
+        <Checkbox />
       </div>
     );
   }
