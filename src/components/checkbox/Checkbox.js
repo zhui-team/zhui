@@ -82,6 +82,7 @@ export default class Checkbox extends PureComponent {
           type="checkbox"
           onChange={this._onChange}
           disabled={disabled}
+          checked={checked}
           {...others}
         />
         <span className="zhui-checkbox-inner"></span>

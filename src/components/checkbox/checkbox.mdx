@@ -1,5 +1,5 @@
 ---
-name: ^复选框 checkbox
+name: 复选框 checkbox
 route: /checkbox
 ---
 
@@ -8,23 +8,29 @@ import Checkbox from './index.js'
 
 # 复选框
 
-待设计
-
 ## 代码演示
+
+checked状态由外部来维护
 
 ### 基本用法
 
 <Playground>
-  <Checkbox>灯笼</Checkbox>
+  <Checkbox checked={true}>灯笼</Checkbox>
+</Playground>
+
+### 不可用
+
+<Playground>
+  <Checkbox disabled checked/>
 </Playground>
 
 ### 组
 
 <Playground>
-  <Checkbox.Group>
-    <Checkbox />
-    <Checkbox />
-    <Checkbox />
+  <Checkbox.Group value={['active1', 'active3']}>
+    <Checkbox value='active1'/>
+    <Checkbox value='active2'/>
+    <Checkbox value='active3'/>
   </Checkbox.Group>
 </Playground>
 

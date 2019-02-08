@@ -15,7 +15,7 @@
     opacity: 0;
     z-index: 1;
     margin: 0;
-    
+
     + .zhui-checkbox-inner {
       position: relative;
       display: inline-block;
@@ -59,5 +59,11 @@
   &-text {
     font-size: 14px;
     margin-left: 3px;
+  }
+
+  &-disabled {
+    .zhui-checkbox-inner {
+      box-shadow: inset 0px 0px 10px 10px $yuanshan !important;
+    }
   }
 }
