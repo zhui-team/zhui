@@ -12,10 +12,6 @@ describe('Progress Default Test', () => {
     expect(wrapper.hasClass('zhui-progress-line')).toBe(true);
     expect(wrapper.hasClass('zhui-progress-wrapper')).toBe(true);
   });
-
-  it('2. 测试active和bg存在', () => {
-    expect(wrapper.find('.zhui-progress-active').find('.zhui-progress-bg').exists()).toBe(true);
-  });
 });
 
 describe('Progress Exception Test', () => {
@@ -27,10 +23,6 @@ describe('Progress Exception Test', () => {
     expect(wrapper.hasClass('zhui-progress-line')).toBe(true);
     expect(wrapper.hasClass('zhui-progress-wrapper')).toBe(true);
   });
-
-  it('2. 测试exception存在', () => {
-    expect(wrapper.find('.zhui-progress-exception').find('.zhui-progress-bg').exists()).toBe(true);
-  });
 });
 
 describe('Progress Success Test', () => {
@@ -41,10 +33,6 @@ describe('Progress Success Test', () => {
   it('1. 测试默认class存在', () => {
     expect(wrapper.hasClass('zhui-progress-line')).toBe(true);
     expect(wrapper.hasClass('zhui-progress-wrapper')).toBe(true);
-  });
-
-  it('2. 测试success存在', () => {
-    expect(wrapper.find('.zhui-progress-success').find('.zhui-progress-bg').exists()).toBe(true);
   });
 });
 

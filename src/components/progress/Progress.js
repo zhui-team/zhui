@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'astro-classname';
 
+import getRotate from '../../utils/getRotate';
 import './index.scss';
 
 export default class Progress extends PureComponent {
@@ -10,6 +11,7 @@ export default class Progress extends PureComponent {
     prefix: PropTypes.string,
     type: PropTypes.oneOf(['line', 'circle']),
     status: PropTypes.oneOf(['active', 'exception']),
+    showInfo: PropTypes.bool,
     precent: PropTypes.number
   }
 
@@ -17,6 +19,7 @@ export default class Progress extends PureComponent {
     className: '',
     prefix: 'zhui-progress',
     type: 'line',
+    showInfo: true,
     status: 'active',
     precent: 0,
   }
@@ -27,6 +30,7 @@ export default class Progress extends PureComponent {
       prefix,
       type,
       precent,
+      showInfo,
       status,
       ...others
     } = this.props;
@@ -41,16 +45,22 @@ export default class Progress extends PureComponent {
     });
     const width = precent + '%';
     const rest = 100 - precent + '%';
-    const top = -precent * (120 / 100) - 1;
+    let start = 3;
+    let rotate = precent <= 50 ? getRotate(start, precent) : getRotate(start, 101 - precent);
 
     return type !== 'circle' ?
       (
         <div className={classes} {...others}>
-          <div className={innerClass}>
-            <div className={`${prefix}-bg`} style={{ width: width }}>
-            </div>
-            <div className={`${prefix}-rest`} style={{ width: rest }}></div>
-          </div>
+          <span
+            className={innerClass}
+            style={{ width, transform: `rotateZ(${precent <= 50 ? start : -rotate}deg)` }}
+          >
+            {showInfo && <span className="zhui-progress-tag">{precent}</span>}
+          </span>
+          <span
+            className="zhui-progress-outer"
+            style={{ width: rest, transform: `rotateZ(${precent <= 50 ? rotate : -start}deg)` }}
+          ></span>
         </div>
       ) :
       (
@@ -60,8 +70,6 @@ export default class Progress extends PureComponent {
           })}
           {...others}
         >
-          <span className={`${prefix}-waveBefore`} style={{ top: top }}></span>
-          <span className={`${prefix}-waveAfter`} style={{ top: top }}></span>
         </div>
       );
   }
