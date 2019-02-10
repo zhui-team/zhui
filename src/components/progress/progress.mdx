@@ -13,7 +13,18 @@ import Progress from './index.js'
 ### 基本用法
 
 <Playground>
-  <Progress precent={60} />
+  <Progress precent={1} />
+  <Progress precent={50} />
+  <Progress precent={30} status='exception' />
+</Playground>
+
+
+### 隐藏数据
+
+不建议， 这会让组件失去灵魂
+
+<Playground>
+  <Progress precent={50} showInfo={false}/>
 </Playground>
 
 ## 属性

@@ -47,19 +47,21 @@ export default class Progress extends PureComponent {
     const rest = 100 - precent + '%';
     let start = 3;
     let rotate = precent <= 50 ? getRotate(start, precent) : getRotate(start, 101 - precent);
+    let xRotate = showInfo ? `rotateZ(${precent <= 50 ? start : -rotate}deg)` : '';
+    let yRotate = showInfo ? `rotateZ(${precent <= 50 ? rotate : -start}deg)` : '';
 
     return type !== 'circle' ?
       (
         <div className={classes} {...others}>
           <span
             className={innerClass}
-            style={{ width, transform: `rotateZ(${precent <= 50 ? start : -rotate}deg)` }}
+            style={{ width, transform: xRotate }}
           >
             {showInfo && <span className="zhui-progress-tag">{precent}</span>}
           </span>
           <span
             className="zhui-progress-outer"
-            style={{ width: rest, transform: `rotateZ(${precent <= 50 ? rotate : -start}deg)` }}
+            style={{ width: rest, transform: yRotate }}
           ></span>
         </div>
       ) :

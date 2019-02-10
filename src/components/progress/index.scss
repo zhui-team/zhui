@@ -2,7 +2,7 @@
 
 .zhui-progress {
   &-line {
-    margin-bottom: 26px;
+    margin-bottom: 42px;
     height: 4px;
     border-radius: 4px;
   }
@@ -40,6 +40,7 @@
     border-top-left-radius: 20px;
     padding-top: 10px;
     text-align: center;
+    transform-origin: top;
 
     &::before {
       content: '';
@@ -51,5 +52,29 @@
       background: #f5f5f5;
       border-radius: 50%;
     }
+  }
+
+  &-active .zhui-progress-tag {
+    animation: swing 1.7s infinite;    
+  }
+
+  &-exception{
+    background-color: $haitang;
+
+    .zhui-progress-tag {
+      background-color: $haitang;
+    }
+  }
+}
+
+@keyframes swing {
+  0% {
+    transform: rotatez(7deg);
+  }
+  50% {
+    transform: rotatez(-7deg);
+  }
+  100% {
+    transform: rotatez(7deg);
   }
 }
