@@ -72,24 +72,31 @@
     }
   }
   &-kong {
+
     &-mei {
       background:$meihong;
       outline: 5px solid $meihong;
       outline-offset: 2px;
-      margin:10px;
+      margin: 10px;
+      color:#fff;
+      border: none;
     }
+
     &-muyun {
       background:$muyun;
       outline: 5px solid $muyun;
       outline-offset: 2px; 
-      margin:10px;
-      color:white; 
+      margin: 10px;
+      color:#fff;
+      border: none;
     }
+    
     &-yuanshan {
       background:$yuanshan;
       outline: 5px solid $yuanshan;
       outline-offset: 2px;
-      margin:10px;  
+      margin: 10px;
+      border: none;
     }
   }
 

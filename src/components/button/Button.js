@@ -139,7 +139,7 @@ export default class Button extends PureComponent {
     } = this.props;
     let renderName = href || target ? 'renderLink' : 'renderButton';
     const classes =  cn(prefix, className, {
-      [`${prefix}-${type}${outline ? '-outline' : ''}`]: type,
+      [`${prefix}-${type}${outline ? '-outline' : ''}`]: type && !kong,
       [`${prefix}-${size}`]: size && size !== 'medium',
       [`${prefix}-disabled`]: disabled,
       [`${prefix}-loading`]: loading,
