@@ -11,6 +11,7 @@
 ## 起步
 
 [文档](https://zhui-team.github.io/zhui/)
+[心路历程](https://juejin.im/post/5c617a355188256299385138)
 
 可以用star来鼓励一下作者么？
 
