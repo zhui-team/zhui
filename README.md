@@ -6,6 +6,7 @@
   <img src='https://img.shields.io/badge/language-javascript-1770a8.svg?style=flat-square' />
   <img src='https://img.shields.io/badge/license-MIT-0f1423.svg?style=flat-square' />
   <img src='https://img.shields.io/badge/style-Chinese-c45a65.svg?style=flat-square' />
+  <img src='https://s2.ax1x.com/2019/02/12/kdzbqA.md.png' height="73" width="263">
 </div>
 
 ## 起步
