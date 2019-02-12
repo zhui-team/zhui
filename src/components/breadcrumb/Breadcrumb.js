@@ -4,7 +4,7 @@ import cn from 'astro-classname';
 
 import BreadcrumbItem from './BreadcrumbItem';
 
-import './index.scss';
+import './index.css';
 
 export default class Breadcrumb extends PureComponent {
   static propTypes = {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'astro-classname';
 import StepRender from './StepRender';
 
-import './index.scss';
+import './index.css';
 
 export default class Steps extends PureComponent {
   static propTypes = {

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import './index.scss';
+import './index.css';
 
 export default class StepRender extends PureComponent {
   static propTypes = {

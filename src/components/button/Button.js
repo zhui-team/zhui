@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import cn from 'astro-classname';
 
-import './index.scss';
+import './index.css';
 
 const BLACK_LIST = [
   'type',

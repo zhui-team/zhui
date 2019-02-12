@@ -6,6 +6,8 @@ route: /switch
 import { Playground, PropsTable } from 'docz'
 import Switch from './index.js'
 
+import './index.scss'
+
 # 开关
 
 ## 代码演示

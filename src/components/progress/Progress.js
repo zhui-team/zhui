@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'astro-classname';
 
-import getRotate from '../../utils/getRotate';
-import './index.scss';
+import getRotate from '../utils/getRotate';
+import './index.css';
 
 export default class Progress extends PureComponent {
   static propTypes = {

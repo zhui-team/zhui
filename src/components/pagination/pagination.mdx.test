@@ -6,6 +6,8 @@ route: /pagination
 import { Playground, PropsTable } from 'docz'
 import Pagination from './index.js'
 
+import './index.scss'
+
 # 分页
 
 待设计

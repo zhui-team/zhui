@@ -6,6 +6,8 @@ route: /steps
 import { Playground, PropsTable } from 'docz'
 import Steps from './index.js'
 
+import './index.scss'
+
 # 步骤条
 
 ## 代码演示

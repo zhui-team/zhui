@@ -6,6 +6,8 @@ route: /breadcrumb
 import { Playground, PropsTable } from 'docz'
 import Breadcrumb from './index.js'
 
+import './index.scss'
+
 # 面包屑导航
 
 待设计
