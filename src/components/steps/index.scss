@@ -9,26 +9,42 @@
   flex: 1;
 
   &-num {
+    box-sizing: border-box;
     position: relative;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
+    width: 26px;
+    height: 26px;
+    line-height: 2;
     text-align: center;
     font-size: 12px;
-    background: $default;
-    color: #fff;
+    background: #fff;
     border-radius: 50%;
+    border: 1px dashed $muyun;
+    box-shadow: 0 0 0 2px #fff,0 0 0 4px $muyun;
+    color: $muyun;
+    margin: 0 auto;
     z-index: 2;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -22px;
+      left: 11px;
+      width: 2px;
+      height: 18px;
+      background: $muyun;
+    }
   }
 
   &-title {
     font-size: 14px;
+    margin-top: 20px;
+    text-align: center;
   }
 
   &-tail {
     position: absolute;
     top: 15px;
+    left: 50%;
     width: 100%;
     height: 2px;
     z-index: 1;
@@ -37,7 +53,7 @@
 
   &-finished {
     .zhui-step-tail {
-      background: $default;
+      background: $muyun;
     }
   }
 
@@ -49,19 +65,29 @@
   
   &-wait {
     .zhui-step-num {
-      background: $yuanshan;
+      border-color: $yuanshan;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px $yuanshan;
+      color: $yuanshan;
+
+      &::after {
+        background: $yuanshan;
+      }
     }
+
+    color: $yuanshan;
   }
 
   &-error {
-    .zhui-step {
-      &-num {
-        background: $haitang;
-      }
+    .zhui-step-num {
+      border-color: $meihong;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px $meihong;
+      color: $meihong;
 
-      &-title {
-        color: $haitang;
+      &::after {
+        background: $meihong;
       }
     }
+
+    color: $meihong;
   }
 }

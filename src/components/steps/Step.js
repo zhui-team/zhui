@@ -40,7 +40,7 @@ export default class Step extends PureComponent {
     return (
       <div className={classes} {...others}>
         {!isLast && <i className={`${prefix}-tail`} />}
-        <span className={`${prefix}-num`}>{stepNum}</span>
+        <div className={`${prefix}-num`}>{stepNum}</div>
         <div className={`${prefix}-title`}>{title}</div>
       </div>
     );
