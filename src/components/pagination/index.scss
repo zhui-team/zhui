@@ -1,5 +1,9 @@
+@import '../color.scss';
+
 .zhui-pagination {
   span {
+    border: 1px solid red;
+    padding: 10px;
     margin: 0 5px;
     cursor: pointer;
   }

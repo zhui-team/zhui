@@ -23,6 +23,10 @@ export default class Switch extends PureComponent {
     onChange: () => null
   }
 
+  state = {
+    current: this.props.current
+  }
+
   _onChange = e => {
     const { onChange } = this.props;
     let page = e.currentTarget.innerText;
@@ -30,8 +34,10 @@ export default class Switch extends PureComponent {
   }
 
   renderList = () => {
-    const { total, current } = this.props;
+    const { total } = this.props;
+    const { current } = this.state;
     let list = [];
+
     for (let i = 0; i < total; i++) {
       i + 1 === current ?
         list.push(
@@ -45,17 +51,29 @@ export default class Switch extends PureComponent {
     return list;
   }
 
+  togglePage(isGoBack) {
+    const { current } = this.state;
+    if(isGoBack && current > 1) {
+      this.setState({
+        current: current - 1
+      })
+    } else if (!isGoBack && current < this.props.total) {
+      this.setState({
+        current: current + 1
+      })
+    }
+  }
+
   render() {
-    let {
+    const {
       className,
       prefix,
-      current,
       pageSize,
       total,
       showTotal,
       ...others
     } = this.props;
-
+    let { current } = this.state;
     const classes = cn(className, prefix);
 
     current = current < 1 ? 1 :
@@ -64,13 +82,13 @@ export default class Switch extends PureComponent {
     return (
       <div className={classes} {...others}>
         {
-          showTotal && <span>共{total}页，当前{current}页</span>
+          showTotal && <span>共{total}页，当前第{current}页</span>
         }
-        <span>last</span>
+        <span onClick={this.togglePage.bind(this, true)}>last</span>
         {
           this.renderList()
         }
-        <span>next</span>
+        <span onClick={this.togglePage.bind(this, false)}>next</span>
       </div>
     );
   }
