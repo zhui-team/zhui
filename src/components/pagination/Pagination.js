@@ -31,6 +31,9 @@ export default class Switch extends PureComponent {
     const { onChange } = this.props;
     let page = e.currentTarget.innerText;
     onChange(page, e);
+    this.setState({
+      current: Number(page)
+    });
   }
 
   renderList = () => {
@@ -53,14 +56,14 @@ export default class Switch extends PureComponent {
 
   togglePage(isGoBack) {
     const { current } = this.state;
-    if(isGoBack && current > 1) {
+    if (isGoBack && current > 1) {
       this.setState({
         current: current - 1
-      })
+      });
     } else if (!isGoBack && current < this.props.total) {
       this.setState({
         current: current + 1
-      })
+      });
     }
   }
 

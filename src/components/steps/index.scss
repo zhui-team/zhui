@@ -23,6 +23,7 @@
     color: $muyun;
     margin: 0 auto;
     z-index: 2;
+    transition: all .1s linear;
 
     &::after {
       content: '';
@@ -33,12 +34,21 @@
       height: 18px;
       background: $muyun;
     }
+
+    &:hover {
+      transform: scale(1.1, 1.1);
+
+      + .zhui-step-title {
+        transform: scale(1.1, 1.1);
+      }
+    }
   }
 
   &-title {
     font-size: 14px;
     margin-top: 20px;
     text-align: center;
+    transition: all .1s linear;
   }
 
   &-tail {

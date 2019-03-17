@@ -46,10 +46,7 @@ export default class Alert extends PureComponent {
   };
 
   onClose = e => {
-    const { onClose, closable } = this.props;
-    if (!closable) {
-      return;
-    }
+    const { onClose } = this.props;
     if (onClose) {
       onClose(e);
     }
