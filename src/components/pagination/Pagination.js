@@ -87,11 +87,11 @@ export default class Switch extends PureComponent {
         {
           showTotal && <span>共{total}页，当前第{current}页</span>
         }
-        <span onClick={this.togglePage.bind(this, true)}>last</span>
+        <span onClick={this.togglePage.bind(this, true)}>上一页</span>
         {
           this.renderList()
         }
-        <span onClick={this.togglePage.bind(this, false)}>next</span>
+        <span onClick={this.togglePage.bind(this, false)}>下一页</span>
       </div>
     );
   }
