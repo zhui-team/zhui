@@ -1,3 +1,3 @@
-import Dialog from './Dialog';
+import Portal from './Portal';
 
-export default Dialog;
+export default Portal;

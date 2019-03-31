@@ -1,0 +1,24 @@
+---
+name: 任意门 portal
+route: /protal
+---
+
+import { Playground, PropsTable } from 'docz'
+import Portal from './index.js'
+
+# 任意门
+
+## 代码演示
+
+Dialog包裹元素会默认出现在body节点上
+使用dom参数来指定任意的container，规则同querySelector
+
+<Playground>
+  <Portal center>
+    <h1>Dialog</h1>
+  </Portal>
+</Playground>
+
+## 属性
+
+<PropsTable of={Portal} />
