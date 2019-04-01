@@ -1,24 +1,51 @@
+@import '../color.scss';
+
 .zhui-breadcrumb {
   &-item {
+    position: relative;
     font-size: 14px;
     text-decoration: none;
     cursor: pointer;
     transition: all .2s linear;
+    color: $ganglan;
   }
 
   &-item:not(:last-child) {
-    margin-right: 10px;
-    color: #999;
+    margin-right: 25px;
+    color: rgba(0,0,0,0.45);
 
     &:hover {
-      color: #62b7ec;
+      color: $ganglan;
+
+      &::after, &::before {
+        transform: rotate(0);
+        top: -16px;
+        transition: transform .2s linear;
+      }
+
+      &::before {
+        right: -13px;
+      }
+    }
+
+    &::after, &::before {
+      position: absolute;
+      content: '|';
+      font-size: 25px;
+      font-weight: bolder;
+      color: $meihong;
     }
 
     &::after {
-      content: '/';
-      display: inline-block;
-      margin-left: 10px;
-      color: #999;
+      right: -21px;
+      top: -11px;
+      transform: rotate(30deg);
+    }
+
+    &::before {
+      right: -18px;
+      top: -16px;
+      transform: rotate(20deg);
     }
   }
 }
