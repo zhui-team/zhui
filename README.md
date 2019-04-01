@@ -20,6 +20,8 @@
 
 ## 📦 Install
 
+组件库尚未开发完成，慎用
+
 ```
 npm install zhui
 ```
@@ -30,3 +32,5 @@ npm install zhui
 import { Button } from 'zhui';
 ReactDOM.render(<Button />, mountNode);
 ```
+
+额外感谢山鬼同学(@dxiaoqi)对本仓库的设计灵感贡献~
