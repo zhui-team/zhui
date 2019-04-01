@@ -10,7 +10,7 @@ import Portal from './index.js'
 
 ## 代码演示
 
-Dialog包裹元素会默认出现在body节点上
+Portal包裹元素会默认出现在body节点上
 使用dom参数来指定任意的container，规则同querySelector
 
 <Playground>
