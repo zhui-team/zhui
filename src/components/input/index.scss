@@ -140,11 +140,13 @@
     }
   }
 
-  &-disabled, &-disabled + .zhui-input-group-addon {
-    background: $inputBorder !important;
-    color: $inputBorder;
+  &-disabled, &-disabled {
     outline: none !important;
-    border: none !important;
+    border-color: $inputBorder !important;
     cursor: not-allowed;
+
+    + .zhui-input-group-addon {
+      display: none;
+    }
   }
 }

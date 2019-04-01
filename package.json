@@ -1,7 +1,7 @@
 {
   "name": "zhui",
-  "version": "0.1.9",
-  "description": "a Chinese style component library",
+  "version": "0.2.0",
+  "description": "🚀 a Chinese style component library",
   "main": "lib/index.js",
   "module": "esm/index.js",
   "license": "MIT",
