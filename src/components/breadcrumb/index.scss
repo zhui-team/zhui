@@ -16,16 +16,6 @@
 
     &:hover {
       color: $ganglan;
-
-      &::after, &::before {
-        transform: rotate(0);
-        top: -16px;
-        transition: transform .2s linear;
-      }
-
-      &::before {
-        right: -13px;
-      }
     }
 
     &::after, &::before {
