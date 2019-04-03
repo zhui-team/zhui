@@ -12,7 +12,7 @@ export default class Progress extends PureComponent {
     type: PropTypes.oneOf(['line', 'circle']),
     status: PropTypes.oneOf(['active', 'exception']),
     showInfo: PropTypes.bool,
-    precent: PropTypes.number
+    percent: PropTypes.number
   }
 
   static defaultProps = {
@@ -21,7 +21,7 @@ export default class Progress extends PureComponent {
     type: 'line',
     showInfo: true,
     status: 'active',
-    precent: 0,
+    percent: 0,
   }
 
   render() {
@@ -29,7 +29,7 @@ export default class Progress extends PureComponent {
       className,
       prefix,
       type,
-      precent,
+      percent,
       showInfo,
       status,
       ...others
@@ -39,16 +39,16 @@ export default class Progress extends PureComponent {
       [`${prefix}-${type}`]: type,
     });
     const innerClass = cn(`${prefix}-inner`, {
-      [`${prefix}-active`]: precent < 100 && precent > 5 && status !== 'exception',
+      [`${prefix}-active`]: percent < 100 && percent > 5 && status !== 'exception',
       [`${prefix}-exception`]: status === 'exception',
-      [`${prefix}-success`]: precent >= 100,
+      [`${prefix}-success`]: percent >= 100,
     });
-    const width = precent + '%';
-    const rest = 100 - precent + '%';
+    const width = percent + '%';
+    const rest = 100 - percent + '%';
     let start = 3;
-    let rotate = precent <= 50 ? getRotate(start, precent) : getRotate(start, 101 - precent);
-    let xRotate = showInfo ? `rotateZ(${precent <= 50 ? start : -rotate}deg)` : '';
-    let yRotate = showInfo ? `rotateZ(${precent <= 50 ? rotate : -start}deg)` : '';
+    let rotate = percent <= 50 ? getRotate(start, percent) : getRotate(start, 101 - percent);
+    let xRotate = showInfo ? `rotateZ(${percent <= 50 ? start : -rotate}deg)` : '';
+    let yRotate = showInfo ? `rotateZ(${percent <= 50 ? rotate : -start}deg)` : '';
 
     return type !== 'circle' ?
       (
@@ -57,7 +57,7 @@ export default class Progress extends PureComponent {
             className={innerClass}
             style={{ width, transform: xRotate }}
           >
-            {showInfo && <span className="zhui-progress-tag">{precent}</span>}
+            {showInfo && <span className="zhui-progress-tag">{percent}</span>}
           </span>
           <span
             className="zhui-progress-outer"
@@ -68,7 +68,7 @@ export default class Progress extends PureComponent {
       (
         <div
           className={cn(classes, {
-            [`${prefix}-circle-success`]: precent >= 100,
+            [`${prefix}-circle-success`]: percent >= 100,
           })}
           {...others}
         >
