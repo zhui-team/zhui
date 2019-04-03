@@ -1,0 +1,12 @@
+.zhui-notify {
+  &-container {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  &-exit {
+    color: red;
+  }
+}

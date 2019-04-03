@@ -1,0 +1,31 @@
+---
+name: 消息 notify
+route: /notify
+---
+
+import { Playground, PropsTable } from 'docz'
+import Notify from './index.js'
+import NotifyInner from './NotifyInner.js'
+import Button from '../button/Button.js'
+
+import './index.scss'
+
+# 消息
+
+## 代码演示
+
+### 基本用法
+
+<Playground>
+  <Button 
+    type='primary' 
+    outline
+    onClick={
+      () => Notify.open('success', '消息通知')
+    }
+  >黛色</Button>
+</Playground>
+
+## 属性
+
+<PropsTable of={NotifyInner} />

@@ -38,7 +38,8 @@
     "react": "^16.8.4",
     "react-app-polyfill": "^0.2.0",
     "react-dev-utils": "^7.0.1",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "react-transition-group": "^2.7.1"
   },
   "scripts": {
     "start": "node scripts/start.js",

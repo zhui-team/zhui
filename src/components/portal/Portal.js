@@ -6,41 +6,29 @@ import './index.scss';
 
 export default class Portal extends PureComponent {
   static propTypes = {
-    center: PropTypes.bool,
-    dom: PropTypes.string
+    selector: PropTypes.string
   }
 
   static defaultProps = {
-    center: false,
-    dom: 'body'
+    selector: 'body'
   }
 
   constructor(props) {
     super(props);
 
-    this.dom = document.querySelector(props.dom);
-    this.node = window.document.createElement('div');
-    this.dom.appendChild(this.node);
-  }
-
-  componentWillUnmount() {
-    this.dom.removeChild(this.node);
+    this.selector = document.querySelector(props.selector);
   }
 
   render() {
     const {
-      center,
       children
     } = this.props;
 
     return createPortal(
-      <div
-        className={`zhui-dialog ${center ? 'zhui-dialog-center' : ''}`}
-        {...this.props}
-      >
+      <div className="zhui-portal">
         {children}
       </div>,
-      this.node
+      this.selector
     );
   }
 }
