@@ -63,7 +63,6 @@ export default class Group extends PureComponent {
   render() {
     const {
       className,
-      style,
       prefix,
       children
     } = this.props;
@@ -72,7 +71,7 @@ export default class Group extends PureComponent {
     const nodeProps = omit(this.props, BLACK_LIST);
 
     return (
-      <div className={classes} {...nodeProps} style={style}>
+      <div className={classes} {...nodeProps}>
         {children}
       </div>
     );

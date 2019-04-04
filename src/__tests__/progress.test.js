@@ -5,7 +5,7 @@ import Progress from '../components/progress/index'
 
 describe('Progress Default Test', () => {
   const wrapper = shallow(
-    <Progress precent={30}/>
+    <Progress percent={30}/>
   );
 
   it('1. 测试默认class存在', () => {
