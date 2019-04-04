@@ -1,0 +1,49 @@
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'STKaiti';
+  background-color: #f4f4f4;
+}
+
+.english {
+  font-family: '微软雅黑';
+}
+
+.title {
+  font-size: 40px;
+  color: #444;
+}
+
+.sub-title {
+  margin: 20px 0;
+}
+
+.zhui-btn {
+  margin: 0 10px;
+}
+
+.zhui-tag-wrapper {
+  margin: 20px 10px;
+  transform-origin: top;
+  animation: swing 1.7s infinite;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotatez(7deg);
+  }
+  50% {
+    transform: rotatez(-7deg);
+  }
+  100% {
+    transform: rotatez(7deg);
+  }
+}

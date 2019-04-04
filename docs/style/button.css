@@ -1,0 +1,129 @@
+.zhui-btn {
+  font-family: 'STKaiti';
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  height: 32px;
+  line-height: 1.5;
+  white-space: nowrap;
+  padding: 0 15px;
+  background-image: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  text-transform: none;
+  overflow: visible;
+  outline: 0;
+  transition: all .3s ease-in-out; }
+  .zhui-btn:hover {
+    opacity: 0.7; }
+  .zhui-btn-default {
+    background: #fff;
+    color: rgba(0, 0, 0, 0.65);
+    border: 1px solid #f2f6f2; }
+    .zhui-btn-default:hover {
+      border: 1px solid #1770a8;
+      color: #1770a8; }
+    .zhui-btn-default.zhui-btn-loading::after {
+      border-color: #666 transparent transparent; }
+  .zhui-btn-primary {
+    background: #41395b;
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045); }
+    .zhui-btn-primary-outline {
+      border: 1px solid #41395b;
+      color: #41395b; }
+  .zhui-btn-success {
+    background: #6f8657;
+    color: #fff;
+    border: 1px solid #6f8657; }
+    .zhui-btn-success-outline {
+      border: 1px solid #6f8657;
+      color: #6f8657; }
+  .zhui-btn-danger {
+    background: #94232d;
+    border: 1px solid #94232d;
+    color: #fff; }
+    .zhui-btn-danger-outline {
+      border: 1px solid #94232d;
+      color: #94232d; }
+  .zhui-btn-kong-mei {
+    background: #c45a65;
+    outline: 5px solid #c45a65;
+    outline-offset: 2px;
+    margin: 10px;
+    color: #fff;
+    border: none; }
+  .zhui-btn-kong-muyun {
+    background: #4f383e;
+    outline: 5px solid #4f383e;
+    outline-offset: 2px;
+    margin: 10px;
+    color: #fff;
+    border: none; }
+  .zhui-btn-kong-yuanshan {
+    background: #ccccd6;
+    outline: 5px solid #ccccd6;
+    outline-offset: 2px;
+    margin: 10px;
+    border: none; }
+  .zhui-btn-large {
+    height: 40px;
+    font-size: 16px; }
+  .zhui-btn-small {
+    height: 24px;
+    padding: 0 7px; }
+  .zhui-btn-disabled, .zhui-btn-disabled[disabled] {
+    color: #bbb;
+    background: #f8f8f8;
+    border-color: #e5e5e5;
+    cursor: not-allowed; }
+  .zhui-btn-loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none; }
+    .zhui-btn-loading::before, .zhui-btn-loading::after {
+      box-sizing: border-box;
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 14px;
+      height: 14px;
+      margin-left: -7px;
+      margin-top: -7px;
+      border: 2px solid;
+      border-radius: 8px; }
+    .zhui-btn-loading::after {
+      border-color: #fff transparent transparent;
+      animation: btn-loading .8s linear infinite; }
+  .zhui-btn > span {
+    display: inline-block;
+    pointer-events: none;
+    margin: 0px 5px; }
+  .zhui-btn-round {
+    border-radius: 30px; }
+  .zhui-btn-block {
+    width: 100%; }
+  .zhui-btn-group {
+    position: relative;
+    display: inline-block; }
+    .zhui-btn-group > .zhui-btn-round:first-child:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0; }
+    .zhui-btn-group > .zhui-btn-round:last-child:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0; }
+
+a.zhui-btn {
+  line-height: 32px; }
+  a.zhui-btn-large {
+    line-height: 36px; }
+  a.zhui-btn-small {
+    line-height: 24px; }
+
+@keyframes btn-loading {
+  to {
+    transform: rotateZ(360deg); } }
