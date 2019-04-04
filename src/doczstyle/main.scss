@@ -1,5 +1,31 @@
+@import '../components/color.scss';
+
 body {
   font-family: 'STKaiti';
+}
+
+h1, h2, h3, h4, h5 {
+  color: $ganglan !important;
+}
+
+.css-wwgiek {
+  background: #f4f4f4;
+
+  a {
+    color: $ganglan !important;
+
+    &:hover {
+      color: $meihong !important;
+    }
+  }
+}
+
+.css-y1r3ra:before {
+  background: $ganglan;
+}
+
+.css-1swvs11 {
+  fill: $ganglan;
 }
 
 .zhui-btn {
