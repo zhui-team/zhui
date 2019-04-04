@@ -9,7 +9,6 @@ export default class Progress extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
     prefix: PropTypes.string,
-    type: PropTypes.oneOf(['line', 'circle']),
     status: PropTypes.oneOf(['active', 'exception']),
     showInfo: PropTypes.bool,
     percent: PropTypes.number
@@ -18,7 +17,6 @@ export default class Progress extends PureComponent {
   static defaultProps = {
     className: '',
     prefix: 'zhui-progress',
-    type: 'line',
     showInfo: true,
     status: 'active',
     percent: 0,
@@ -28,16 +26,13 @@ export default class Progress extends PureComponent {
     const {
       className,
       prefix,
-      type,
       percent,
       showInfo,
       status,
       ...others
     } = this.props;
 
-    const classes = cn(className, `${prefix}-wrapper`, {
-      [`${prefix}-${type}`]: type,
-    });
+    const classes = cn(className, `${prefix}-wrapper`);
     const innerClass = cn(`${prefix}-inner`, {
       [`${prefix}-active`]: percent < 100 && percent > 5 && status !== 'exception',
       [`${prefix}-exception`]: status === 'exception',
@@ -50,29 +45,19 @@ export default class Progress extends PureComponent {
     let xRotate = showInfo ? `rotateZ(${percent <= 50 ? start : -rotate}deg)` : '';
     let yRotate = showInfo ? `rotateZ(${percent <= 50 ? rotate : -start}deg)` : '';
 
-    return type !== 'circle' ?
-      (
-        <div className={classes} {...others}>
-          <span
-            className={innerClass}
-            style={{ width, transform: xRotate }}
-          >
-            {showInfo && <span className="zhui-progress-tag">{percent}</span>}
-          </span>
-          <span
-            className="zhui-progress-outer"
-            style={{ width: rest, transform: yRotate }}
-          ></span>
-        </div>
-      ) :
-      (
-        <div
-          className={cn(classes, {
-            [`${prefix}-circle-success`]: percent >= 100,
-          })}
-          {...others}
+    return (
+      <div className={classes} {...others}>
+        <span
+          className={innerClass}
+          style={{ width, transform: xRotate }}
         >
-        </div>
-      );
+          {showInfo && <span className="zhui-progress-tag">{percent}</span>}
+        </span>
+        <span
+          className="zhui-progress-outer"
+          style={{ width: rest, transform: yRotate }}
+        ></span>
+      </div>
+    );
   }
 }
