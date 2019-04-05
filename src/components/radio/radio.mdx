@@ -1,0 +1,48 @@
+---
+name: 单选框 radio
+route: /radio
+---
+
+import { Playground, PropsTable } from 'docz'
+import Radio from './index.js'
+
+# 单选框
+
+## 代码演示
+
+受控组件
+
+### 基本用法
+
+Radio内文字为提供的字符串的第一个字
+
+<Playground>
+  <Radio text='春色满园关不住' />
+</Playground>
+
+### 组
+
+<Playground>
+  <Radio.Group value={2} onChange={(e) => console.log(e)}>
+    <Radio value={1} text='雾'/>
+    <Radio value={2} text='雨'/>
+    <Radio value={3} text='风' disabled/>
+  </Radio.Group>
+</Playground>
+
+### 配色
+
+多种主题配色，详情可见主页的提供配色，默认为海棠
+
+<Playground>
+  <Radio text='春'/>
+  <Radio theme='primary' text='黛'/>
+  <Radio theme='success' text='竹'/>
+  <Radio theme='danger' text='胭'/>
+  <Radio theme='huaqing' text='青'/>
+  <Radio theme='muyun' text='暮'/>
+</Playground>
+
+## 属性
+
+<PropsTable of={Radio} />

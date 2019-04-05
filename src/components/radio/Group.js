@@ -9,7 +9,8 @@ const BLACK_LIST = [
   'className',
   'prefix',
   'disabled',
-  'onChange'
+  'onChange',
+  'value'
 ];
 
 export default class Group extends PureComponent {
@@ -52,7 +53,7 @@ export default class Group extends PureComponent {
       prefix
     } = this.props;
 
-    const classes = cn(className, `${prefix}-wrapper`);
+    const classes = cn(className, `${prefix}-group`);
     const nodeProps = omit(this.props, BLACK_LIST);
 
     return (

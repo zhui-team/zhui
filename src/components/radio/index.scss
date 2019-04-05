@@ -1,0 +1,94 @@
+@import '../color.scss';
+
+.zhui-radio {
+  &-group {
+    padding: 5px;
+
+    .zhui-radio-wrapper {
+      margin: 5px 10px;
+    }
+  }
+
+  &-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+  }
+
+  &-input {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    opacity: 0;
+    z-index: 1;
+    margin: 0;
+    cursor: pointer;
+
+    &:checked {
+      + .zhui-radio-item {
+        background: $haitang;
+        box-shadow: 0 0 0 2px #fff, 
+        0 0 0 4px $haitang;
+      }
+
+      @each $key, $value in $color-list {
+        + .zhui-radio-#{$key} {
+          background: $value;
+          box-shadow: 0 0 0 2px #fff, 
+          0 0 0 4px $value;
+        }
+      }
+    }
+
+    &:disabled {
+      display: none;
+
+      + .zhui-radio-item {
+        background: $haitang;
+        box-shadow: 0 0 0 2px #fff, 
+        0 0 0 4px $haitang;
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      @each $key, $value in $color-list {
+        + .zhui-radio-#{$key} {
+          background: $value;
+          box-shadow: 0 0 0 2px #fff, 
+          0 0 0 4px $value;
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  &-item {
+    display: inline-block;
+    font-family: 'STKaiti';
+    width: 18px;
+    height: 18px;
+    color: #fff;
+    background: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+    font-size: 12px;
+    transition: all .2s linear;
+    box-shadow: 0 0 0 2px #fff, 
+                0 0 0 4px $haitang;
+  }
+
+  &-label {
+    font-size: 14px;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+
+  @each $key, $value in $color-list {
+    &-#{$key} {
+      box-shadow: 0 0 0 2px #fff, 
+                0 0 0 4px $value;
+    }
+  }
+}
