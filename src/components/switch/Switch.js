@@ -8,20 +8,18 @@ export default class Switch extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
     prefix: PropTypes.string,
-    size: PropTypes.oneOf(['default', 'medium', 'large']),
+    type: PropTypes.oneOf(['line', 'circle']),
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
-    loading: PropTypes.bool,
     onChange: PropTypes.func
   }
 
   static defaultProps = {
     className: '',
     prefix: 'zhui-switch',
-    size: 'default',
+    type: 'line',
     checked: false,
     disabled: false,
-    loading: false,
     onChange: () => null
   }
 
@@ -43,6 +41,7 @@ export default class Switch extends PureComponent {
     const {
       className,
       prefix,
+      type,
       checked,
       disabled,
       loading,
@@ -52,12 +51,12 @@ export default class Switch extends PureComponent {
     const classes = cn(className, prefix, {
       [`${prefix}-disabled`]: disabled,
       [`${prefix}-checked`]: checked,
-      [`${prefix}-loading`]: loading
+      [`${prefix}-${type}`]: type
     });
 
     return (
       <div className={classes} {...others} onClick={this.toggle}>
-        switch
+        <span className="zhui-switch-inner"></span>
       </div>
     );
   }

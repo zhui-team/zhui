@@ -20,6 +20,10 @@ import './index.scss'
 
 ### 圆形
 
+<Playground>
+  <Switch type='circle' />
+</Playground>
+
 ## 属性
 
 <PropsTable of={Switch} />
