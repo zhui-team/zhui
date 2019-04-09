@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'astro-classname';
 
-import './index.scss';
+import './index.css';
 
 export default class Radio extends PureComponent {
   static propTypes = {
