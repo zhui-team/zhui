@@ -1,45 +1,58 @@
-$radius: 100px;
+$radius: 30px;
 
 .zhui-switch-circle {
   position: relative;
   width: $radius;
   height: $radius;
-  background: #343b59;
-  border: 3px solid #343b59;
+  background: #000;
+  border: 2px solid #343b59;
   border-radius: 50%;
+  overflow: hidden;
 
   .zhui-switch {
     &-inner {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: $radius / 2;
-      height: $radius;
-      background: #101019;
-      border-radius: $radius 0 0 $radius;
-
-      &::after {
+      &::before {
         position: absolute;
         content: '';
-        left: $radius / 4 + 10px;
-        top: $radius - $radius / 3 - 10px;
-        width: $radius / 3 - 10px;
-        height: $radius / 3;
-        border-radius: 50%;
-        background: #101019;
+        top: 3%;
+        left: -62%;
+        width: $radius;
+        height: $radius;
+        background: #000;
+        border-radius: 45%;
+        animation: rotate 10s linear infinite;
+        z-index: 1;
       }
     }
   }
-
   &::before {
     position: absolute;
     content: '';
-    left: $radius / 4 + 10px;
-    top: 10px;
-    width: $radius / 3 - 10px;
-    height: $radius / 3;
-    border-radius: 50%;
+    top: 25%;
+    left: 16%;
+    width: $radius;
+    height: $radius;
     background: #343b59;
-    z-index: 1;
+    border-radius: 50%;
+    animation: rotate 10s linear infinite;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: -25%;
+    left: 35%;
+    width: $radius;
+    height: $radius;
+    background: #343b59;
+    border-radius: 45%;
+    animation: rotate 10s linear infinite;
+    z-index: 2;
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
   }
 }

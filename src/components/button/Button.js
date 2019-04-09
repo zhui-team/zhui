@@ -6,7 +6,7 @@ import cn from 'astro-classname';
 import './index.css';
 
 const BLACK_LIST = [
-  'type',
+  'theme',
   'size',
   'htmlType',
   'block',
@@ -26,7 +26,7 @@ const isTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 export default class Button extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    type: PropTypes.oneOf(['default', 'primary', 'success', 'danger']),
+    theme: PropTypes.string,
     size: PropTypes.oneOf(['large', 'medium', 'small']),
     disabled: PropTypes.bool,
     loading: PropTypes.bool,
@@ -34,12 +34,12 @@ export default class Button extends PureComponent {
     round: PropTypes.bool,
     block: PropTypes.bool,
     prefix: PropTypes.string,
-    kong: PropTypes.oneOf(['', 'mei', 'muyun', 'ganglan', 'yuanshan'])
+    kong: PropTypes.string
   }
 
   static defaultProps = {
     className: '',
-    type: 'default',
+    theme: 'default',
     size: 'medium',
     disabled: false,
     loading: false,
@@ -126,7 +126,7 @@ export default class Button extends PureComponent {
       href,
       target,
       className,
-      type,
+      theme,
       size,
       disabled,
       loading,
@@ -139,7 +139,7 @@ export default class Button extends PureComponent {
     } = this.props;
     let renderName = href || target ? 'renderLink' : 'renderButton';
     const classes =  cn(prefix, className, {
-      [`${prefix}-${type}${outline ? '-outline' : ''}`]: type && !kong,
+      [`${prefix}-${theme}${outline ? '-outline' : ''}`]: theme && !kong,
       [`${prefix}-${size}`]: size && size !== 'medium',
       [`${prefix}-disabled`]: disabled,
       [`${prefix}-loading`]: loading,

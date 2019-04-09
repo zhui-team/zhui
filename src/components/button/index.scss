@@ -24,7 +24,7 @@
   }
 
   &-default {
-    background: #fff;
+    background-color: #fff;
     color: rgba(0,0,0,0.65);
     border: 1px solid #f2f6f2;
 
@@ -38,65 +38,30 @@
     }
   }
 
-  &-primary {
-    background: $primary;
-    color: #fff;
-    border: none;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.045);
-
-    &-outline {
-      border: 1px solid $primary;
-      color: $primary;
-    }
-  }
-
-  &-success {
-    background: $success;
-    color: #fff;
-    border: 1px solid $success;
-
-    &-outline {
-      border: 1px solid $success;
-      color: $success;
-    }
-  }
+  @each $key, $value in $color-list {
+    &-#{$key} {
+      background-color: $value;
+      color: #fff;
+      border: 1px solid $value;
   
-  &-danger {
-    background: $danger;
-    border: 1px solid $danger;
-    color: #fff;
-
-    &-outline {
-      border: 1px solid $danger;
-      color: $danger;
+      &-outline {
+        border: 1px solid $value;
+        color: $value;
+      }
     }
   }
+
   &-kong {
-
-    &-mei {
-      background:$meihong;
-      outline: 5px solid $meihong;
-      outline-offset: 2px;
-      margin: 10px;
-      color:#fff;
-      border: none;
-    }
-
-    &-muyun {
-      background:$muyun;
-      outline: 5px solid $muyun;
-      outline-offset: 2px; 
-      margin: 10px;
-      color:#fff;
-      border: none;
-    }
-    
-    &-yuanshan {
-      background:$yuanshan;
-      outline: 5px solid $yuanshan;
-      outline-offset: 2px;
-      margin: 10px;
-      border: none;
+    @each $key, $value in $color-list {
+      &-#{$key} {
+        background: $value;
+        background-color:$value;
+        outline: 5px solid $value;
+        outline-offset: 2px;
+        margin: 10px;
+        color:#fff;
+        border: none;
+      }
     }
   }
 
@@ -173,7 +138,7 @@
 }
 
 a.zhui-btn {
-  line-height: 32px;
+  line-height: 30px;
 
   &-large {
     line-height: 36px;

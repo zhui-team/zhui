@@ -15,6 +15,8 @@ import '../components/button/index.scss'
 
 ## 代码演示
 
+**支持主题配色**
+
 ### 默认
 
 <Playground>
@@ -24,51 +26,54 @@ import '../components/button/index.scss'
 ### 颜色
 
 <Playground>
-  <Button type='primary' outline>黛色</Button>
-  <Button type='primary'>黛色</Button>
-  <Button type='success' outline>竹青</Button>
-  <Button type='success'>竹青</Button>
-  <Button type='danger' outline>胭脂</Button>
-  <Button type='danger'>胭脂</Button>
+  <Button theme='primary' outline>黛色</Button>
+  <Button theme='primary'>黛色</Button>
+  <Button theme='success' outline>竹青</Button>
+  <Button theme='success'>竹青</Button>
+  <Button theme='danger' outline>胭脂</Button>
+  <Button theme='danger'>胭脂</Button>
+  <Button theme='meihong'>梅红</Button>
+  <Button theme='meihong' outline>梅红</Button>
 </Playground>
 
 ### 大小
 
 <Playground>
-  <Button type='primary' size='large'>大按钮</Button>
-  <Button type='success' outline>中按钮</Button>
-  <Button type='danger' size='small'>小按钮</Button>
+  <Button theme='primary' size='large'>大按钮</Button>
+  <Button theme='success' outline>中按钮</Button>
+  <Button theme='danger' size='small'>小按钮</Button>
 </Playground>
 
 ### 形状
 
 <Playground>
-  <Button type='primary' size='large' round>大按钮</Button>
-  <Button type='success' outline round>中按钮</Button>
-  <Button type='danger' size='small' round>小按钮</Button>
+  <Button theme='primary' size='large' round>大按钮</Button>
+  <Button theme='success' outline round>中按钮</Button>
+  <Button theme='danger' size='small' round>小按钮</Button>
 </Playground>
 
 ### Block
 
 <Playground>
   <Button block>块</Button>
-  <Button type='primary' round block>块</Button>
-  <Button type='success' block>块</Button>
-  <Button type='danger' round block>块</Button>
+  <Button theme='primary' round block>块</Button>
+  <Button theme='success' block>块</Button>
+  <Button theme='danger' round block>块</Button>
 </Playground>
 
-### Kong
+### 边框
+
 <Playground>
   <Button kong="muyun">暮云</Button>
   <Button kong="yuanshan">远山</Button>
-  <Button kong="mei">莓红</Button>
+  <Button kong="meihong">莓红</Button>
 </Playground>
 
 ### 链接
 
 <Playground>
-  <Button type='primary' href='https://github.com/zhui-team/zhui'>链接跳转</Button>
-  <Button type='success' size='large' href='https://github.com/zhui-team/zhui' target='_blank' round>打开窗口</Button>
+  <Button theme='primary' href='https://github.com/zhui-team/zhui'>链接跳转</Button>
+  <Button theme='success' size='large' href='https://github.com/zhui-team/zhui' target='_blank' round>打开窗口</Button>
 </Playground>
 
 ### 禁用
@@ -81,15 +86,15 @@ import '../components/button/index.scss'
 
 <Playground>
   <Button loading>加载</Button>
-  <Button type='primary' loading>加载</Button>
-  <Button type='danger' loading round>加载</Button>
+  <Button theme='primary' loading>加载</Button>
+  <Button theme='danger' loading round>加载</Button>
 </Playground>
 
 ### 图标按钮
 
 <Playground>
   <Button><Icon type='music' />音乐</Button>
-  <Button type='danger' outline round><Icon type='message' />消息</Button>
+  <Button theme='danger' outline round><Icon type='message' />消息</Button>
 </Playground>
 
 ### 按钮组
@@ -102,6 +107,19 @@ import '../components/button/index.scss'
     <Button>中</Button>
     <Button round>右</Button>
   </Button.Group>
+</Playground>
+
+### 主题配色
+
+<Playground>
+  <Button theme='meihong'>梅红</Button>
+  <Button theme='meihong' outline>梅红</Button>
+  <Button theme='huaqing'>花青</Button>
+  <Button theme='huaqing' outline>花青</Button>
+  <Button theme='haitang'>海棠</Button>
+  <Button theme='haitang' outline>海棠</Button>
+  <Button theme='putaozi'>葡紫</Button>
+  <Button theme='putaozi' outline>葡紫</Button>
 </Playground>
 
 ## 属性
