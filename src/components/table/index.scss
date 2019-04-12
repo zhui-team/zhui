@@ -1,0 +1,41 @@
+@import '../color.scss';
+
+.zhui-table {
+  &-wrapper {
+    font-size: 14px;
+
+    table {
+      border-collapse: collapse;
+    }
+
+    th, td {
+      text-align: left;
+    }
+  }
+
+  &-thead {
+    background-color: $yuanshan;
+
+    > tr {
+      border-bottom: 1px solid $ganglan;
+      > th{
+        padding: 16px;
+      }
+    }
+  }
+
+  &-body {
+    
+  }
+
+  &-row {
+    > td {
+      padding: 16px;
+      border-bottom: 1px solid $ganglan;
+    }
+
+    &:hover {
+      background-color: $yuanshan;
+    }
+  }
+}
