@@ -1,0 +1,58 @@
+---
+name: 材质
+route: /material
+---
+
+import { Playground } from 'docz'
+import Card from '../components/card/index.js'
+import Button from '../components/button/index.js'
+
+import '../components/card/index.scss'
+import '../components/button/index.scss'
+
+# 材质
+
+提供给有特殊需求的人，不适用于白色背景组件
+
+## 应用
+
+### 卡片
+
+<Playground>
+  <Card theme='danger' className='material' title='primary' width={140}>
+    <p>胭脂</p>
+    <p>#94232d</p>
+  </Card>
+  <Card theme='meihong' className='material' title='success' width={140}>
+    <p>梅红</p>
+    <p>#c45a65</p>
+  </Card>
+  <Card theme='huaqing' className='material' title='success' width={140}>
+    <p>花青</p>
+    <p>#2376b7</p>
+  </Card>
+</Playground>
+
+### 按钮
+
+不适用于`outline`样式
+
+<Playground>
+  <Button theme='primary' className='material'>黛色</Button>
+  <Button theme='success' className='material'>竹青</Button>
+  <Button theme='danger' className='material'>胭脂</Button>
+</Playground>
+
+### 等等...
+
+## 使用
+
+图片仅供参考，可自行设置
+<img src='https://s2.ax1x.com/2019/04/16/AvLUhj.jpg' width='200' height='200'/>
+
+```css
+.material {
+  background-image: url("https://s2.ax1x.com/2019/04/16/AvLUhj.jpg") !important;
+  background-blend-mode: multiply;
+}
+```
