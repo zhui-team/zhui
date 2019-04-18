@@ -11,6 +11,8 @@ export default class Switch extends PureComponent {
     type: PropTypes.oneOf(['line', 'circle']),
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
+    checkedText: PropTypes.string,
+    size: PropTypes.oneOf(['small', 'default', 'large']),
     onChange: PropTypes.func
   }
 
@@ -20,6 +22,8 @@ export default class Switch extends PureComponent {
     type: 'line',
     checked: false,
     disabled: false,
+    checkedText: '',
+    size: 'default',
     onChange: () => null
   }
 
@@ -45,18 +49,21 @@ export default class Switch extends PureComponent {
       checked,
       disabled,
       loading,
+      size,
+      checkedText,
       ...others
     } = this.props;
 
     const classes = cn(className, prefix, {
       [`${prefix}-disabled`]: disabled,
       [`${prefix}-checked`]: checked,
-      [`${prefix}-${type}`]: type
+      [`${prefix}-${type}`]: type,
+      [`${prefix}-${size}`]: size && size !== 'default'
     });
 
     return (
       <div className={classes} {...others} onClick={this.toggle}>
-        <span className="zhui-switch-inner"></span>
+        <span className="zhui-switch-inner">{checkedText}</span>
       </div>
     );
   }

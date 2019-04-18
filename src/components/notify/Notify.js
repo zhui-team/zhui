@@ -31,10 +31,18 @@ const closeNotify = (id) => {
   clearTimeout(timerId);
   ReactDOM.unmountComponentAtNode(tempContainer);
   delete notifyList[id];
-  callback(notify);
+  if (callback) callback(notify);
 };
 
-export default function open(status, message, duration = 8000, callback = () => null) {
+export default function open(args) {
+  const {
+    status,
+    message,
+    duration,
+    callback,
+    position
+  } = args;
+
   getNotifyContainer();
   const tempContainer = document.createElement('div');
   const notifyId = notifyIndex++;
@@ -42,6 +50,7 @@ export default function open(status, message, duration = 8000, callback = () => 
     status,
     message,
     notifyId,
+    position,
     selector: '.zhui-notify-container',
     isIn: true
   };
@@ -57,7 +66,7 @@ export default function open(status, message, duration = 8000, callback = () => 
       />,
       tempContainer
     );
-  }, duration);
+  }, duration || 2000);
 
   notifyList[notifyId] = { timerId, callback, tempContainer };
   return notifyId;

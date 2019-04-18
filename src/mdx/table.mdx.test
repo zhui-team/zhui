@@ -1,0 +1,46 @@
+---
+name: 表格 table
+route: /table
+---
+
+import { Playground, PropsTable } from 'docz'
+import Table from '../components/table/index.js'
+
+import '../components/table/index.scss'
+
+# 标签
+
+
+## 代码演示
+
+### 基本用法
+
+<Playground>
+  <Table
+    dataSource={[{
+      key: '1',
+      name: '胡彦斌',
+      age: 32,
+      address: '西湖区湖底公园1号'
+    }, {
+      key: '2',
+      name: '胡彦祖',
+      age: 42,
+      address: '西湖区湖底公园1号'
+    }]}
+    columns={[{
+      title: '姓名',
+      dataIndex: 'name',
+      key: 'name',
+      width: 200
+    }, {
+      title: '年龄',
+      dataIndex: 'age',
+      key: 'age',
+    }, {
+      title: '住址',
+      dataIndex: 'address',
+      key: 'address',
+    }]}
+  />
+</Playground>

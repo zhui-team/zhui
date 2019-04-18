@@ -1,4 +1,31 @@
+@import '../color.scss';
+
 $radius: 30px;
+
+.zhui-switch-line {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background: $yuanshan;
+  cursor: pointer;
+
+  .zhui-switch {
+    &-inner {
+
+    }
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: $primary;
+  }
+}
 
 .zhui-switch-circle {
   position: relative;

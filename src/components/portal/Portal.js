@@ -21,11 +21,12 @@ export default class Portal extends PureComponent {
 
   render() {
     const {
-      children
+      children,
+      ...others
     } = this.props;
 
     return createPortal(
-      <div className="zhui-portal">
+      <div className="zhui-portal" {...others}>
         {children}
       </div>,
       this.selector

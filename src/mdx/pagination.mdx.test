@@ -4,9 +4,9 @@ route: /pagination
 ---
 
 import { Playground, PropsTable } from 'docz'
-import Pagination from './index.js'
+import Pagination from '../components/pagination/index.js'
 
-import './index.scss'
+import '../components/pagination/index.scss'
 
 # 分页
 

@@ -1,12 +1,70 @@
+@import '../color.scss';
+
 .zhui-notify {
   &-container {
     position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translate(-50%, 0);
+    top: 80px;
+    right: 30px;
+    
+    .zhui-portal {
+      position: fixed;
+      z-index: 10;
+    }
+  }
+
+  &-inner {
+    position: relative;
+    float: left;
+    width: 30px;
+    font-size: 16px;
+    font-weight: bolder;
+    color: #000;
+    background: $haitang;
+    padding: 10px 8px;
+    text-align: center;
+    animation: unfold .3s linear;
+    overflow: hidden;
+    border: 4px solid #f9d79b;
+
+    // &::before {
+    //   position: absolute;
+    //   content: '';
+    //   top: 0;
+    //   left: -7px;
+    //   width: 60px;
+    //   border-top: 4px solid #f9d79b;
+    // }
+
+    // &::after {
+    //   position: absolute;
+    //   content: '';
+    //   bottom: 0;
+    //   left: -7px;
+    //   width: 60px;
+    //   border-top: 4px solid #f9d79b;
+    // }
   }
 
   &-exit {
-    color: red;
+    animation: fold .5s linear forwards;
+  }
+
+  @keyframes unfold {
+    from {
+      max-height: 0;
+    } to {
+      max-height: 400px;
+    }
+  }
+  
+  @keyframes fold {
+    from {
+      max-height: 400px;
+    } to {
+      max-height: 0;
+    }
+
+    80% {
+    }
   }
 }

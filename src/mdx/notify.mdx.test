@@ -4,11 +4,11 @@ route: /notify
 ---
 
 import { Playground, PropsTable } from 'docz'
-import Notify from './index.js'
-import NotifyInner from './NotifyInner.js'
-import Button from '../button/Button.js'
+import Notify from '../components/notify/index.js'
+import NotifyInner from '../components/notify/NotifyInner.js'
+import Button from '../components/button/Button.js'
 
-import './index.scss'
+import '../components/notify/index.scss'
 
 # 消息
 
@@ -18,12 +18,47 @@ import './index.scss'
 
 <Playground>
   <Button 
-    type='primary' 
+    theme='primary' 
     outline
     onClick={
-      () => Notify.open('success', '消息通知')
+      () => Notify.open({
+        status: 'success',
+        message: '这是一条短消息',
+        callback: () => console.log('短消息')
+      })
     }
-  >黛色</Button>
+  >短消息</Button>
+  <Button 
+    theme='primary' 
+    outline
+    onClick={
+      () => Notify.open({
+        status: 'success',
+        duration: 3000,
+        message: '这是一条很长很长很长很长的消息'
+      })
+    }
+  >长消息</Button>
+</Playground>
+
+### 自定义位置
+
+<Playground>
+  <Button 
+    theme='primary' 
+    outline
+    onClick={
+      () => Notify.open({
+        status: 'success',
+        message: '位置改变的消息',
+        duration: 200000,
+        position: {
+          top: 100,
+          right: 100,
+        }
+      })
+    }
+  >位置改变</Button>
 </Playground>
 
 ## 属性

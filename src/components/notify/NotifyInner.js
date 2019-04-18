@@ -9,28 +9,36 @@ export default class NotifyInner extends PureComponent {
   static propTypes = {
     status: PropTypes.string,
     message: PropTypes.string,
-    selector: PropTypes.string
+    selector: PropTypes.string,
+    position: PropTypes.object
   }
 
   static defaultProps = {
     status: 'success',
     message: '',
-    selector: ''
+    selector: '',
+    position: {}
   }
 
   render() {
-    const {
+    let {
       message,
       selector,
       close,
+      position,
       isIn
     } = this.props;
 
+    let styles = Object.assign({}, position);
+    if (position.left || position.right) {
+      styles.right = 30;
+    }
+
     return (
-      <Portal selector={selector}>
+      <Portal selector={selector} style={styles}>
         <CSSTransition
           in={isIn}
-          timeout={8000}
+          timeout={500}
           classNames="zhui-notify"
           onExited={() => close()}
         >

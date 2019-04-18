@@ -4,7 +4,7 @@ route: /protal
 ---
 
 import { Playground, PropsTable } from 'docz'
-import Portal from './index.js'
+import Portal from '../components/portal/index.js'
 
 # 任意门
 
