@@ -7,14 +7,12 @@ import './index.css';
 
 export default class NotifyInner extends PureComponent {
   static propTypes = {
-    status: PropTypes.string,
     message: PropTypes.string,
     selector: PropTypes.string,
     position: PropTypes.object
   }
 
   static defaultProps = {
-    status: 'success',
     message: '',
     selector: '',
     position: {}
@@ -30,7 +28,7 @@ export default class NotifyInner extends PureComponent {
     } = this.props;
 
     let styles = Object.assign({}, position);
-    if (position.left || position.right) {
+    if (!position.left && !position.right) {
       styles.right = 30;
     }
 

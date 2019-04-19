@@ -12,6 +12,8 @@ import '../components/notify/index.scss'
 
 # 消息
 
+千门万户曈曈日，总把`新桃`换旧符
+
 ## 代码演示
 
 ### 基本用法
@@ -22,7 +24,6 @@ import '../components/notify/index.scss'
     outline
     onClick={
       () => Notify.open({
-        status: 'success',
         message: '这是一条短消息',
         callback: () => console.log('短消息')
       })
@@ -33,7 +34,6 @@ import '../components/notify/index.scss'
     outline
     onClick={
       () => Notify.open({
-        status: 'success',
         duration: 3000,
         message: '这是一条很长很长很长很长的消息'
       })
@@ -49,7 +49,6 @@ import '../components/notify/index.scss'
     outline
     onClick={
       () => Notify.open({
-        status: 'success',
         message: '位置改变的消息',
         duration: 200000,
         position: {
