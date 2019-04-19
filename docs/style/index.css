@@ -23,7 +23,9 @@ body {
 }
 
 .sub-title {
-  margin: 20px 0;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: normal;
 }
 
 .zhui-btn {
