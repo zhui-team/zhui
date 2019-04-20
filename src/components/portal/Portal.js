@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
-import './index.scss';
+import './index.css';
 
 export default class Portal extends PureComponent {
   static propTypes = {
