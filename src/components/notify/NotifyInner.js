@@ -41,7 +41,7 @@ export default class NotifyInner extends PureComponent {
           onExited={() => close()}
         >
           <div className="zhui-notify-inner">
-            {message}
+            <span>{message}</span>
           </div>
         </CSSTransition>
       </Portal>

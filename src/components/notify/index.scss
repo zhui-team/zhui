@@ -19,17 +19,20 @@ $textBorder: #f9d79b;
     position: relative;
     float: left;
     width: 30px;
-    font-size: 18px;
-    font-weight: bolder;
-    color: #eefd09;
-    // text-shadow: 0 1px $border, 1px 0 $border, -1px 0 $border, 0 -1px $border;
-    background: #ca010c;
     padding: 10px 8px;
     text-align: center;
     animation: unfold .3s linear;
     overflow: hidden;
-    border-top: 4px solid $border;
-    border-bottom: 4px solid $border;
+    border: 2px solid $border;
+    background: #e71d18;
+
+    span {
+      font-size: 20px;
+      font-weight: bolder;
+      background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#fff), to($border));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
 
   &-exit {
