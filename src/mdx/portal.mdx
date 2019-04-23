@@ -1,0 +1,47 @@
+---
+name: 传送门 portal
+route: /portal
+---
+
+import { Playground, PropsTable } from 'docz'
+import Portal from '../components/portal/index.js'
+
+import '../components/portal/index.scss'
+
+# 传送门
+
+## 代码演示
+
+### 基本用法
+
+Portal包裹元素会默认出现在body节点上
+
+<Playground>
+  <Portal center style={{top: 200}}>
+    <h1>我在Body上</h1>
+  </Portal>
+</Playground>
+
+### 指定容器
+
+使用dom参数来指定任意的container，规则同querySelector，若节点不存在则不会渲染
+
+<Playground>
+  <Portal selector='#rootaaa' center>
+    <p>我在Root上</p>
+  </Portal>
+</Playground>
+
+### 受控
+
+控制组件的渲染
+
+<Playground>
+  <Portal center visiable={false}>
+    <h1>我被隐藏了</h1>
+  </Portal>
+</Playground>
+
+## 属性
+
+<PropsTable of={Portal} />
