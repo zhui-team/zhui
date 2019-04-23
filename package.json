@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@svgr/webpack": "2.4.1",
-    "astro-classname": "^2.0.0",
+    "astro-classname": "^2.1.0",
     "react": "^16.8.4",
     "react-app-polyfill": "^0.2.0",
     "react-dev-utils": "^7.0.1",
