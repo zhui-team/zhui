@@ -36,23 +36,19 @@ const closeNotify = (id) => {
 
 export default function open(args) {
   const {
-    status,
-    message,
     duration,
     callback,
-    position
+    ...others
   } = args;
 
   getNotifyContainer();
   const tempContainer = document.createElement('div');
   const notifyId = notifyIndex++;
   const props = {
-    status,
-    message,
     notifyId,
-    position,
     selector: '.zhui-notify-container',
-    isIn: true
+    isIn: true,
+    ...others
   };
 
   ReactDOM.render(React.createElement(NotifyInner, props), tempContainer);

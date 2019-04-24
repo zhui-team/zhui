@@ -2,30 +2,44 @@ import React, { PureComponent } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 import Portal from '../portal/Portal';
+import cn from 'astro-classname';
 
 import './index.css';
 
 export default class NotifyInner extends PureComponent {
   static propTypes = {
+    className: PropTypes.string,
     message: PropTypes.string,
     selector: PropTypes.string,
-    position: PropTypes.object
+    theme: PropTypes.oneOf(['light', 'dark']),
+    position: PropTypes.object,
+    prefix: PropTypes.string
   }
 
   static defaultProps = {
+    className: '',
     message: '',
     selector: '',
+    theme: 'light',
+    prefix: 'zhui-notify',
     position: {}
   }
 
   render() {
     let {
+      className,
       message,
       selector,
       close,
       position,
+      theme,
+      prefix,
       isIn
     } = this.props;
+
+    const classes = cn(className, `${prefix}-inner`, {
+      [`${prefix}-${theme}`]: theme
+    });
 
     let styles = Object.assign({}, position);
     if (!position.left && !position.right) {
@@ -40,7 +54,7 @@ export default class NotifyInner extends PureComponent {
           classNames="zhui-notify"
           onExited={() => close()}
         >
-          <div className="zhui-notify-inner">
+          <div className={classes}>
             <span>{message}</span>
           </div>
         </CSSTransition>

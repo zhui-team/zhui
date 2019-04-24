@@ -1,8 +1,5 @@
 @import '../color.scss';
 
-$border: #eefd09;
-$textBorder: #f9d79b;
-
 .zhui-notify {
   &-container {
     position: absolute;
@@ -23,16 +20,26 @@ $textBorder: #f9d79b;
     text-align: center;
     animation: unfold .3s linear;
     overflow: hidden;
-    border: 2px solid $border;
-    background: #e71d18;
+    outline: #f7c985 solid 1px;
+    outline-offset: -4px;
+    background-image: radial-gradient(tan 0.6px, transparent 0),
+    radial-gradient(tan 0.6px, transparent 0);
+    background-size: 30px 30px;
+    background-position: 20px 15px, -4px 0;
 
     span {
       font-size: 20px;
       font-weight: bolder;
-      background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#fff), to($border));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #f7c985;
     }
+  }
+
+  &-light {
+    background-color: #d41d25;
+  }
+
+  &-dark {
+    background-color: #000;
   }
 
   &-exit {

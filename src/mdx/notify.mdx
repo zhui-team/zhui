@@ -20,7 +20,7 @@ import '../components/notify/index.scss'
 
 <Playground>
   <Button 
-    theme='primary' 
+    theme='primary'
     outline
     onClick={
       () => Notify.open({
@@ -30,7 +30,7 @@ import '../components/notify/index.scss'
     }
   >短消息</Button>
   <Button 
-    theme='primary' 
+    theme='primary'
     outline
     onClick={
       () => Notify.open({
@@ -45,7 +45,7 @@ import '../components/notify/index.scss'
 
 <Playground>
   <Button 
-    theme='primary' 
+    theme='primary'
     outline
     onClick={
       () => Notify.open({
@@ -60,6 +60,22 @@ import '../components/notify/index.scss'
   >位置改变</Button>
 </Playground>
 
+### 黑色主题
+
+<Playground>
+  <Button 
+    theme='dark'
+    outline
+    onClick={
+      () => Notify.open({
+        message: '这是一条黑色的短消息',
+        theme: 'dark'
+      })
+    }
+  >黑色</Button>
+</Playground>
+
+  
 ## 属性
 
 <PropsTable of={NotifyInner} />
