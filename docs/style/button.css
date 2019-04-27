@@ -19,7 +19,7 @@
   .zhui-btn:hover {
     opacity: 0.7; }
   .zhui-btn-default {
-    background: #fff;
+    background-color: #fff;
     color: rgba(0, 0, 0, 0.65);
     border: 1px solid #f2f6f2; }
     .zhui-btn-default:hover {
@@ -28,36 +28,142 @@
     .zhui-btn-default.zhui-btn-loading::after {
       border-color: #666 transparent transparent; }
   .zhui-btn-primary {
-    background: #41395b;
+    background-color: #41395b;
     color: #fff;
-    border: none;
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045); }
+    border: 1px solid #41395b; }
     .zhui-btn-primary-outline {
       border: 1px solid #41395b;
       color: #41395b; }
   .zhui-btn-success {
-    background: #6f8657;
+    background-color: #6f8657;
     color: #fff;
     border: 1px solid #6f8657; }
     .zhui-btn-success-outline {
       border: 1px solid #6f8657;
       color: #6f8657; }
   .zhui-btn-danger {
-    background: #94232d;
-    border: 1px solid #94232d;
-    color: #fff; }
+    background-color: #94232d;
+    color: #fff;
+    border: 1px solid #94232d; }
     .zhui-btn-danger-outline {
       border: 1px solid #94232d;
       color: #94232d; }
-  .zhui-btn-kong-mei {
+  .zhui-btn-meihong {
+    background-color: #c45a65;
+    color: #fff;
+    border: 1px solid #c45a65; }
+    .zhui-btn-meihong-outline {
+      border: 1px solid #c45a65;
+      color: #c45a65; }
+  .zhui-btn-putaozi {
+    background-color: #4c1f24;
+    color: #fff;
+    border: 1px solid #4c1f24; }
+    .zhui-btn-putaozi-outline {
+      border: 1px solid #4c1f24;
+      color: #4c1f24; }
+  .zhui-btn-huaqing {
+    background-color: #2376b7;
+    color: #fff;
+    border: 1px solid #2376b7; }
+    .zhui-btn-huaqing-outline {
+      border: 1px solid #2376b7;
+      color: #2376b7; }
+  .zhui-btn-ganglan {
+    background-color: #0f1423;
+    color: #fff;
+    border: 1px solid #0f1423; }
+    .zhui-btn-ganglan-outline {
+      border: 1px solid #0f1423;
+      color: #0f1423; }
+  .zhui-btn-haitang {
+    background-color: #f03752;
+    color: #fff;
+    border: 1px solid #f03752; }
+    .zhui-btn-haitang-outline {
+      border: 1px solid #f03752;
+      color: #f03752; }
+  .zhui-btn-muyun {
+    background-color: #4f383e;
+    color: #fff;
+    border: 1px solid #4f383e; }
+    .zhui-btn-muyun-outline {
+      border: 1px solid #4f383e;
+      color: #4f383e; }
+  .zhui-btn-yuanshan {
+    background-color: #ccccd6;
+    color: #fff;
+    border: 1px solid #ccccd6; }
+    .zhui-btn-yuanshan-outline {
+      border: 1px solid #ccccd6;
+      color: #ccccd6; }
+  .zhui-btn-kong-primary {
+    background: #41395b;
+    background-color: #41395b;
+    outline: 5px solid #41395b;
+    outline-offset: 2px;
+    margin: 10px;
+    color: #fff;
+    border: none; }
+  .zhui-btn-kong-success {
+    background: #6f8657;
+    background-color: #6f8657;
+    outline: 5px solid #6f8657;
+    outline-offset: 2px;
+    margin: 10px;
+    color: #fff;
+    border: none; }
+  .zhui-btn-kong-danger {
+    background: #94232d;
+    background-color: #94232d;
+    outline: 5px solid #94232d;
+    outline-offset: 2px;
+    margin: 10px;
+    color: #fff;
+    border: none; }
+  .zhui-btn-kong-meihong {
     background: #c45a65;
+    background-color: #c45a65;
     outline: 5px solid #c45a65;
+    outline-offset: 2px;
+    margin: 10px;
+    color: #fff;
+    border: none; }
+  .zhui-btn-kong-putaozi {
+    background: #4c1f24;
+    background-color: #4c1f24;
+    outline: 5px solid #4c1f24;
+    outline-offset: 2px;
+    margin: 10px;
+    color: #fff;
+    border: none; }
+  .zhui-btn-kong-huaqing {
+    background: #2376b7;
+    background-color: #2376b7;
+    outline: 5px solid #2376b7;
+    outline-offset: 2px;
+    margin: 10px;
+    color: #fff;
+    border: none; }
+  .zhui-btn-kong-ganglan {
+    background: #0f1423;
+    background-color: #0f1423;
+    outline: 5px solid #0f1423;
+    outline-offset: 2px;
+    margin: 10px;
+    color: #fff;
+    border: none; }
+  .zhui-btn-kong-haitang {
+    background: #f03752;
+    background-color: #f03752;
+    outline: 5px solid #f03752;
     outline-offset: 2px;
     margin: 10px;
     color: #fff;
     border: none; }
   .zhui-btn-kong-muyun {
     background: #4f383e;
+    background-color: #4f383e;
     outline: 5px solid #4f383e;
     outline-offset: 2px;
     margin: 10px;
@@ -65,9 +171,11 @@
     border: none; }
   .zhui-btn-kong-yuanshan {
     background: #ccccd6;
+    background-color: #ccccd6;
     outline: 5px solid #ccccd6;
     outline-offset: 2px;
     margin: 10px;
+    color: #fff;
     border: none; }
   .zhui-btn-large {
     height: 40px;
@@ -118,7 +226,7 @@
       border-bottom-left-radius: 0; }
 
 a.zhui-btn {
-  line-height: 32px; }
+  line-height: 30px; }
   a.zhui-btn-large {
     line-height: 36px; }
   a.zhui-btn-small {

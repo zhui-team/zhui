@@ -44,7 +44,7 @@
   "scripts": {
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build-storybook": "build-storybook",
-    "deploy-storybook": "storybook-to-ghpages",
+    "deploy-storybook": "storybook-to-ghpages --remote=page",
     "start": "node scripts/start.js",
     "test": "jest",
     "ddev": "docz dev",
@@ -94,6 +94,7 @@
     "@storybook/addon-knobs": "^5.0.10",
     "@storybook/addon-notes": "^5.0.10",
     "@storybook/react": "^5.0.10",
+    "@storybook/storybook-deployer": "^2.8.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
