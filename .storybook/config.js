@@ -2,7 +2,7 @@ import React from 'react';
 import { addParameters, configure, addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-import '../src/stories/main.scss';
+import '../src/stories/scss/main.scss';
 
 addParameters({
   options: {
@@ -22,6 +22,7 @@ addDecorator(withInfo);
 addDecorator(backgroundDecorator);
 
 function loadStories() {
+  require('../src/stories/introduce.story.js');
   require('../src/stories/button.story.js');
   require('../src/stories/alert.story.js');
   require('../src/stories/breadcrumb.story.js');

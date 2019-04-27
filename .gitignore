@@ -13,6 +13,7 @@
 /esm
 /lib
 /.docz
+/storybook-static
 
 # misc
 .DS_Store

@@ -9,7 +9,7 @@ const BLACK_LIST = [
   'className',
   'prefix',
   'closable',
-  'visible',
+  'visiable',
   'message',
   'theme',
   'onClose'
@@ -20,7 +20,7 @@ export default class Alert extends PureComponent {
     className: PropTypes.string,
     prefix: PropTypes.string,
     closable: PropTypes.bool,
-    visible: PropTypes.bool,
+    visiable: PropTypes.bool,
     message: PropTypes.string,
     theme: PropTypes.string,
     onClose: PropTypes.func
@@ -33,16 +33,16 @@ export default class Alert extends PureComponent {
   }
 
   static getDerivedStateFromProps(nextProps) {
-    if ('visible' in nextProps) {
+    if ('visiable' in nextProps) {
       return {
-        visible: nextProps.visible,
+        visiable: nextProps.visiable,
       };
     }
     return null;
   }
 
   state = {
-    visible: true,
+    visiable: true,
   };
 
   onClose = e => {
@@ -53,13 +53,13 @@ export default class Alert extends PureComponent {
     if (e.defaultPrevented) {
       return;
     }
-    this.setState({ visible: false });
+    this.setState({ visiable: false });
   }
 
   render() {
-    const { visible } = this.state;
+    const { visiable } = this.state;
 
-    if (!visible) {
+    if (!visiable) {
       return null;
     }
 
