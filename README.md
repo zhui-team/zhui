@@ -15,8 +15,9 @@
 
 
 [心路历程](https://juejin.im/post/5c617a355188256299385138)
+[文档入口页面](https://zhui-team.github.io/zhui/)
 
-+ 快速浏览并使用组件：[原文档](https://zhui-team.github.io/zhui/)
++ 快速浏览并使用组件：[原文档](https://inspiring-bardeen-426f2e.netlify.com/)
 + 逐步浏览并自定义调试组件：[新文档](https://addonedn.github.io/Zhui/)
 
 可以用star来鼓励一下作者么？
