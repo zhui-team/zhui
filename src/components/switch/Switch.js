@@ -5,25 +5,22 @@ import cn from 'astro-classname';
 import './index.css';
 
 export default class Switch extends PureComponent {
+
   static propTypes = {
     className: PropTypes.string,
     prefix: PropTypes.string,
-    type: PropTypes.oneOf(['line', 'circle']),
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
-    checkedText: PropTypes.string,
-    size: PropTypes.oneOf(['small', 'default', 'large']),
+    theme: PropTypes.string,
     onChange: PropTypes.func
   }
 
   static defaultProps = {
     className: '',
     prefix: 'zhui-switch',
-    type: 'line',
     checked: false,
     disabled: false,
-    checkedText: '',
-    size: 'default',
+    theme: 'default',
     onChange: () => null
   }
 
@@ -41,29 +38,37 @@ export default class Switch extends PureComponent {
     onChange(evt);
   }
 
+  renderList() {
+    let list = [];
+    for (let i = 0; i < 8; i++) {
+      list.push(
+        <div className="zhui-switch-item" key={i}>
+          <span></span>
+        </div>
+      );
+    }
+
+    return list;
+  }
   render() {
     const {
       className,
       prefix,
-      type,
       checked,
       disabled,
-      loading,
-      size,
-      checkedText,
+      theme,
       ...others
     } = this.props;
 
     const classes = cn(className, prefix, {
       [`${prefix}-disabled`]: disabled,
-      [`${prefix}-checked`]: checked,
-      [`${prefix}-${type}`]: type,
-      [`${prefix}-${size}`]: size && size !== 'default'
+      [`${prefix}-fold`]: !checked,
+      [`${prefix}-${theme}`]: theme && theme !== 'default',
     });
 
     return (
       <div className={classes} {...others} onClick={this.toggle}>
-        <span className="zhui-switch-inner">{checkedText}</span>
+        {this.renderList()}
       </div>
     );
   }

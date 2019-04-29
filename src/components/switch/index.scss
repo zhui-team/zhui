@@ -1,85 +1,92 @@
 @import '../color.scss';
+$count: 8;
 
-$radius: 30px;
-
-.zhui-switch-line {
+.zhui-switch {
   position: relative;
-  width: 60px;
-  height: 30px;
-  background: $yuanshan;
   cursor: pointer;
+  transform: rotate(90deg);
+  transform-origin: bottom;
 
-  .zhui-switch {
-    &-inner {
+  &-item {
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    width: 2px;
+    height: 40px;
+    background: #cca26e;
+    transform-origin: 50% 10%;
 
+    >span {
+      height: 20px;
+      background: $ganglan;
+      border-bottom-right-radius: 2px;
     }
   }
 
-  &::after {
-    position: absolute;
-    content: '';
-    top: 5px;
-    left: 5px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: $primary;
-  }
-}
+  @for $i from 1 through $count {
+    &-item:nth-of-type(#{$i}) {
+      animation: unfold#{$i} .2s ease-out forwards;
 
-.zhui-switch-circle {
-  position: relative;
-  width: $radius;
-  height: $radius;
-  background: #000;
-  border: 2px solid #343b59;
-  border-radius: 50%;
-  overflow: hidden;
-
-  .zhui-switch {
-    &-inner {
-      &::before {
-        position: absolute;
-        content: '';
-        top: 3%;
-        left: -62%;
-        width: $radius;
-        height: $radius;
-        background: #000;
-        border-radius: 45%;
-        animation: rotate 10s linear infinite;
-        z-index: 1;
+      >span {
+        width: 12px;
+        margin-left: -10px;
+        border-left: 1px solid $ganglan;
       }
     }
   }
-  &::before {
-    position: absolute;
-    content: '';
-    top: 25%;
-    left: 16%;
-    width: $radius;
-    height: $radius;
-    background: #343b59;
-    border-radius: 50%;
-    animation: rotate 10s linear infinite;
+
+  @each $key, $value in $color-list {
+    &-#{$key} > &-item > span {
+      background: $value;
+      border-color: $value;
+    }
   }
 
-  &::after {
-    position: absolute;
-    content: '';
-    top: -25%;
-    left: 35%;
-    width: $radius;
-    height: $radius;
-    background: #343b59;
-    border-radius: 45%;
-    animation: rotate 10s linear infinite;
-    z-index: 2;
+  &-item:nth-of-type(7) {
+    >span {
+      margin-left: -5px;
+    }
+  }
+
+  &-item:nth-of-type(8) {
+    border-right: 0.1px solid #cca26e;
+
+    >span {
+      width: 12px;
+      margin-left: 2px;
+    }
+  }
+
+  &-fold {
+    @for $i from 1 through $count {
+      .zhui-switch-item:nth-of-type(#{$i}) {
+        animation: fold#{$i} .2s ease-in forwards;
+      }
+    }
   }
 }
 
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
+@for $i from 1 through $count {
+  @keyframes fold#{$i} {
+    from {
+      transform: rotate($i * 18deg);
+    }
+
+    to {
+      width: 2px;
+      transform: rotate($i * 1deg);
+      overflow: hidden;
+    }
+  }
+
+  @keyframes unfold#{$i} {
+    from {
+      width: 3px;
+      overflow: hidden;
+    }
+
+    to {
+      transform: rotate($i * 18deg);
+    }
   }
 }
