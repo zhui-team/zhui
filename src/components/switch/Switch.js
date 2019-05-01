@@ -12,11 +12,13 @@ export default class Switch extends PureComponent {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     theme: PropTypes.string,
+    text: PropTypes.string,
     onChange: PropTypes.func
   }
 
   static defaultProps = {
     className: '',
+    text: '',
     prefix: 'zhui-switch',
     checked: false,
     disabled: false,
@@ -56,6 +58,7 @@ export default class Switch extends PureComponent {
       prefix,
       checked,
       disabled,
+      text,
       theme,
       ...others
     } = this.props;
@@ -68,6 +71,7 @@ export default class Switch extends PureComponent {
 
     return (
       <div className={classes} {...others} onClick={this.toggle}>
+        {text && <span className="zhui-switch-text">{text}</span>}
         {this.renderList()}
       </div>
     );

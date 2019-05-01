@@ -11,3 +11,4 @@ export { default as Tag } from './tag';
 export { default as Steps } from './steps';
 export { default as Radio } from './radio';
 export { default as Notify } from './notify';
+export { default as Switch } from './switch';
