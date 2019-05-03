@@ -1,5 +1,6 @@
 <div align='center'>
   <img src="https://s2.ax1x.com/2019/04/05/ARfnuq.png" alt="ARfnuq.png" border="0" />
+  <h1 align="center">Zhui</h1>
   <p>A Chinese style component library powered by React</p>
   <p>一款带有中国风的React组件库</p>
   <img src='https://img.shields.io/badge/language-javascript-1770a8.svg?style=flat-square' />
@@ -26,7 +27,7 @@
 
 组件库处于测试阶段，欢迎使用
 
-```
+```bash
 npm install zhui
 ```
 
@@ -35,6 +36,17 @@ npm install zhui
 ```jsx
 import { Button } from 'zhui';
 ReactDOM.render(<Button />, mountNode);
+```
+
+## ⌨️ Development
+
+clone locally:
+
+```bash
+$ git clone git@github.com:zhui-team/zhui.git
+$ cd zhui
+$ npm install
+$ npm run ddev or npm run storybook
 ```
 
 额外感谢山鬼同学(@dxiaoqi)对本仓库的设计灵感贡献~

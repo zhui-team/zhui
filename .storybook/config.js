@@ -38,6 +38,7 @@ function loadStories() {
   require('../src/stories/radio.story.js');
   require('../src/stories/tag.story.js');
   require('../src/stories/swtich.story.js');
+  require('../src/stories/rate.story.js');
 }
 
 configure(loadStories, module);
