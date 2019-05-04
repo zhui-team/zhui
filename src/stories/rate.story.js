@@ -6,6 +6,9 @@ import '../components/rate/index.scss';
 
 storiesOf('评分 Rate', module)
   .add('默认', () => (
-    <Rate />
+    <Rate value={1} />
+  ))
+  .add('禁用', () => (
+    <Rate value={3} disabled />
   ))
   

@@ -1,0 +1,23 @@
+.zhui-rate {
+  display: flex;
+
+  &-item {
+    margin: 0 2px;
+
+    > svg {
+      cursor: pointer;
+  
+      &:hover {
+        transform: scale(1.1, 1.1);
+        transition: all .2s linear;
+      }
+    }
+  }
+
+  &-disabled > &-item > svg {
+    cursor: not-allowed;
+    &:hover {
+      transform: none;
+    }
+  }
+}
