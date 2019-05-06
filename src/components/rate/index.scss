@@ -2,7 +2,9 @@
   display: flex;
 
   &-item {
-    margin: 0 2px;
+    width: 18px;
+    height: 22px;
+    margin: 0 4px;
 
     > svg {
       cursor: pointer;

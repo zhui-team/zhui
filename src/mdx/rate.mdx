@@ -1,0 +1,35 @@
+---
+name: 评分 rate
+route: /rate
+---
+
+import { Playground, PropsTable } from 'docz'
+import Rate from '../components/rate/index.js'
+
+import '../components/rate/index.scss'
+
+# 评分
+
+一簇`莲灯`亦可观，隔墙箫鼓二更残。
+
+## 代码演示
+
+### 基本用法
+
+<Playground>
+  <Rate 
+    value={1} 
+    onChange={(e, index) => console.log(e, index)}
+  />
+</Playground>
+
+### 禁用
+
+<Playground>
+  <Rate value={3} disabled />
+</Playground>
+
+## 属性
+
+<PropsTable of={Rate} />
+

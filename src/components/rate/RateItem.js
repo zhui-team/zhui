@@ -46,15 +46,13 @@ export default class RateItem extends PureComponent {
       active
     } = this.props;
 
-    let currentColor = active ? '#FF828c' : '#999';
-
     return (
       <div
         className="zhui-rate-item"
         onClick={this.clickRate}
         onMouseMove={this.hoverRate}
       >
-        <RateSVG currentColor={currentColor} />
+        <RateSVG active={active} />
       </div>
     );
   }

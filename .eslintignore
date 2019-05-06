@@ -11,6 +11,7 @@
 /.docz
 /src/__tests__
 /src/stories
+/src/components/rate/RateSVG.js
 
 .DS_Store
 .env.local
