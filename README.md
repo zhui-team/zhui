@@ -1,7 +1,6 @@
 <div align='center'>
   <img src="https://s2.ax1x.com/2019/04/05/ARfnuq.png" alt="ARfnuq.png" border="0" />
   <h1 align="center">Zhui</h1>
-  <p>A Chinese style component library powered by React</p>
   <p>一款带有中国风的React组件库</p>
   <img src='https://img.shields.io/badge/language-javascript-1770a8.svg?style=flat-square' />
   <img src='https://img.shields.io/badge/license-MIT-0f1423.svg?style=flat-square' />
@@ -12,7 +11,7 @@
 </div>
 
 
-简体中文 | [English]('./README-en_US.md')
+简体中文 | [English](./README-en_US.md)
 
 ## 起步
 
