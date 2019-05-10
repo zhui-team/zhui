@@ -1,6 +1,6 @@
 {
   "name": "zhui",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "🚀 a Chinese style component library",
   "main": "lib/index.js",
   "module": "esm/index.js",
