@@ -20,16 +20,22 @@ body {
 .title {
   font-size: 40px;
   color: #444;
+  text-align: center;
 }
 
 .sub-title {
   margin-bottom: 20px;
   font-size: 16px;
   font-weight: normal;
+  text-align: center;
+}
+
+.btn-group {
+  text-align: center;
 }
 
 .zhui-btn {
-  margin: 0 10px;
+  margin: 5px 10px;
 }
 
 .zhui-tag-wrapper {
