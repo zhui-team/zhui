@@ -40,6 +40,7 @@ function loadStories() {
   require('../src/stories/swtich.story.js');
   require('../src/stories/rate.story.js');
   require('../src/stories/table.story.js');
+  require('../src/stories/watermark.story.js');
 }
 
 configure(loadStories, module);
