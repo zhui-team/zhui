@@ -9,17 +9,17 @@ export default function WaterMarkSvg({ height, width, text }) {
             left: 5px;
             width: 40px;
             height: auto;
-            color: red;
-            background: -webkit-linear-gradient(30deg, #410906, yellow);
-            border-radius: 5px;
+            border-radius: 2px;
             padding: 2px;
+            border: 1px solid #b9291f;
           ">
             <div style="
               font-family: 'STKaiti';
               font-size: 14px;
               width: 100%;
               height: 100%;
-              background: #fff;
+              background: #b9291f;
+              color: #fff;
               border-radius: 2px;
               text-align: center;
               letter-spacing: 2px;
