@@ -25,7 +25,7 @@ Can you use star to encourage the author ？
 
 ## 📦 Install
 
-The component library is in beta and welcome to use it.
+The component library is in the typescript refactoring phase, please do not use.
 
 ```bash
 npm install zhui

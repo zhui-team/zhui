@@ -26,7 +26,7 @@
 
 ## 📦 安装
 
-组件库处于测试阶段，欢迎使用
+组件库处于typescript迁移阶段，请勿使用
 
 ```bash
 npm install zhui
