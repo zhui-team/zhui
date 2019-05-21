@@ -2,7 +2,7 @@ import React from 'react';
 import { addParameters, configure, addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-import '../src/stories/scss/main.scss';
+import '../src/stories/scss/zhui-cover.scss';
 
 addParameters({
   options: {
@@ -13,7 +13,7 @@ addParameters({
 });
 
 const backgroundDecorator = story => (
-  <div style={{ display: 'flex', minHeight: 550, justifyContent: 'center', alignItems: 'center'}}>
+  <div className='main-wrapper'>
     { story() }
   </div>
 )

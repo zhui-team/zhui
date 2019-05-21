@@ -1,0 +1,35 @@
+
+.main-wrapper {
+  padding: 0 20px;
+  min-height: 550px;
+}
+
+#story-root {
+  box-sizing: border-box;
+  padding: 0 20px;
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.storybook {
+  &-wrapper {
+  }
+
+  &-title {
+    font-size: 22px;
+  }
+
+  &-children {
+    padding: 20px;
+  }
+
+  &-code-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Menlo, Monaco, "Courier New", monospace';
+    font-size: 0.8em;
+    background: rgb(250, 250, 250);
+    padding: 15px 10px;
+    overflow-x: scroll;
+  }
+}
