@@ -1,16 +1,15 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import omit from 'lodash/omit';
+import * as React from 'react';
 import cn from 'astro-classname';
+import omit from 'lodash/omit';
+import ButtonGroup from './Group';
 
-import './index.css';
+import '../button/index.css';
 
 const BLACK_LIST = [
   'theme',
   'size',
   'htmlType',
   'block',
-  'component',
   'disabled',
   'loading',
   'className',
@@ -23,20 +22,25 @@ const BLACK_LIST = [
 ];
 const isTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 
-export default class Button extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    theme: PropTypes.string,
-    size: PropTypes.oneOf(['large', 'medium', 'small']),
-    disabled: PropTypes.bool,
-    loading: PropTypes.bool,
-    outline: PropTypes.bool,
-    round: PropTypes.bool,
-    block: PropTypes.bool,
-    prefix: PropTypes.string,
-    kong: PropTypes.string
-  }
+export interface IButtonProps {
+  className?: string;
+  href?: string;
+  onClick?: React.MouseEventHandler<Element>;
+  target?: string;
+  prefix?: string;
+  htmlType?: 'button' | 'submit' | 'reset';
+  theme?: string;
+  size?: 'small' | 'medium' | 'large';
+  disabled?: boolean;
+  loading?: boolean;
+  outline?: boolean;
+  round?: boolean;
+  block?: boolean;
+  kong?: string;
+}
 
+export default class Button extends React.Component<IButtonProps> {
+  static Group: typeof ButtonGroup;
   static defaultProps = {
     className: '',
     theme: 'default',
@@ -46,18 +50,21 @@ export default class Button extends PureComponent {
     outline: false,
     round: false,
     block: false,
-    prefix: 'zhui-btn',
-    kong: ''
+    kong: '',
+    prefix: 'zhui-btn'
   }
 
-  isInsertSpace() {
+  isInsertSpace(): boolean {
     const { children } = this.props;
     return React.Children.count(children) === 1;
   }
 
-  wrapValueBySpan(children, isNeedInserted) {
+  wrapValueBySpan(
+    children: React.ReactNode, 
+    isNeedInserted: boolean
+  ): React.ReactNode {
     if (children == null) {
-      return;
+      return null;
     }
 
     const SPACE = isNeedInserted ? ' ' : '';
@@ -74,7 +81,7 @@ export default class Button extends PureComponent {
     });
   }
 
-  handleClick = e => {
+  handleClick: React.MouseEventHandler = e => {
     const { disabled, onClick } = this.props;
 
     if (disabled) {
@@ -86,30 +93,34 @@ export default class Button extends PureComponent {
     }
   }
 
-  renderLink(classes, children) {
-    const { component, disabled, href = '', target } = this.props;
-    const Node = component || 'a';
-    const nodeProps = omit(this.props, BLACK_LIST);
+  renderLink(
+    classes: string, 
+    children: React.ReactNode
+  ) {
+    const { disabled, href = '', target } = this.props;
+    const nodeProps: any = omit(this.props, BLACK_LIST);
 
     return (
-      <Node
+      <a
         {...(disabled ? {} : { href, target })}
         {...nodeProps}
         className={classes}
         onClick={this.handleClick}
       >
         {children}
-      </Node>
+      </a>
     );
   }
 
-  renderButton(classes, children) {
-    const { component, disabled, loading, htmlType } = this.props;
-    const Node = component || 'button';
-    const nodeProps = omit(this.props, BLACK_LIST);
+  renderButton(
+    classes: string, 
+    children: React.ReactNode
+  ) {
+    const { disabled, loading, htmlType } = this.props;
+    const nodeProps: any = omit(this.props, BLACK_LIST);
 
     return (
-      <Node
+      <button
         {...nodeProps}
         {...(htmlType ? { type: htmlType } : {})}
         className={classes}
@@ -117,7 +128,7 @@ export default class Button extends PureComponent {
         onClick={this.handleClick}
       >
         {children}
-      </Node>
+      </button>
     );
   }
 
@@ -133,12 +144,12 @@ export default class Button extends PureComponent {
       outline,
       round,
       block,
-      prefix,
       children,
+      prefix,
       kong
     } = this.props;
-    let renderName = href || target ? 'renderLink' : 'renderButton';
-    const classes =  cn(prefix, className, {
+    let renderName: string = href || target ? 'renderLink' : 'renderButton';
+    const classes: string =  cn(prefix, className, {
       [`${prefix}-${theme}${outline ? '-outline' : ''}`]: theme && !kong,
       [`${prefix}-${size}`]: size && size !== 'medium',
       [`${prefix}-disabled`]: disabled,
@@ -148,7 +159,7 @@ export default class Button extends PureComponent {
       [`${round || outline || disabled ? '' : prefix}-kong-${kong}`]: kong
     });
 
-    const wrapperChildren = this.wrapValueBySpan(
+    const wrapperChildren: React.ReactNode = this.wrapValueBySpan(
       children,
       this.isInsertSpace()
     );
