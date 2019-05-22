@@ -1,9 +1,10 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import cn from 'astro-classname';
+import CheckboxGroup from './CheckboxGroup';
 
-import './index.css';
+import '../checkbox/index.css';
 
 const BLACK_LIST = [
   'className',
@@ -12,16 +13,16 @@ const BLACK_LIST = [
   'disabled'
 ];
 
-export default class Checkbox extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    onChange: PropTypes.func,
-    value: PropTypes.any,
-    prefix: PropTypes.string,
-  }
+export interface ICheckboxProps {
+  className?: string;
+  checked?: boolean;
+  disabled?: boolean;
+  value?: any;
+  prefix?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
+export default class Checkbox extends React.Component<ICheckboxProps> {
   static defaultProps = {
     className: '',
     checked: false,
@@ -30,9 +31,13 @@ export default class Checkbox extends PureComponent {
     prefix: 'zhui-checkbox'
   }
 
+  static Group: typeof CheckboxGroup;
+
   static contextTypes = {
     checkboxGroup: PropTypes.any,
   };
+
+  static context: any;
 
   _onChange = e => {
     const { onChange } = this.props;
@@ -69,11 +74,11 @@ export default class Checkbox extends PureComponent {
       checked = checkboxGroup.value.indexOf(value) !== -1;
     }
 
-    const classes = cn(className, `${prefix}-wrapper`, {
+    const classes: string = cn(className, `${prefix}-wrapper`, {
       [`${prefix}-disabled`]: disabled,
       [`${prefix}-checked`]: checked
     });
-    const nodeProps = omit(this.props, BLACK_LIST);
+    const nodeProps: any = omit(this.props, BLACK_LIST);
 
     return (
       <div className={classes} {...nodeProps}>

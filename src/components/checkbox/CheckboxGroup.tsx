@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import cn from 'astro-classname';
 
@@ -14,16 +14,16 @@ const BLACK_LIST = [
   'value'
 ];
 
-export default class Group extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    onChange: PropTypes.func,
-    value: PropTypes.array,
-    prefix: PropTypes.string,
-  }
+export interface ICheckboxGroupProps {
+  className?: string;
+  prefix?: string;
+  checked?: boolean;
+  disabled?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: any;
+}
 
+export default class CheckboxGroup extends React.Component<ICheckboxGroupProps> {
   static defaultProps = {
     className: '',
     checked: false,
@@ -37,7 +37,7 @@ export default class Group extends PureComponent {
     checkboxGroup: PropTypes.any,
   };
 
-  getChildContext() {
+  getChildContext(): any{
     const { disabled, value } = this.props;
     return {
       checkboxGroup: {
@@ -67,8 +67,8 @@ export default class Group extends PureComponent {
       children
     } = this.props;
 
-    const classes = cn(className, prefix);
-    const nodeProps = omit(this.props, BLACK_LIST);
+    const classes: string = cn(className, prefix);
+    const nodeProps: any = omit(this.props, BLACK_LIST);
 
     return (
       <div className={classes} {...nodeProps}>
