@@ -1,9 +1,8 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import omit from 'lodash/omit';
 import cn from 'astro-classname';
 
-import './index.css';
+import '../card/index.css';
 
 const BLACK_LIST = [
   'className',
@@ -18,20 +17,22 @@ const BLACK_LIST = [
   'type'
 ];
 
-export default class Card extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    width: PropTypes.number,
-    title: PropTypes.node,
-    img: PropTypes.node,
-    theme: PropTypes.string,
-    type: PropTypes.oneOf(['column', 'row']),
-    cornerLeft: PropTypes.string,
-    cornerRight: PropTypes.string,
-    underline: PropTypes.bool,
-    prefix: PropTypes.string
-  }
+export interface ICardProps {
+  className?: string;
+  width?: number;
+  title?: string;
+  img?: React.ReactNode;
+  theme?: string;
+  type?: 'column' | 'row';
+  cornerLeft?: string;
+  cornerRight?: string;
+  underline?: boolean;
+  prefix?: string;
+  style?: React.CSSProperties;
+  children?: React.ReactNode;
+}
 
+export default class Card extends React.Component<ICardProps> {
   static defaultProps = {
     className: '',
     type: 'column',
@@ -54,13 +55,13 @@ export default class Card extends PureComponent {
       children
     } = this.props;
 
-    const classes = cn(prefix, className, {
+    const classes: string = cn(prefix, className, {
       [`${prefix}-${type}`]: type === 'row',
       [`${prefix}-${theme}`]: theme && theme !== 'default'
     });
-    const nodeProps = omit(this.props, BLACK_LIST);
+    const nodeProps: any = omit(this.props, BLACK_LIST);
 
-    let styles = style || {};
+    let styles: React.CSSProperties = style || {};
     width && (styles.width = width);
 
     return (
