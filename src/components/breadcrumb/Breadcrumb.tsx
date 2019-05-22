@@ -1,24 +1,25 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import cn from 'astro-classname';
-
 import BreadcrumbItem from './BreadcrumbItem';
 
-import './index.css';
+import '../breadcrumb/index.css';
 
-export default class Breadcrumb extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    prefix: PropTypes.string,
-    list: PropTypes.array
-  }
+export interface IBreadcrumbProps {
+  className?: string;
+  prefix?: string;
+  list?: BreadcrumbItem[];
+  children?: React.ReactNode;
+}
 
+export default class Breadcrumb extends React.Component<IBreadcrumbProps> {
   static defaultProps = {
     className: '',
     prefix: 'zhui-breadcrumb',
     list: []
   }
 
+  static Item: typeof BreadcrumbItem;
+  
   render() {
     const {
       className,
@@ -28,7 +29,7 @@ export default class Breadcrumb extends PureComponent {
       ...others
     } = this.props;
 
-    const classes = cn(className, prefix);
+    const classes: string = cn(className, prefix);
 
     return (
       <div className={classes} {...others}>

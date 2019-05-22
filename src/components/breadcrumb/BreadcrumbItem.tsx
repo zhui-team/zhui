@@ -1,17 +1,17 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import cn from 'astro-classname';
 
-import './index.css';
+import '../breadcrumb/index.css';
 
-export default class BreadcrumbItem extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    prefix: PropTypes.string,
-    href: PropTypes.string,
-    value: PropTypes.string
-  }
+export interface IBreadcrumbItemProps {
+  className?: string;
+  prefix?: string;
+  href?: string;
+  value?: string;
+  children?: React.ReactNode;
+}
 
+export default class BreadcrumbItem extends React.Component<IBreadcrumbItemProps> {
   static defaultProps = {
     className: '',
     prefix: 'zhui-breadcrumb-item',
@@ -31,7 +31,7 @@ export default class BreadcrumbItem extends PureComponent {
 
     if (children) return children;
 
-    const classes = cn(className, prefix);
+    const classes: string = cn(className, prefix);
 
     return (
       href ?
