@@ -1,9 +1,8 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import omit from 'lodash/omit';
 import cn from 'astro-classname';
 
-import './index.css';
+import '../alert/index.css';
 
 const BLACK_LIST = [
   'className',
@@ -15,24 +14,28 @@ const BLACK_LIST = [
   'onClose'
 ];
 
-export default class Alert extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    prefix: PropTypes.string,
-    closable: PropTypes.bool,
-    visiable: PropTypes.bool,
-    message: PropTypes.string,
-    theme: PropTypes.string,
-    onClose: PropTypes.func
-  }
+export interface IAlertProps {
+  className?: string;
+  prefix?: string;
+  closable?: boolean;
+  visiable?: boolean;
+  message?: string;
+  theme?: string;
+  onClose?: React.MouseEventHandler<HTMLAnchorElement>;
+}
 
+export interface IAlertState {
+  visiable: boolean
+}
+
+export default class Alert extends React.Component<IAlertProps> {
   static defaultProps = {
     className: '',
     prefix: 'zhui-alert',
     closable: false
   }
 
-  static getDerivedStateFromProps(nextProps) {
+  static getDerivedStateFromProps(nextProps: IAlertProps) {
     if ('visiable' in nextProps) {
       return {
         visiable: nextProps.visiable,
@@ -41,11 +44,11 @@ export default class Alert extends PureComponent {
     return null;
   }
 
-  state = {
+  state: IAlertState = {
     visiable: true,
   };
 
-  onClose = e => {
+  onClose: React.MouseEventHandler<HTMLAnchorElement> = e => {
     const { onClose } = this.props;
     if (onClose) {
       onClose(e);
@@ -71,10 +74,10 @@ export default class Alert extends PureComponent {
       closable,
     } = this.props;
 
-    const classes = cn(className, `${prefix}-wrapper`, {
+    const classes: string = cn(className, `${prefix}-wrapper`, {
       [`${prefix}-wrapper-${theme}`]: theme
     });
-    const nodeProps = omit(this.props, BLACK_LIST);
+    const nodeProps: any = omit(this.props, BLACK_LIST);
 
 
     return (
