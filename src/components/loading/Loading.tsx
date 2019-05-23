@@ -1,17 +1,17 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import cn from 'astro-classname';
 
 import './index.css';
 
-export default class Loading extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    prefix: PropTypes.string,
-    global: PropTypes.bool,
-    show: PropTypes.bool
-  }
+export interface ILoadingProps {
+  className?: string;
+  prefix?: string;
+  global?: boolean;
+  show?: boolean;
+  children?: React.ReactNode;
+}
 
+export default class Loading extends React.Component<ILoadingProps> {
   static defaultProps = {
     className: '',
     prefix: 'zhui-loading',
@@ -29,7 +29,7 @@ export default class Loading extends PureComponent {
       ...others
     } = this.props;
 
-    const classes = cn(className, `${prefix}-wrapper`, {
+    const classes: string = cn(className, `${prefix}-wrapper`, {
       [`${prefix}-global`]: global
     });
 
