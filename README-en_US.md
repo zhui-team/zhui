@@ -18,14 +18,9 @@
 [What I thought](https://juejin.im/post/5c617a355188256299385138)
 [Document entry page](https://zhui-team.github.io/zhui/)
 
-+ Quickly browse and use components：[Original document](https://inspiring-bardeen-426f2e.netlify.com/)
-+ Step through and customize the debug components：[New document](https://addonedn.github.io/Zhui/)
-
 Can you use star to encourage the author ？
 
 ## 📦 Install
-
-The component library is in the typescript refactoring phase, please do not use.
 
 ```bash
 npm install zhui
