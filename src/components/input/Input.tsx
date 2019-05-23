@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import omit from 'lodash/omit';
 import cn from 'astro-classname';
+import TextArea from './Textarea';
 
-import './index.css';
+import '../input/index.css';
 
 const BLACK_LIST = [
   'className',
@@ -19,34 +19,34 @@ const BLACK_LIST = [
   'icon'
 ];
 
-export default class Input extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    type: PropTypes.string,
-    width: PropTypes.number,
-    placeholder: PropTypes.string,
-    prefix: PropTypes.string,
-    size: PropTypes.oneOf(['large', 'medium', 'small']),
-    theme: PropTypes.string,
-    value: PropTypes.any,
-    addonBefore: PropTypes.node,
-    addonAfter: PropTypes.node,
-    icon: PropTypes.node,
-    disabled: PropTypes.bool,
-    autoFocus: PropTypes.bool,
-    onPressEnter: PropTypes.func,
-    onKeyDown: PropTypes.func,
-    onChange: PropTypes.func
-  }
+export interface IInputProps {
+  className?: string;
+  width?: number;
+  theme?: string;
+  prefix?: string;
+  disabled?: boolean;
+  autoFocus?: boolean;
+  size?: 'large' | 'medium' | 'small';
+  value?: any;
+  addonBefore?: React.ReactNode;
+  addonAfter?: React.ReactNode;
+  icon?: React.ReactNode;
+  onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
+  onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
+export default class Input extends React.Component<IInputProps> {
   static defaultProps = {
     className: '',
-    type: 'text',
     theme: 'default',
     prefix: 'zhui-input',
     disabled: false,
     autoFocus: false
   }
+  
+  static Textarea: typeof TextArea;
+  input: HTMLInputElement | HTMLTextAreaElement;
 
   componentDidMount() {
     const { autoFocus } = this.props;
@@ -56,7 +56,7 @@ export default class Input extends PureComponent {
     }
   }
 
-  handleKeyDown = (e) => {
+  handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { onKeyDown, onPressEnter } = this.props;
     if (onKeyDown) {
       onKeyDown(e);
@@ -71,7 +71,7 @@ export default class Input extends PureComponent {
     this.input.focus();
   }
 
-  saveInput = (node) => {
+  saveInput = (node: HTMLInputElement) => {
     this.input = node;
   }
 
@@ -89,12 +89,12 @@ export default class Input extends PureComponent {
       disabled
     } = this.props;
 
-    const classes = cn('zhui-input-wrapper', className, {
+    const classes: string = cn('zhui-input-wrapper', className, {
       [`${prefix}-wrapper-${size}`]: size && size !== 'medium',
       [`${prefix}-group`]: addonAfter || addonBefore
     });
 
-    const nodeProps = omit(this.props, BLACK_LIST);
+    const nodeProps: any = omit(this.props, BLACK_LIST);
 
     return (
       <div className={classes} style={{ width }}>
