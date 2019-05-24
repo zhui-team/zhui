@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import NotifyInner from './NotifyInner';
 
-import './index.css';
+import '../notify/index.css';
 
-let notifyIndex = 0;
-const notifyList = {};
+let notifyIndex: number = 0;
+const notifyList: object = {};
 
 const getNotifyContainer = () => {
   let notifyContainer = document.querySelector('.zhui-notify-container');
@@ -14,11 +14,9 @@ const getNotifyContainer = () => {
     container.className = 'zhui-notify-container';
     notifyContainer = document.body.appendChild(container);
   }
-
-  return notifyContainer;
 };
 
-const closeNotify = (id) => {
+const closeNotify = (id: number) => {
   const notify = notifyList[id];
   if (!notify) return;
 
@@ -34,7 +32,7 @@ const closeNotify = (id) => {
   if (callback) callback(notify);
 };
 
-export default function open(args) {
+export default function open(args: any) {
   const {
     duration,
     callback,
@@ -42,8 +40,8 @@ export default function open(args) {
   } = args;
 
   getNotifyContainer();
-  const tempContainer = document.createElement('div');
-  const notifyId = notifyIndex++;
+  const tempContainer: HTMLElement = document.createElement('div');
+  const notifyId: number = notifyIndex++;
   const props = {
     notifyId,
     selector: '.zhui-notify-container',
