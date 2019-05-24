@@ -1,18 +1,22 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import cn from 'astro-classname';
 import RateItem from './RateItem';
 
-import './index.css';
+import '../rate/index.css';
 
-export default class Rate extends PureComponent {
-  static propTypes = {
-    value: PropTypes.number,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    onChange: PropTypes.func
-  }
+export interface IRateProps {
+  value?: number;
+  className?: string;
+  disabled?: boolean;
+  onChange?: (e: React.MouseEvent, index: number) => void;
+}
 
+export interface IRateState {
+  value?: number;
+  clickValue?: number;
+}
+
+export default class Rate extends React.Component<IRateProps, IRateState> {
   static defaultProps = {
     className: '',
     value: 0,
@@ -20,7 +24,7 @@ export default class Rate extends PureComponent {
     onChange: () => null
   }
 
-  constructor(props) {
+  constructor(props: Readonly<IRateProps>) {
     super(props);
     this.state = {
       value: props.value || 0,
@@ -28,7 +32,7 @@ export default class Rate extends PureComponent {
     };
   }
 
-  handleClick = (e, index) => {
+  handleClick = (e: React.MouseEvent, index: number) => {
     this.setState({
       value: index + 1,
       clickValue: index + 1
@@ -37,7 +41,7 @@ export default class Rate extends PureComponent {
     this.props.onChange(e, index);
   }
 
-  handleHover = (e, index) => {
+  handleHover = (index: number) => {
     const { value } = this.state;
     if (index + 1 !== value) {
       this.setState({
@@ -55,7 +59,7 @@ export default class Rate extends PureComponent {
     }
   }
 
-  renderRateList() {
+  renderRateList(): React.ReactNode[] {
     const { disabled } = this.props;
     let list = [];
     let activeIndex = this.state.value;
@@ -80,9 +84,7 @@ export default class Rate extends PureComponent {
   render() {
     const {
       className,
-      value,
-      disabled,
-      ...others
+      disabled
     } = this.props;
 
     const classes = cn(className, 'zhui-rate', {
@@ -93,7 +95,6 @@ export default class Rate extends PureComponent {
       <div
         onMouseLeave={this.handleLeave}
         className={classes}
-        {...others}
       >
         {this.renderRateList()}
       </div>

@@ -1,15 +1,15 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import RateSVG from './RateSVG';
 
-export default class RateItem extends PureComponent {
-  static propTypes = {
-    active: PropTypes.bool,
-    onHover: PropTypes.func,
-    onClick: PropTypes.func,
-    disabled: PropTypes.bool
-  }
+export interface IRateItemProps {
+  active?: boolean;
+  onHover?: (index: number) => void;
+  onClick?: (e: React.MouseEvent, index: number) => void;
+  disabled?: boolean;
+  index?: number;
+}
 
+export default class RateItem extends React.Component<IRateItemProps> {
   static defaultProps = {
     active: false,
     onHover: () => null,
@@ -17,7 +17,7 @@ export default class RateItem extends PureComponent {
     disabled: false
   }
 
-  clickRate = (e) => {
+  clickRate = (e: React.MouseEvent) => {
     const {
       index,
       onClick,
@@ -29,7 +29,7 @@ export default class RateItem extends PureComponent {
     }
   }
 
-  hoverRate = (e) => {
+  hoverRate = () => {
     const {
       index,
       onHover,
@@ -37,7 +37,7 @@ export default class RateItem extends PureComponent {
     } = this.props;
 
     if (!disabled) {
-      onHover(e, index);
+      onHover(index);
     }
   }
 
@@ -52,7 +52,7 @@ export default class RateItem extends PureComponent {
         onClick={this.clickRate}
         onMouseMove={this.hoverRate}
       >
-        <RateSVG active={active} />
+        {RateSVG({active})}
       </div>
     );
   }
