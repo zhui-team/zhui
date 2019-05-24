@@ -1,19 +1,18 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import cn from 'astro-classname';
+import getRotate from './getRotate';
 
-import getRotate from '../utils/getRotate';
-import './index.css';
+import '../progress/index.css';
 
-export default class Progress extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    prefix: PropTypes.string,
-    status: PropTypes.oneOf(['active', 'exception']),
-    showInfo: PropTypes.bool,
-    percent: PropTypes.number
-  }
+export interface IProgressProps {
+  className?: string;
+  prefix?: string;
+  status?: 'active' | 'exception';
+  showInfo?: boolean;
+  percent?: number;
+}
 
+export default class Progress extends React.Component<IProgressProps> {
   static defaultProps = {
     className: '',
     prefix: 'zhui-progress',
@@ -32,18 +31,18 @@ export default class Progress extends PureComponent {
       ...others
     } = this.props;
 
-    const classes = cn(className, `${prefix}-wrapper`);
-    const innerClass = cn(`${prefix}-inner`, {
+    const classes: string = cn(className, `${prefix}-wrapper`);
+    const innerClass: string = cn(`${prefix}-inner`, {
       [`${prefix}-active`]: percent < 100 && percent > 5 && status !== 'exception',
       [`${prefix}-exception`]: status === 'exception',
       [`${prefix}-success`]: percent >= 100,
     });
-    const width = percent + '%';
-    const rest = 100 - percent + '%';
-    let start = 3;
-    let rotate = percent <= 50 ? getRotate(start, percent) : getRotate(start, 101 - percent);
-    let xRotate = showInfo ? `rotateZ(${percent <= 50 ? start : -rotate}deg)` : '';
-    let yRotate = showInfo ? `rotateZ(${percent <= 50 ? rotate : -start}deg)` : '';
+    const width: string = percent + '%';
+    const rest: string = 100 - percent + '%';
+    let start: number = 3;
+    let rotate: number = percent <= 50 ? getRotate(start, percent) : getRotate(start, 101 - percent);
+    let xRotate: string = showInfo ? `rotateZ(${percent <= 50 ? start : -rotate}deg)` : '';
+    let yRotate: string = showInfo ? `rotateZ(${percent <= 50 ? rotate : -start}deg)` : '';
 
     return (
       <div className={classes} {...others}>
