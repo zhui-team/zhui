@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import cn from 'astro-classname';
 import omit from 'lodash/omit';
 
-import './index.css';
+import '../radio/index.css';
 
 const BLACK_LIST = [
   'className',
@@ -13,15 +13,14 @@ const BLACK_LIST = [
   'value'
 ];
 
-export default class Group extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    value: PropTypes.any.isRequired,
-    onChange: PropTypes.func,
-    disabled: PropTypes.bool,
-    prefix: PropTypes.string
-  }
-
+export interface IRadioGroupProps {
+  className?: string;
+  value: any;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
+  prefix?: string;
+}
+export default class Group extends React.Component<IRadioGroupProps> {
   static defaultProps = {
     className: '',
     onChange: () => null,
@@ -33,7 +32,7 @@ export default class Group extends PureComponent {
     radioGroup: PropTypes.any,
   };
 
-  getChildContext() {
+  getChildContext(): any {
     const { disabled, value } = this.props;
     return {
       radioGroup: {
@@ -53,8 +52,8 @@ export default class Group extends PureComponent {
       prefix
     } = this.props;
 
-    const classes = cn(className, `${prefix}-group`);
-    const nodeProps = omit(this.props, BLACK_LIST);
+    const classes: string = cn(className, `${prefix}-group`);
+    const nodeProps: any = omit(this.props, BLACK_LIST);
 
     return (
       <div className={classes} {...nodeProps}>

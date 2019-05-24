@@ -1,32 +1,39 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import cn from 'astro-classname';
+import RadioGroup from './RadioGroup';
 
-import './index.css';
+import '../radio/index.css';
 
-export default class Radio extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    value: PropTypes.any,
-    checked: PropTypes.bool,
-    prefix: PropTypes.string,
-    onChange: PropTypes.func,
-    text: PropTypes.string,
-    theme: PropTypes.string,
-  }
+export interface IRadioProps {
+  className?: string;
+  value?: any;
+  checked?: boolean;
+  prefix?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  text?: string;
+  theme?: string;
+  disabled?: boolean;
+}
 
+export default class Radio extends React.Component<IRadioProps> {
   static defaultProps = {
     className: '',
     checked: false,
+    disabled: false,
     prefix: 'zhui-radio',
     onChange: () => null,
     text: '',
     theme: ''
   }
 
+  static Group: typeof RadioGroup;
+
   static contextTypes = {
     radioGroup: PropTypes.any,
   };
+
+  static context: any;
 
   _onChange = e => {
     const { onChange } = this.props;
@@ -59,10 +66,10 @@ export default class Radio extends PureComponent {
     } = this.props;
     const { radioGroup } = this.context;
 
-    const classes = cn(className, `${prefix}-item`, {
+    const classes: string = cn(className, `${prefix}-item`, {
       [`${prefix}-${theme}`]: theme && theme !== 'meihong'
     });
-    const nodeProps = {
+    const nodeProps: any = {
       disabled,
       onChange: this._onChange
     };
@@ -75,7 +82,7 @@ export default class Radio extends PureComponent {
       nodeProps.checked = checked;
     }
 
-    const isMultiWords = text.length > 1;
+    const isMultiWords: boolean = text.length > 1;
     return (
       <div className={`${prefix}-wrapper`}>
         <input type="radio" {...nodeProps} className={`${prefix}-input`} />
