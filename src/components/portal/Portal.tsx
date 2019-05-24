@@ -1,18 +1,19 @@
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
 import cn from 'astro-classname';
 
-import './index.css';
+import '../portal/index.css';
 
-export default class Portal extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    selector: PropTypes.string,
-    center: PropTypes.bool,
-    visiable: PropTypes.bool
-  }
+export interface IPortalProps {
+  className?: string;
+  selector?: string;
+  center?: boolean;
+  visiable?: boolean;
+  children?: React.ReactNode;
+  style?: React.CSSProperties;
+}
 
+export default class Portal extends React.Component<IPortalProps> {
   static defaultProps = {
     className: '',
     selector: 'body',
@@ -30,12 +31,12 @@ export default class Portal extends PureComponent {
       ...others
     } = this.props;
 
-    const classes = cn('zhui-portal', className, {
+    const classes: string = cn('zhui-portal', className, {
       'zhui-portal-center': center,
       'zhui-portal-hide': !visiable
     });
 
-    const selectorContainer = document.querySelector(selector);
+    const selectorContainer: HTMLElement = document.querySelector(selector);
 
     if (!selectorContainer) return null;
 
