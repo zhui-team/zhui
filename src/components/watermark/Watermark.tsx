@@ -1,17 +1,16 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import cn from 'astro-classname';
 import WaterMarkSvg from './WaterMarkSvg';
 
-export default class WaterMark extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    text: PropTypes.string,
-    src: PropTypes.string.isRequired,
-    width: PropTypes.number,
-    height: PropTypes.number
-  }
+export interface IWaterMarkProps {
+  className?: string;
+  text?: string;
+  src: string;
+  width?: number;
+  height?: number;
+}
 
+export default class WaterMark extends React.Component<IWaterMarkProps> {
   static defaultProps = {
     className: '',
     text: '水印',
@@ -19,12 +18,13 @@ export default class WaterMark extends PureComponent {
     height: 200
   }
 
-  wrapper = React.createRef();
+  wrapper: any = React.createRef();
 
   renderWatermark() {
     const {
       width,
       height,
+      text,
       src
     } = this.props;
     let markImg = new Image();
@@ -51,10 +51,14 @@ export default class WaterMark extends PureComponent {
         }
       };
 
-      img.src = WaterMarkSvg(this.props);
+      img.src = WaterMarkSvg({height, width, text});
       this.wrapper.current && this.wrapper.current.append(res);
     };
     markImg.src = res.src;
+  }
+
+  componentDidMount() {
+    this.renderWatermark();
   }
 
   render() {
@@ -65,9 +69,7 @@ export default class WaterMark extends PureComponent {
     const classes = cn('zhui-watermark', className);
 
     return (
-      <div className={classes} ref={this.wrapper}>
-        {this.renderWatermark()}
-      </div>
+      <div className={classes} ref={this.wrapper}></div>
     );
   }
 }

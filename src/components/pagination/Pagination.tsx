@@ -1,20 +1,24 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import omit from 'lodash/omit';
 import cn from 'astro-classname';
 
-import './index.css';
+import '../pagination/index.css';
 
-export default class Switch extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    prefix: PropTypes.string,
-    current: PropTypes.number.isRequired,
-    pageSize: PropTypes.number,
-    total: PropTypes.number.isRequired,
-    showTotal: PropTypes.bool,
-    onChange: PropTypes.func
-  }
+export interface IPaginationProps {
+  className?: string;
+  prefix?: string;
+  current: number;
+  pageSize?: number;
+  total: number;
+  showTotal?: boolean;
+  onChange?: (page: string, e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
+export interface IPaginationState {
+  current?: number;
+}
+
+export default class Switch extends React.Component<IPaginationProps, IPaginationState> {
   static defaultProps = {
     className: '',
     prefix: 'zhui-pagination',
@@ -23,7 +27,7 @@ export default class Switch extends PureComponent {
     onChange: () => null
   }
 
-  state = {
+  state: IPaginationState = {
     current: this.props.current
   }
 
@@ -77,13 +81,14 @@ export default class Switch extends PureComponent {
       ...others
     } = this.props;
     let { current } = this.state;
-    const classes = cn(className, prefix);
+    const classes: string = cn(className, prefix);
+    const nodeProps: any = omit(others, ['onChange']);
 
     current = current < 1 ? 1 :
       current > total ? total : current;
 
     return (
-      <div className={classes} {...others}>
+      <div className={classes} {...nodeProps}>
         {
           showTotal && <span>共{total}页，当前第{current}页</span>
         }
