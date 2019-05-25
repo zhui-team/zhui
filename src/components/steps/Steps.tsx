@@ -1,19 +1,20 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import cn from 'astro-classname';
 import StepRender from './StepRender';
+import Step from './Step';
 
-import './index.css';
+import '../steps/index.css';
 
-export default class Steps extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    prefix: PropTypes.string,
-    current: PropTypes.number,
-    status: PropTypes.oneOf(['default', 'error']),
-    disabled: PropTypes.bool
-  }
+export interface IStepsProps {
+  className?: string;
+  prefix?: string;
+  current?: number;
+  status?: 'default' | 'error' | 'finished' | 'wait';
+  disabled?: boolean;
+  children?: React.ReactNode;
+}
 
+export default class Steps extends React.Component<IStepsProps> {
   static defaultProps = {
     className: '',
     prefix: 'zhui-steps',
@@ -21,6 +22,8 @@ export default class Steps extends PureComponent {
     current: 1
   }
 
+  static Step: typeof Step;
+  
   render() {
     const {
       className,
@@ -30,7 +33,7 @@ export default class Steps extends PureComponent {
       ...others
     } = this.props;
 
-    const classes = cn(className, prefix, {
+    const classes: string = cn(className, prefix, {
       [`${prefix}-disabled`]: disabled
     });
 
