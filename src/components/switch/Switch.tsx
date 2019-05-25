@@ -1,21 +1,19 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import cn from 'astro-classname';
 
-import './index.css';
+import '../switch/index.css';
 
-export default class Switch extends PureComponent {
+export interface ISwitchProps {
+  className?: string;
+  prefix?: string;
+  checked?: boolean;
+  disabled?: boolean;
+  theme?: string;
+  text?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-  static propTypes = {
-    className: PropTypes.string,
-    prefix: PropTypes.string,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    theme: PropTypes.string,
-    text: PropTypes.string,
-    onChange: PropTypes.func
-  }
-
+export default class Switch extends React.Component<ISwitchProps> {
   static defaultProps = {
     className: '',
     text: '',
@@ -26,7 +24,7 @@ export default class Switch extends PureComponent {
     onChange: () => null
   }
 
-  toggle = e => {
+  toggle = (e: any) => {
     const { onChange, checked } = this.props;
     const evt = {
       ...e,
@@ -40,7 +38,7 @@ export default class Switch extends PureComponent {
     onChange(evt);
   }
 
-  renderList() {
+  renderList(): React.ReactNode {
     let list = [];
     for (let i = 0; i < 8; i++) {
       list.push(
@@ -52,6 +50,7 @@ export default class Switch extends PureComponent {
 
     return list;
   }
+
   render() {
     const {
       className,
@@ -63,7 +62,7 @@ export default class Switch extends PureComponent {
       ...others
     } = this.props;
 
-    const classes = cn(className, prefix, {
+    const classes: string = cn(className, prefix, {
       [`${prefix}-disabled`]: disabled,
       [`${prefix}-fold`]: !checked,
       [`${prefix}-${theme}`]: theme && theme !== 'default',
