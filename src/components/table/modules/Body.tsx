@@ -1,18 +1,17 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
-export default class Body extends PureComponent {
-  static propTypes = {
-    columns: PropTypes.array.isRequired,
-    dataSource: PropTypes.array.isRequired
-  }
+export interface IBodyProps {
+  dataSource: any[];
+  columns: any[];
+}
 
+export default class Body extends React.Component<IBodyProps> {
   static defaultProps = {
     columns: [],
     dataSource: []
   }
 
-  renderTd(tr) {
+  renderTd(tr: React.ReactNode): React.ReactNode {
     let tds = [];
 
     Object.keys(tr).forEach(key => {
@@ -29,7 +28,7 @@ export default class Body extends PureComponent {
     return tds;
   }
 
-  renderBody() {
+  renderBody(): React.ReactNode {
     const { dataSource } = this.props;
 
     let trs = [];

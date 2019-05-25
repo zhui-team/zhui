@@ -1,19 +1,18 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import cn from 'astro-classname';
 import Body from './modules/Body';
 import Head from './modules/Head';
 
-import './index.css';
+import '../table/index.css';
 
-export default class Table extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    dataSource: PropTypes.array.isRequired,
-    columns: PropTypes.array.isRequired,
-    prefix: PropTypes.string
-  }
+export interface ITableProps {
+  className?: string;
+  dataSource: any[];
+  columns: any[];
+  prefix?: string;
+}
 
+export default class Table extends React.Component<ITableProps> {
   static defaultProps = {
     className: '',
     dataSource: [],
@@ -29,7 +28,7 @@ export default class Table extends PureComponent {
       prefix
     } = this.props;
 
-    const classes = cn(className, `${prefix}-wrapper`);
+    const classes: string = cn(className, `${prefix}-wrapper`);
     return (
       <div className={classes}>
         <table>

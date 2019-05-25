@@ -1,16 +1,15 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
-export default class Head extends PureComponent {
-  static propTypes = {
-    columns: PropTypes.array.isRequired,
-  }
+export interface IHeadProps {
+  columns: any[];
+}
 
+export default class Head extends React.Component<IHeadProps> {
   static defaultProps = {
     columns: []
   }
 
-  renderHead() {
+  renderHead(): React.ReactNode {
     const { columns } = this.props;
     let ths = [];
 
