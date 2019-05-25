@@ -1,9 +1,8 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import omit from 'lodash/omit';
 import cn from 'astro-classname';
 
-import './index.css';
+import '../tag/index.css';
 
 const BLACK_LIST = [
   'className',
@@ -14,23 +13,28 @@ const BLACK_LIST = [
   'onClose'
 ];
 
-export default class Tag extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    prefix: PropTypes.string,
-    color: PropTypes.string,
-    closable: PropTypes.bool,
-    visiable: PropTypes.bool,
-    onClose: PropTypes.func
-  }
+export interface ITagProps {
+  className?: string;
+  prefix?: string;
+  color?: string;
+  closable?: boolean;
+  visiable?: boolean;
+  onClose?: React.MouseEventHandler<HTMLAnchorElement>;
+  style?: React.CSSProperties;
+}
 
+export interface ITagState {
+  visiable: boolean;
+}
+
+export default class Tag extends React.Component<ITagProps, ITagState> {
   static defaultProps = {
     className: '',
     prefix: 'zhui-tag',
     closable: false
   }
 
-  static getDerivedStateFromProps(nextProps) {
+  static getDerivedStateFromProps(nextProps: ITagProps) {
     if ('visiable' in nextProps) {
       return {
         visiable: nextProps.visiable,
@@ -43,7 +47,7 @@ export default class Tag extends PureComponent {
     visiable: true,
   };
 
-  onClose = e => {
+  onClose = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     const { onClose, closable } = this.props;
     if (!closable) {
       return;
@@ -73,12 +77,12 @@ export default class Tag extends PureComponent {
       style
     } = this.props;
 
-    const classes = cn(className, `${prefix}-wrapper`, {
+    const classes: string = cn(className, `${prefix}-wrapper`, {
       [`${prefix}-wrapper-closable`]: closable
     });
-    const nodeProps = omit(this.props, BLACK_LIST);
+    const nodeProps: any = omit(this.props, BLACK_LIST);
 
-    let styles = style || {};
+    let styles: React.CSSProperties = style || {};
     color && (styles.background = color);
 
     return (
