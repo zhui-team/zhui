@@ -1,6 +1,6 @@
 {
   "name": "zhui",
-  "version": "0.4.1",
+  "version": "1.0.0",
   "description": "🚀 a Chinese style component library",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -34,6 +34,8 @@
   },
   "dependencies": {
     "@svgr/webpack": "2.4.1",
+    "@types/react": "^16.8.17",
+    "@types/react-dom": "^16.8.4",
     "astro-classname": "^2.1.0",
     "react": "^16.8.4",
     "react-app-polyfill": "^0.2.0",
@@ -47,9 +49,9 @@
     "deploy-storybook": "storybook-to-ghpages --remote=page",
     "start": "node scripts/start.js",
     "test": "jest",
-    "ddev": "docz dev",
-    "dbuild": "docz build",
-    "cbuild": "(cross-env BABEL_OUTPUT=commonjs babel src/components --out-dir lib/ & node-sass -r src/components -o lib) && (babel src/components --out-dir esm/ & node-sass -r src/components -o esm)",
+    "cbuild": "cross-env BABEL_OUTPUT=commonjs babel src/components --out-dir lib/ && babel src/components --out-dir esm/ && npm run copy-sass",
+    "copy-sass": "node-sass -r src/components -o lib && node-sass -r src/components -o esm",
+    "tbuild": "tsc --outDir lib --module commonjs && tsc --outDir esm && npm run copy-sass",
     "lint": "eslint ./src --ignore-pattern .eslintignore",
     "precommit-msg": "echo 'Pre-commit eslint checking...' && exit 0"
   },
@@ -63,30 +65,31 @@
     "not op_mini all"
   ],
   "jest": {
-    "setupTestFrameworkScriptFile": "./setupTests.js",
+    "setupFilesAfterEnv": ["./setupTests.js"],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}"
     ],
     "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+      "^.+\\.(js|jsx|ts|tsx)$": "ts-jest"
     },
     "moduleNameMapper": {
       "^.+\\.(css|sass|scss)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [
       "js",
-      "jsx"
+      "ts",
+      "tsx"
     ]
   },
   "pre-commit": [
     "precommit-msg",
-    "lint",
-    "test"
+    "lint"
   ],
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.1.6",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "@emotion/core": "^10.0.6",
@@ -95,6 +98,8 @@
     "@storybook/addon-notes": "^5.0.10",
     "@storybook/react": "^5.0.10",
     "@storybook/storybook-deployer": "^2.8.1",
+    "@types/jest": "^24.0.13",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
@@ -105,9 +110,6 @@
     "chalk": "2.4.1",
     "cross-env": "^5.2.0",
     "css-loader": "1.0.0",
-    "docz": "^0.13.7",
-    "docz-plugin-css": "^0.11.0",
-    "docz-theme-default": "^0.13.7",
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
     "enzyme": "^3.8.0",
@@ -125,7 +127,7 @@
     "fs-extra": "7.0.0",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
-    "jest": "^23.6.0",
+    "jest": "^24.0.0",
     "loadash": "^1.0.0",
     "mini-css-extract-plugin": "0.4.3",
     "node-sass": "^4.11.0",
@@ -136,10 +138,14 @@
     "postcss-preset-env": "6.3.1",
     "postcss-safe-parser": "4.0.1",
     "pre-commit": "^1.2.2",
+    "react-docgen-typescript-loader": "^3.1.0",
+    "react-element-to-jsx-string": "^14.0.2",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.0",
     "terser-webpack-plugin": "1.1.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.5",
     "url-loader": "1.1.1",
     "webpack": "4.19.1",
     "webpack-cli": "^3.2.1",

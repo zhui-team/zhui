@@ -10,9 +10,9 @@
 
 # production
 /build
+/es
 /esm
 /lib
-/.docz
 /storybook-static
 
 # misc
