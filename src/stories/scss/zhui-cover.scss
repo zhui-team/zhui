@@ -1,62 +1,63 @@
-body {
-  font-family: 'STKaiti';
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-}
+.zhui {
+  &-btn {
+    margin: 5px 10px;
 
-.center {
-  min-height: 550px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.zhui-btn {
-  margin: 5px 10px;
-
-  &-group {
-    .zhui-btn {
-      margin: 0;
+    &-group {
+      .zhui-btn {
+        margin: 0;
+      }
     }
   }
-}
 
-.zhuiicon {
-  &-wrapper {
-    display: flex;
-    align-items: center;
-
-    > i {
+  &icon {
+    &-wrapper {
+      display: flex;
+      align-items: center;
+  
+      > i {
+        margin-right: 10px;
+      }
+    }
+  
+    &-row > i {
       margin-right: 10px;
     }
   }
 
-  &-row > i {
-    margin-right: 10px;
+  &-input {
+    &-wrapper {
+      margin: 10px 5px;
+    }
   }
-}
 
-.zhui-input {
-  &-wrapper {
-    margin: 10px 5px;
-  }
-}
-
-.zhui-card {
-  display: inline-block;
-  margin: 5px;
-}
-
-.zhui-tag, .zhui-checkbox {
-  &-wrapper {
+  &-card {
+    display: inline-block;
     margin: 5px;
   }
-}
 
-.zhui-alert {
-  &-wrapper {
-    margin: 10px;
+  &-tag, &-checkbox {
+    &-wrapper {
+      margin: 5px;
+    }
+  }
+
+  &-alert {
+    &-wrapper {
+      margin: 10px;
+    }
+  }
+
+  &-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 400px;
+  }
+
+  &-center {
+    margin: 200px auto 0;
+    padding: 100px;
   }
 }
 
@@ -66,7 +67,7 @@ body {
 }
 
 h5 {
-  color: #666;
+  font-size: 16px;
   margin: 0;
   text-align: center;
 }
