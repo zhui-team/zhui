@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Switch from '../components/switch/index'
+import Switch from '../components/switch'
 
 describe('Switch Test', () => {
   const wrapper = shallow(

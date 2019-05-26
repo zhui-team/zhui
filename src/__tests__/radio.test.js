@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Radio from '../components/radio/index'
+import Radio from '../components/radio'
 
 describe('Single Radio Test', () => {
   const wrapper = shallow(

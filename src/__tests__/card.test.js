@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Card from '../components/card/index'
+import Card from '../components/card'
 
 describe('Card Column Test', () => {
   const wrapper = shallow(

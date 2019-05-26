@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Rate from '../components/rate/index'
+import Rate from '../components/rate'
 
 describe('Rate Test', () => {
   const wrapper = shallow(

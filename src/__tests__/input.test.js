@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Input from '../components/input/index'
-import Icon from '../components/icon/index'
+import Input from '../components/input'
+import Icon from '../components/icon'
 
 describe('Input Test', () => {
   const wrapper = shallow(

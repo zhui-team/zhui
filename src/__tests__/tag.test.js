@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Tag from '../components/tag/index'
+import Tag from '../components/tag'
 
 describe('Tag Test', () => {
   const wrapper = shallow(

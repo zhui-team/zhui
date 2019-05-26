@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Progress from '../components/progress/index'
+import Progress from '../components/progress'
 
 describe('Progress Default Test', () => {
   const wrapper = shallow(
