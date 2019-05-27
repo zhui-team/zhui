@@ -21,6 +21,7 @@
     "target": "es5",
     "rootDirs": ["src", "stories"],
     "baseUrl": "src",
+    "esModuleInterop": true
   },
   "exclude": ["lib", "es", "node_modules", "__tests__", "stories", "mdx"],
   "include": ["src"]

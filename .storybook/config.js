@@ -1,8 +1,8 @@
 import React from 'react';
 import { addParameters, configure, addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-
 import '../src/stories/scss/zhui-cover.scss';
+import '../src/stories/scss/storybook-cover.scss';
 
 addParameters({
   options: {
@@ -39,7 +39,7 @@ function loadStories() {
   require('../src/stories/tag.story.js');
   require('../src/stories/swtich.story.js');
   require('../src/stories/rate.story.js');
-  require('../src/stories/table.story.js');
+  // require('../src/stories/table.story.js');
   require('../src/stories/watermark.story.js');
 }
 

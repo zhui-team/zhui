@@ -9,9 +9,7 @@
 /esm
 /lib
 /.docz
-/src/__tests__
-/src/stories
-/src/components/rate/RateSVG.js
+/src/components/rate/RateSVG.tsx
 
 .DS_Store
 .env.local

@@ -13,7 +13,8 @@ const options = {
     }
   },
   plugins: [
-    '@babel/proposal-object-rest-spread', 
+    '@babel/proposal-object-rest-spread',
+    '@babel/plugin-proposal-export-default-from',
     [
       '@babel/proposal-class-properties', 
       { loose: true }

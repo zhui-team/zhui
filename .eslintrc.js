@@ -1,6 +1,10 @@
 module.exports = {
+  parser: 'typescript-eslint-parser',
+  plugins: [
+    'typescript'
+  ],
   extends: [
-      'eslint-config-alloy/react',
+    'eslint-config-alloy/react',
   ],
   globals: {
     React: false,

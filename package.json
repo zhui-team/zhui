@@ -1,6 +1,6 @@
 {
   "name": "zhui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "🚀 a Chinese style component library",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -52,7 +52,7 @@
     "cbuild": "cross-env BABEL_OUTPUT=commonjs babel src/components --out-dir lib/ && babel src/components --out-dir esm/ && npm run copy-sass",
     "copy-sass": "node-sass -r src/components -o lib && node-sass -r src/components -o esm",
     "tbuild": "tsc --outDir lib --module commonjs && tsc --outDir esm && npm run copy-sass",
-    "lint": "eslint ./src --ignore-pattern .eslintignore",
+    "lint": "eslint src/components --ignore-pattern .eslintignore --ext .ts,.tsx",
     "precommit-msg": "echo 'Pre-commit eslint checking...' && exit 0"
   },
   "eslintConfig": {
@@ -65,7 +65,9 @@
     "not op_mini all"
   ],
   "jest": {
-    "setupFilesAfterEnv": ["./setupTests.js"],
+    "setupFilesAfterEnv": [
+      "./setupTests.js"
+    ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}"
     ],
@@ -122,6 +124,7 @@
     "eslint-plugin-import": "2.14.0",
     "eslint-plugin-jsx-a11y": "6.1.2",
     "eslint-plugin-react": "7.11.1",
+    "eslint-plugin-typescript": "^0.14.0",
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.0",
@@ -146,6 +149,7 @@
     "terser-webpack-plugin": "1.1.0",
     "ts-jest": "^24.0.2",
     "typescript": "^3.4.5",
+    "typescript-eslint-parser": "^22.0.0",
     "url-loader": "1.1.1",
     "webpack": "4.19.1",
     "webpack-cli": "^3.2.1",
