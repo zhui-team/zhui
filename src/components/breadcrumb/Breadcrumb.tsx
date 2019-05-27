@@ -19,7 +19,7 @@ export default class Breadcrumb extends React.Component<IBreadcrumbProps> {
   }
 
   static Item: typeof BreadcrumbItem;
-  
+
   render() {
     const {
       className,

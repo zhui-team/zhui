@@ -23,7 +23,7 @@ export default class Steps extends React.Component<IStepsProps> {
   }
 
   static Step: typeof Step;
-  
+
   render() {
     const {
       className,

@@ -44,9 +44,8 @@ export default class Input extends React.Component<IInputProps> {
     disabled: false,
     autoFocus: false
   }
-  
+
   static Textarea: typeof TextArea;
-  input: HTMLInputElement | HTMLTextAreaElement;
 
   componentDidMount() {
     const { autoFocus } = this.props;
@@ -55,6 +54,8 @@ export default class Input extends React.Component<IInputProps> {
       this.input.focus();
     }
   }
+
+  input: HTMLInputElement | HTMLTextAreaElement;
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { onKeyDown, onPressEnter } = this.props;

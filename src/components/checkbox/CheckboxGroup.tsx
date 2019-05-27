@@ -37,7 +37,7 @@ export default class CheckboxGroup extends React.Component<ICheckboxGroupProps> 
     checkboxGroup: PropTypes.any,
   };
 
-  getChildContext(): any{
+  getChildContext(): any {
     const { disabled, value } = this.props;
     return {
       checkboxGroup: {

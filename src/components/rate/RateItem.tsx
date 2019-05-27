@@ -52,7 +52,7 @@ export default class RateItem extends React.Component<IRateItemProps> {
         onClick={this.clickRate}
         onMouseMove={this.hoverRate}
       >
-        {RateSVG({active})}
+        {RateSVG({ active })}
       </div>
     );
   }

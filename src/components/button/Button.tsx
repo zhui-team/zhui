@@ -60,7 +60,7 @@ export default class Button extends React.Component<IButtonProps> {
   }
 
   wrapValueBySpan(
-    children: React.ReactNode, 
+    children: React.ReactNode,
     isNeedInserted: boolean
   ): React.ReactNode {
     if (children == null) {
@@ -94,7 +94,7 @@ export default class Button extends React.Component<IButtonProps> {
   }
 
   renderLink(
-    classes: string, 
+    classes: string,
     children: React.ReactNode
   ) {
     const { disabled, href = '', target } = this.props;
@@ -113,7 +113,7 @@ export default class Button extends React.Component<IButtonProps> {
   }
 
   renderButton(
-    classes: string, 
+    classes: string,
     children: React.ReactNode
   ) {
     const { disabled, loading, htmlType } = this.props;

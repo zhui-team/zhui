@@ -34,8 +34,6 @@ export default class TextArea extends React.Component<ITextAreaProps> {
     autoFocus: false
   }
 
-  textarea: HTMLTextAreaElement;
-
   componentDidMount() {
     const { autoFocus } = this.props;
 
@@ -43,6 +41,8 @@ export default class TextArea extends React.Component<ITextAreaProps> {
       this.textarea.focus();
     }
   }
+
+  textarea: HTMLTextAreaElement;
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const { onKeyDown, onPressEnter } = this.props;

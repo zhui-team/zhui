@@ -13,12 +13,12 @@ export interface IWaterMarkProps {
 export default class WaterMark extends React.Component<IWaterMarkProps> {
   static defaultProps = {
     className: '',
-    text: '水印',
-    width: 200,
-    height: 200
+    text: '水印'
   }
 
-  wrapper: any = React.createRef();
+  componentDidMount() {
+    this.renderWatermark();
+  }
 
   renderWatermark() {
     const {
@@ -29,19 +29,18 @@ export default class WaterMark extends React.Component<IWaterMarkProps> {
     } = this.props;
     let markImg = new Image();
     let res = new Image();
-    res.width = width;
-    res.height = height;
     res.src = src;
     markImg.crossOrigin = 'Anonymous';
     markImg.onload = () => {
       let img = new Image();
-
+      let cwidth = width || markImg.width;
+      let cheight = height || markImg.height;
       img.onload = () => {
         let canvas = document.createElement('canvas');
-        canvas.width = width;
-        canvas.height = height;
+        canvas.width = cwidth;
+        canvas.height = cheight;
         let ctx = canvas.getContext('2d');
-        ctx.drawImage(markImg, 0, 0, width, height);
+        ctx.drawImage(markImg, 0, 0, cwidth, cheight);
         ctx.drawImage(img, 0, 0);
 
         try {
@@ -51,15 +50,13 @@ export default class WaterMark extends React.Component<IWaterMarkProps> {
         }
       };
 
-      img.src = WaterMarkSvg({height, width, text});
+      img.src = WaterMarkSvg({ height, width, text });
       this.wrapper.current && this.wrapper.current.append(res);
     };
     markImg.src = res.src;
   }
 
-  componentDidMount() {
-    this.renderWatermark();
-  }
+  wrapper: any = React.createRef();
 
   render() {
     const {
