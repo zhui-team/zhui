@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Checkbox, Progress } from './components';
+import { Button, Checkbox, Progress, Icon } from './components';
 
 class App extends Component {
   state = {
@@ -22,6 +22,7 @@ class App extends Component {
         <Button onClick={this.myClick}>aaaa</Button>
         <Checkbox />
         <Progress precent={this.state.precent} />
+        <Icon type="music" />
       </div>
     );
   }
