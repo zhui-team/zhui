@@ -1,6 +1,6 @@
 {
   "name": "zhui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "🚀 a Chinese style component library",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -112,6 +112,7 @@
     "chalk": "2.4.1",
     "cross-env": "^5.2.0",
     "css-loader": "1.0.0",
+    "cz-conventional-changelog": "^2.1.0",
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
     "enzyme": "^3.8.0",
@@ -156,5 +157,10 @@
     "webpack-dev-server": "3.1.14",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
