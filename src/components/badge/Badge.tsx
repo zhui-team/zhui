@@ -3,6 +3,8 @@ import cn from 'astro-classname';
 
 import '../badge/index.css';
 
+const leafNum: number = 3;
+
 export interface IBadgeProps {
   className?: string;
   children?: React.ReactNode;
@@ -12,6 +14,27 @@ export interface IBadgeProps {
 export default class Badge extends React.Component<IBadgeProps> {
   static defaultProps = {
     className: ''
+  }
+
+  renderSupList(type: string): React.ReactNode {
+    const classes: string = `zhui-badge-leaf zhui-badge-leaf-${type}`;
+    let list = [];
+
+    for (let i = 0; i < leafNum; i++) {
+      list.push(
+        <sup className={classes} key={`${type}${i}`}></sup>
+      );
+    }
+
+    return list;
+  }
+
+  renderContent(content: string | number): string {
+    if (typeof content === 'string') {
+      return content.slice(0, 1);
+    }
+
+    return `${content}`.slice(0, 2);
   }
 
   render() {
@@ -26,16 +49,12 @@ export default class Badge extends React.Component<IBadgeProps> {
     return (
       <span className={classes}>
         {children}
-          <div className='zhui-badge-wrapper'>
-          <sup className='zhui-badge-leaf zhui-badge-leaf-outer'></sup>
-          <sup className='zhui-badge-leaf zhui-badge-leaf-outer'></sup>
-          <sup className='zhui-badge-leaf zhui-badge-leaf-outer'></sup>
-          <sup className='zhui-badge-leaf zhui-badge-leaf-inner'></sup>
-          <sup className='zhui-badge-leaf zhui-badge-leaf-inner'></sup>
-          <sup className='zhui-badge-leaf zhui-badge-leaf-inner'></sup>
-          <span className='zhui-badge-content'>{content}</span>
+        <div className="zhui-badge-wrapper">
+          {this.renderSupList('outer')}
+          {this.renderSupList('inner')}
+          <span className="zhui-badge-content">{this.renderContent(content)}</span>
         </div>
       </span>
-    )
+    );
   }
 }
