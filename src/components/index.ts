@@ -13,3 +13,4 @@ export { default as Radio } from './radio';
 export { default as Notify } from './notify';
 export { default as Switch } from './switch';
 export { default as WaterMark } from './watermark';
+export { default as Badge } from './badge';

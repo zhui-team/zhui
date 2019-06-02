@@ -59,6 +59,17 @@
     margin: 200px auto 0;
     padding: 100px;
   }
+
+  &-badge {
+    margin: 5px 20px;
+  }
+  
+  &-test-block {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: #ddd;
+  }
 }
 
 .material {
