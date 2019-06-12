@@ -2,6 +2,7 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
+  color: #fdfdfd;
 }
 
 body {
@@ -10,7 +11,9 @@ body {
   align-items: center;
   flex-direction: column;
   font-family: 'STKaiti';
-  background-color: #f4f4f4;
+  background-color: #94232d;
+  background-image: url("https://s2.ax1x.com/2019/04/16/AvLUhj.jpg") !important;
+  background-blend-mode: multiply;
 }
 
 .english {
@@ -19,8 +22,9 @@ body {
 
 .title {
   font-size: 40px;
-  color: #444;
+  color: #f2f2f2;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 .sub-title {
