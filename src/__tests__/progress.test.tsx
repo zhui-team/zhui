@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import Progress from '../components/progress'
+import Progress from '../components/progress/index';
 
 describe('Progress Default Test', () => {
   const wrapper = shallow(
@@ -18,7 +18,7 @@ describe('Progress Default Test', () => {
 
 describe('Progress Exception Test', () => {
   const wrapper = shallow(
-    <Progress precent={70} status='exception'/>
+    <Progress percent={70} status='exception'/>
   );
 
   it('1. 测试默认class存在', () => {
@@ -28,7 +28,7 @@ describe('Progress Exception Test', () => {
 
 describe('Progress Success Test', () => {
   const wrapper = shallow(
-    <Progress precent={100}/>
+    <Progress percent={100}/>
   );
 
   it('1. 测试默认class存在', () => {

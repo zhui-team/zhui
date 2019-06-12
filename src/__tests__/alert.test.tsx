@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import Alert from '../components/alert/index'
+import Alert from '../components/alert/index';
 
 describe('Alert Test', () => {
   const wrapper = shallow(

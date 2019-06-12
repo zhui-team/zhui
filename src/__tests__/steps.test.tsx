@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import Steps from '../components/steps'
+import Steps from '../components/steps/index';
 
 describe('Single Steps Test', () => {
   const wrapper = shallow(

@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import Icon from '../components/icon'
+import Icon from '../components/icon/index';
 
 describe('Icon Test', () => {
   const wrapper = shallow(

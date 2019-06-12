@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import Breadcrumb from '../components/breadcrumb'
+import Breadcrumb from '../components/breadcrumb/index';
 
 describe('Breadcrumb List Test', () => {
   const wrapper = shallow(
