@@ -7,7 +7,7 @@ import '../breadcrumb/index.css';
 export interface IBreadcrumbProps {
   className?: string;
   prefix?: string;
-  list?: BreadcrumbItem[];
+  list?: Object[];
   children?: React.ReactNode;
 }
 

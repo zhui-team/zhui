@@ -5,7 +5,7 @@ import TextArea from './Textarea';
 
 import '../input/index.css';
 
-const BLACK_LIST = [
+const BLACK_LIST: string[] = [
   'className',
   'type',
   'width',
@@ -26,6 +26,7 @@ export interface IInputProps {
   prefix?: string;
   disabled?: boolean;
   autoFocus?: boolean;
+  placeholder?: string;
   size?: 'large' | 'medium' | 'small';
   value?: any;
   addonBefore?: React.ReactNode;

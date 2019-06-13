@@ -20,6 +20,7 @@ export interface ITextAreaProps {
   theme?: string;
   disabled?: boolean;
   autoFocus?: boolean;
+  placeholder?: string;
   value?: any;
   onPressEnter?: React.KeyboardEventHandler<HTMLTextAreaElement>;
   onKeyDown?: React.KeyboardEventHandler<HTMLTextAreaElement>;
