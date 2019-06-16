@@ -2,60 +2,98 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
-  color: #fdfdfd;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: 'STKaiti';
-  background-color: #94232d;
-  background-image: url("https://s2.ax1x.com/2019/04/16/AvLUhj.jpg") !important;
-  background-blend-mode: multiply;
+  font-family: 'STKaiti','sans-serif';
 }
 
-.english {
-  font-family: '微软雅黑';
+section {
+  background-repeat: no-repeat;
+  background-size: cover;
+  isolation: isolate;
+  position: relative;
+  height: 100vh;
+}
+
+.section-one {
+  background-image: url("../bg1.jpg");
+}
+
+.section-one > .section-inner::before {
+  mix-blend-mode: soft-light;  
+}
+
+.section-two {
+  background-image: url("../bg2.jpg");
+}
+
+.section-two > .section-inner::before {
+  mix-blend-mode: difference;  
+}
+
+.section-three {
+  background-image: url("../bg3.jpg");
+}
+
+.section-three > .section-inner::before {
+  mix-blend-mode: soft-light;  
+}
+
+.section-inner {
+  clip: rect(auto auto auto auto);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.section-inner::before {
+  content: " ";
+  padding: 160px 300px;
+  background: #94232d;
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%,0);
+  border-radius: 2px;
+}
+
+.section-scroll {
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .title {
-  font-size: 40px;
-  color: #f2f2f2;
+  font-weight: bold;
   text-align: center;
-  margin-bottom: 5px;
+  padding: 40px 110px;
+  z-index: 1000;
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%,0);
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  mix-blend-mode: lighten;
+  border-radius: 2px;
 }
 
-.sub-title {
-  margin-bottom: 20px;
+.title-name {
+  font-size: 100px;
+}
+
+.title-sub {
   font-size: 16px;
-  font-weight: normal;
-  text-align: center;
 }
 
 .btn-group {
   text-align: center;
+  margin-top: 20px;
 }
 
 .zhui-btn {
-  margin: 5px 10px;
+  margin: auto 20px;
 }
 
-.zhui-tag-wrapper {
-  margin: 20px 10px;
-  transform-origin: top;
-  animation: swing 1.7s infinite;
-}
-
-@keyframes swing {
-  0% {
-    transform: rotatez(7deg);
-  }
-  50% {
-    transform: rotatez(-7deg);
-  }
-  100% {
-    transform: rotatez(7deg);
-  }
-}
