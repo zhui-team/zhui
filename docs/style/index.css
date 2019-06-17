@@ -2,6 +2,13 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
+  font-size: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  html, body {
+    font-size: 4px;
+  }
 }
 
 body {
@@ -17,27 +24,27 @@ section {
 }
 
 .section-one {
-  background-image: url("https://s2.ax1x.com/2019/06/16/VTHxlF.jpg");
+  background-image: url("https://s2.ax1x.com/2019/06/17/Vb977V.jpg");
 }
 
 .section-one > .section-inner::before {
-  mix-blend-mode: soft-light;  
-}
-
-.section-two {
-  background-image: url("https://s2.ax1x.com/2019/06/16/VTbSOJ.jpg");
-}
-
-.section-two > .section-inner::before {
   mix-blend-mode: difference;  
 }
 
+.section-two {
+  background-image: url("https://s2.ax1x.com/2019/06/17/VbCSn1.jpg");
+}
+
+.section-two > .section-inner::before {
+  mix-blend-mode: darken;  
+}
+
 .section-three {
-  background-image: url("https://s2.ax1x.com/2019/06/16/VTbkY6.jpg");
+  background-image: url("https://s2.ax1x.com/2019/06/17/Vb9uYF.jpg");
 }
 
 .section-three > .section-inner::before {
-  mix-blend-mode: soft-light;  
+  mix-blend-mode: difference;  
 }
 
 .section-inner {
@@ -51,7 +58,7 @@ section {
 
 .section-inner::before {
   content: " ";
-  padding: 160px 300px;
+  padding: 12rem 23rem;
   background: #94232d;
   position: fixed; 
   top: 50%;
@@ -68,7 +75,7 @@ section {
 .title {
   font-weight: bold;
   text-align: center;
-  padding: 40px 110px;
+  padding: 2rem 8rem;
   z-index: 1000;
   position: fixed; 
   top: 50%;
@@ -81,7 +88,7 @@ section {
 }
 
 .title-name {
-  font-size: 100px;
+  font-size: 10rem;
 }
 
 .title-sub {
@@ -94,6 +101,6 @@ section {
 }
 
 .zhui-btn {
-  margin: auto 20px;
+  margin: 5px 20px;
 }
 
