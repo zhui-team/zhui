@@ -2,13 +2,7 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-size: 10px;
-}
-
-@media screen and (max-width: 600px) {
-  html, body {
-    font-size: 4px;
-  }
+  font-size: 20px;
 }
 
 body {
@@ -58,7 +52,7 @@ section {
 
 .section-inner::before {
   content: " ";
-  padding: 12rem 23rem;
+  padding: 7rem 13rem;
   background: #94232d;
   position: fixed; 
   top: 50%;
@@ -75,7 +69,7 @@ section {
 .title {
   font-weight: bold;
   text-align: center;
-  padding: 2rem 8rem;
+  padding: 1rem 4rem;
   z-index: 1000;
   position: fixed; 
   top: 50%;
@@ -88,19 +82,29 @@ section {
 }
 
 .title-name {
-  font-size: 10rem;
+  font-size: 5rem;
 }
 
 .title-sub {
-  font-size: 16px;
+  font-size: 0.8rem;
 }
 
 .btn-group {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 1rem;
 }
 
 .zhui-btn {
-  margin: 5px 20px;
+  margin: 0.4rem 1rem;
 }
 
+
+@media screen and (max-width: 600px) {
+  html, body {
+    font-size: 6px;
+  }
+
+  .section-inner::before {
+    padding: 8.5rem 10.5rem;
+  }
+}
