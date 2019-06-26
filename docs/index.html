@@ -9,11 +9,17 @@
   <meta name="keywords" content="Zhui,React.js,Component,JavaScript,npm,China,组件库,中国风,">
   <link rel="stylesheet" href="./style/index.css">
   <link rel="stylesheet" href="./style/button.css">
+  <link rel="stylesheet" href='./style/loading.css'>
   <link rel="icon" href="./logo.ico" type="image/x-icon"/>
   <title>Zhui - 一款带有中国风的React组件库</title>
 </head>
 
 <body>
+  <div class="zhui-loading-container" id='loading'>
+    <div class="zhui-loading-wrapper">
+      <div class="zhui-loading zhui-loading-global"></div>
+    </div>
+  </div>
   <div class="center-wrapper">
     <div class="title">
       <div class="title-name">ZHUI</div>
@@ -29,11 +35,19 @@
         </a>
       </div>
     </div>
-    <div class="section-scroll">
+    <div class="section-scroll" id='app' style="display: none">
       <section class="section-one"><div class="section-inner"></div></section>
       <section class="section-two"><div class="section-inner"></div></section>
       <section class="section-three"><div class="section-inner"></div></section>
     </div>
   </div>
 </body>
+  <script>
+    let img = new Image();
+    img.src = 'https://s2.ax1x.com/2019/06/17/Vb977V.jpg';
+    img.onload = () => {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+    }
+  </script>
 </html>

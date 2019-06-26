@@ -1,0 +1,40 @@
+.zhui-loading {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+  .zhui-loading-container {
+    position: relative;
+    height: 100px; }
+    .zhui-loading-container-fill {
+      height: inherit; }
+      .zhui-loading-container-fill .zhui-loading {
+        background-color: rgba(255, 255, 255, 0.7); }
+  .zhui-loading-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  .zhui-loading-global {
+    position: fixed;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.7); }
+  .zhui-loading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
+    box-shadow: 0 0 2px #ddd;
+    border-radius: 50%;
+    background-image: radial-gradient(#000 4px, transparent 5px), radial-gradient(#fff 4px, transparent 5px), radial-gradient(#fff 9px, transparent 11px), radial-gradient(#000 9px, transparent 11px), linear-gradient(90deg, #000 20px, #fff 20px);
+    background-position: center 10px, center -10px, center 10px, center -10px, 0 0;
+    overflow: hidden;
+    animation: circleRotate .6s linear infinite; }
+
+@keyframes circleRotate {
+  100% {
+    transform: rotate(360deg); } }
