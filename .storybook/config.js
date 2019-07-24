@@ -32,7 +32,7 @@ function loadStories() {
   require('../src/stories/input.story.js');
   require('../src/stories/loading.story.js');
   require('../src/stories/notify.story.js');
-  require('../src/stories/portal.story.js');
+  // require('../src/stories/portal.story.js');
   require('../src/stories/progress.story.js');
   require('../src/stories/steps.story.js');
   require('../src/stories/radio.story.js');
